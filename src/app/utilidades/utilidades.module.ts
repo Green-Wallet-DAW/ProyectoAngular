@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './utilidades/navbar/navbar.component';
-import { AsideComponent } from './utilidades/aside/aside.component';
-import { FooterComponent } from './utilidades/footer/footer.component';
-import { PopupsComponent } from './utilidades/popups/popups.component';
-import { CajasDesplegablesComponent } from './utilidades/cajas-desplegables/cajas-desplegables.component';
-import { BuscadoresComponent } from './utilidades/buscadores/buscadores.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AsideComponent } from './aside/aside.component';
+import { FooterComponent } from './footer/footer.component';
+import { PopupsComponent } from './popups/popups.component';
+import { CajasDesplegablesComponent } from './cajas-desplegables/cajas-desplegables.component';
+import { BuscadoresComponent } from './buscadores/buscadores.component';
 
 
 
@@ -20,6 +20,14 @@ import { BuscadoresComponent } from './utilidades/buscadores/buscadores.componen
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    NavbarComponent,
+    AsideComponent,
+    FooterComponent,
+    PopupsComponent,
+    CajasDesplegablesComponent,
+    BuscadoresComponent
   ]
 })
 export class UtilidadesModule { }
