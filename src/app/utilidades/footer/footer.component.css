@@ -1,0 +1,22 @@
+.linkFooter{
+    color: #049201;
+}
+.footer>p{
+    color: #9F9F9F;
+
+}
+.privacy{
+    color: #F8F8F8;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+.footer{
+    background-color: #252525;;
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    position:static;
+}
