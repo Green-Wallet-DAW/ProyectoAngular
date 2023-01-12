@@ -5,9 +5,13 @@
     color: #9F9F9F;
 
 }
+.copyright{
+    float: left;
+}
+
 .privacy{
     color: #F8F8F8;
-    margin-right: 10%;
+    margin-right: 20%;
     margin-top: 5%;
 }
 .footer{
