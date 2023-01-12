@@ -1,0 +1,27 @@
+.linkFooter{
+    color: #049201;
+}
+.footer>p{
+    color: #9F9F9F;
+
+}
+.copyright{
+    float: left;
+}
+
+.privacy{
+    color: #F8F8F8;
+    margin-right: 20%;
+    margin-top: 5%;
+}
+.footer{
+    margin-top:50vw;
+    background-color: #252525;;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    position:relative;
+}
