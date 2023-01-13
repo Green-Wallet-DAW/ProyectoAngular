@@ -1,5 +1,8 @@
+.navbar{
+    padding: 0px;
+}
 #nav{
-    height: 10vh;
+    /* height: 10vh; */
     margin-left: 30px;
     margin-right: 30px;
 }
