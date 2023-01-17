@@ -7,6 +7,7 @@
     border-radius: 30px;
     /* filter: blur(2px); */
     padding-bottom: 25px;
+    padding-right: 30px;
     cursor: default;
 }
 #flechaCaja{
@@ -19,9 +20,10 @@
     top: 15px;
     left: 30px;
     font-size: 30px;
+    font-weight: 700;
     color: black;
 }
-#descripcionCaja{
+#descripcionCaja, #contenido{
     margin-left: 30px;
     margin-top: 30px;
     font-size: 20px;
