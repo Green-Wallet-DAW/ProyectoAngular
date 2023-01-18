@@ -6,7 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PopupsComponent } from './popups/popups.component';
 import { CajasDesplegablesComponent } from './cajas-desplegables/cajas-desplegables.component';
 import { BuscadoresComponent } from './buscadores/buscadores.component';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -19,7 +19,10 @@ import { BuscadoresComponent } from './buscadores/buscadores.component';
     BuscadoresComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+
+
   ],
   exports: [
     NavbarComponent,
@@ -27,7 +30,8 @@ import { BuscadoresComponent } from './buscadores/buscadores.component';
     FooterComponent,
     PopupsComponent,
     CajasDesplegablesComponent,
-    BuscadoresComponent
+    BuscadoresComponent,
+
   ]
 })
 export class UtilidadesModule { }

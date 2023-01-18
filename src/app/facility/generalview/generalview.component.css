@@ -1,0 +1,13 @@
+.caja_imagen{
+  min-height:50vh;
+  background-image: url("/assets/cesped.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.caja_botones{
+  height:20vh;
+}
+.btn{
+  background-color:#049201;
+  color: white;
+}
