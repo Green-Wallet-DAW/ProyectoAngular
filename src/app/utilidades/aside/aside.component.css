@@ -8,7 +8,7 @@
 
   position: relative;
   width: 20vw;
-  min-height: 73vh;
+  min-height: 100%;
 
   background: rgba(2, 117, 0, 0.91);
 }
