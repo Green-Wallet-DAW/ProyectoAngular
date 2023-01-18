@@ -6,7 +6,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
   styleUrls: ['./cajas-desplegables.component.css']
 })
 export class CajasDesplegablesComponent{
-  
+
   // ngAfterViewInit(): void {
   //   let prueba:boolean  = true;
   //   const elemento:HTMLElement = document.getElementById("flechaCaja")!;
