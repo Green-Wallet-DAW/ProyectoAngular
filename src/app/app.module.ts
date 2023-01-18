@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UtilidadesModule } from './utilidades/utilidades.module';
-import { TablasModule } from "./tablas/tablas.module";
+import { FacilityModule } from './facility/facility.module';import { TablasModule } from "./tablas/tablas.module";
 
 @NgModule({
     declarations: [
@@ -16,7 +16,8 @@ import { TablasModule } from "./tablas/tablas.module";
         BrowserModule,
         AppRoutingModule,
         UtilidadesModule,
-        TablasModule
+        TablasModule,
+        FacilityModule,
     ]
 })
 export class AppModule { }
