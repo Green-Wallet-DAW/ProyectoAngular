@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from './user/user.component';
+import { CommunityComponent } from './community/community.component';
 
 
 
 @NgModule({
   declarations: [
-    UserComponent
+    UserComponent,
+    CommunityComponent
   ],
   imports: [
     CommonModule
   ],
   exports:[
-    UserComponent
+    UserComponent,
+    CommunityComponent
   ]
 })
 export class TablasModule { }
