@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MostrarServiciosComponent } from './tienda-tokens/mostrar-servicios/mostrar-servicios.component';
+import { GeneralviewComponent } from './facility/generalview/generalview.component';
 
 const routes: Routes = [
-  {path: 'mostrarServicios', component: MostrarServiciosComponent}
+  {path: 'generalview' ,
+  component: GeneralviewComponent},
 ];
 
 @NgModule({
