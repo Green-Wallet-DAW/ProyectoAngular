@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MostrarServiciosComponent } from './mostrar-servicios/mostrar-servicios.component';
+import { UtilidadesModule } from '../utilidades/utilidades.module';
 
 
 
@@ -9,7 +10,11 @@ import { MostrarServiciosComponent } from './mostrar-servicios/mostrar-servicios
     MostrarServiciosComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    UtilidadesModule
+  ],
+  exports: [
+    MostrarServiciosComponent
+  ]                                                                                                                    
 })
 export class TiendaTokensModule { }
