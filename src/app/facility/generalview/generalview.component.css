@@ -1,5 +1,8 @@
 .caja_imagen{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   min-height:50vh;
+
   background-image: url("/assets/cesped.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -10,4 +13,12 @@
 .btn{
   background-color:#049201;
   color: white;
+}
+.caja_imagen2{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  min-height:50vh;
+  background-image: url("/assets/chart-example.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
