@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UtilidadesModule } from './utilidades/utilidades.module';
-import { GeneralviewComponent } from './facility/generalview/generalview.component';
 import { FacilityModule } from './facility/facility.module';import { TablasModule } from "./tablas/tablas.module";
 
 @NgModule({
@@ -17,7 +16,8 @@ import { FacilityModule } from './facility/facility.module';import { TablasModul
         BrowserModule,
         AppRoutingModule,
         UtilidadesModule,
-        TablasModule
+        TablasModule,
+        FacilityModule,
     ]
 })
 export class AppModule { }
