@@ -1,9 +1,18 @@
-.caja_imagen{
+*{
+  border:1px solid black;
+
+}
+.container-fluid{
+  min-height:50vh;
+  background-image: url("/assets/cesped4k.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.caja_graf{
   margin-top: 5vh;
   margin-bottom: 5vh;
   min-height:50vh;
-
-  background-image: url("/assets/cesped.jpeg");
+  background-image: url("/assets/chart-example.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -14,11 +23,4 @@
   background-color:#049201;
   color: white;
 }
-.caja_imagen2{
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  min-height:50vh;
-  background-image: url("/assets/chart-example.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+
