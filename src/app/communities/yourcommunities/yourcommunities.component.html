@@ -1,0 +1,66 @@
+<a href="#" class="btn btn-success" routerLink="/joinCommunity">Join a community</a>
+<a href="#" class="btn btn-success" routerLink="/createCommunity">Create a community</a>
+<div *ngIf="comunidades!=null; else espera">
+
+  <div *ngFor="let com of comunidades" class="card text-bg-light mb-3" style="max-width: 100%;">
+    <div class="card-body">
+        <div id="boton" type="button" data-bs-toggle="collapse" data-bs-target="#contenido" aria-controls="contenido" aria-expanded="false" aria-label="Toggle navigation">
+            <svg id="flechaCaja" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#049201" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                <path id="path1" d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+            </svg>
+            <span id="tituloCaja">{{com.name}}</span>
+            <span>Community Wallet</span>
+        </div>
+        <div id="descripcionCaja">
+            <div>
+                <table>
+                    <tbody>
+                      <tr>
+                        <th>Energy produced</th>
+                        <td>{{com.energy_produced}}</td>
+                        <th>{{com.token}}</th>
+                      </tr>
+                      <tr>
+                        <th>Carbon saved</th>
+                        <td>{{com.carbono_ahorrado}}</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+        </div>
+        <div id="contenido" class="collapse">
+            {{com.description}}
+            <div class="table-responsive">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                          <th scope="col">Member</th>
+                          <th scope="col">Energy Produced</th>
+                          <th scope="col">Carbon Saved</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                      <!-- <tr *ngFor="let elemento of empleados">
+                        <th scope="row">{{elemento.id}}</th>
+                        <td>{{elemento.nombre}}</td>
+                        <td>{{elemento.edad}}</td>
+                        <td>{{elemento.cargo}}</td>
+                        <td>
+                            <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" title="Ver registro {{elemento.id}}"><i class="bi bi-eye"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" title="Modificar registro {{elemento.id}}"><i class="bi bi-pencil"></i></a>
+                            <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip" title="Borrar registro {{elemento.id}}" (click)="eliminarEmpleado(elemento.id)"><i class="bi bi-trash3"></i></a>
+                        </td>
+                      </tr> -->
+                      
+                    </tbody>
+                  </table>
+                </div>
+        </div>
+    </div>
+  </div>
+
+
+  
+</div>
+<ng-template #espera>Esperando datos...</ng-template>

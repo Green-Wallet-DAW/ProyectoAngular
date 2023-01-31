@@ -1,0 +1,64 @@
+<form action="" method="post">
+    <fieldset>
+        <!-- <legend>Personalia:</legend> -->
+        
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+            <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+        <div *ngIf="comunidades!=null; else espera" >
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Energy Produced</th>
+                <th scope="col">Members</th>
+                
+              </tr>
+            </thead>
+            <tbody *ngFor="let com of comunidades">
+              <tr data-bs-toggle="collapse" data-bs-target="#contenido" aria-controls="contenido" aria-expanded="false" aria-label="Toggle navigation">
+                <td>{{com.name}}</td>
+                <td>{{com.energy_produced}}</td>
+                <td>{{com.members}}</td>
+              </tr>
+             
+            </tbody>
+          
+        </table>
+        
+        <div id="contenido" class="collapse">
+                
+          <!-- {{com.name}}
+          {{com.descripcion}} -->
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Join a community
+            </button>
+          
+        </div>
+      
+        </div>
+        <ng-template #espera>Esperando datos...</ng-template>
+      </fieldset>
+   
+</form>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog ">
+      <div class="modal-content bg-light">
+        <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">Request sent!</h5>
+              <p class="card-text">Your request to join this community waas correctly sent and one of our administrators is reviewing it. You will get an email with the oucome of the request.</p>
+            </div>
+          </div>
+        
+        
+            <a href="#" class="" routerLink="">Return to Dashboard</a>
+       
+      </div>
+    </div>
+  </div>

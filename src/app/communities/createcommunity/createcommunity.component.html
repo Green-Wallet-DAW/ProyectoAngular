@@ -1,0 +1,33 @@
+<form action="" method="post">
+    <fieldset>
+        <!-- <legend>Personalia:</legend> -->
+        <label for="fname">Enter the name of your community:</label><br>
+        <input type="text" name="fname" placeholder="Community Name*"><br>
+        <label for="description">Write a description for your community:</label><br>
+        <textarea name="description" rows="10" cols="30" placeholder="Description*">
+            
+        </textarea>
+        
+    </fieldset>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Join a community
+    </button>
+</form>
+
+<!-- Modal -->
+<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+  <div class="modal-dialog ">
+    <div class="modal-content bg-light">
+      <div class="card w-50">
+          <div class="card-body">
+            <h5 class="card-title">Request sent!</h5>
+            <p class="card-text">Your request to create a community waas correctly sent and one of our administrators is reviewing it. You will get an email with the oucome of the request.</p>
+          </div>
+        </div>
+      
+      
+          <a href="#" class="" routerLink="">Return to Dashboard</a>
+     
+    </div>
+  </div>
+</div>
