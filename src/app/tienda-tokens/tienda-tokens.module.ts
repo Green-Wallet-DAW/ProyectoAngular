@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MostrarServiciosComponent } from './mostrar-servicios/mostrar-servicios.component';
 import { UtilidadesModule } from '../utilidades/utilidades.module';
+import { CajasDesplegablesComponent } from '../utilidades/cajas-desplegables/cajas-desplegables.component';
 
 
 
@@ -11,7 +12,7 @@ import { UtilidadesModule } from '../utilidades/utilidades.module';
   ],
   imports: [
     CommonModule,
-    UtilidadesModule
+    UtilidadesModule,
   ],
   exports: [
     MostrarServiciosComponent
