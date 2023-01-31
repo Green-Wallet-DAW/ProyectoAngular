@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MostrarServiciosComponent } from './tienda-tokens/mostrar-servicios/mostrar-servicios.component';
 import { UtilidadesModule } from './utilidades/utilidades.module';
 import { FacilityModule } from './facility/facility.module';import { TablasModule } from "./tablas/tablas.module";
+import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { FacilityModule } from './facility/facility.module';import { TablasModul
         UtilidadesModule,
         TablasModule,
         FacilityModule,
+        TiendaTokensModule
     ]
 })
 export class AppModule { }
