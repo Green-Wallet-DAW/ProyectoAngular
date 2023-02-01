@@ -17,8 +17,8 @@ export class MostrarServiciosComponent implements OnInit{
 
   getAllServices(){
     this.dataServices.getServices().subscribe(
-      positiveResult =>{
-        this.servicios = positiveResult;
+      result =>{
+        this.servicios = result;
       },
       err => {
         this.servicios = JSON.parse(err.error).message;

@@ -5,8 +5,9 @@ import { MostrarServiciosComponent } from './tienda-tokens/mostrar-servicios/mos
 
 const routes: Routes = [
   {path: 'generalview' ,component: GeneralviewComponent},
-  {path: 'serviciosUsuario', component:MostrarServiciosComponent},
-  
+  {path: 'mostrar-servicios', component: MostrarServiciosComponent},
+
+  // {path: '*'}
 ];
 
 @NgModule({
