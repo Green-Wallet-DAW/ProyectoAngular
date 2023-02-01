@@ -16,7 +16,8 @@ export class MostrarServiciosComponent implements OnInit{
   constructor(private dataServices: TokenServicesService) {}
 
   getAllServices(){
-    this.dataServices.getServices().subscribe(
+    this.dataServices.getServices()
+    .subscribe(
       positiveResult =>{
         this.servicios = positiveResult;
       },

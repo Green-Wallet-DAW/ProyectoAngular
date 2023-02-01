@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MostrarServiciosComponent } from './mostrar-servicios/mostrar-servicios.component';
 import { UtilidadesModule } from '../utilidades/utilidades.module';
 import { CajasDesplegablesComponent } from '../utilidades/cajas-desplegables/cajas-desplegables.component';
-
+import {TokenServicesService} from '../_services/token-services.service'; 
 
 
 @NgModule({
@@ -13,6 +13,7 @@ import { CajasDesplegablesComponent } from '../utilidades/cajas-desplegables/caj
   imports: [
     CommonModule,
     UtilidadesModule,
+
   ],
   exports: [
     MostrarServiciosComponent

@@ -7,6 +7,8 @@ import { MostrarServiciosComponent } from './tienda-tokens/mostrar-servicios/mos
 import { UtilidadesModule } from './utilidades/utilidades.module';
 import { FacilityModule } from './facility/facility.module';import { TablasModule } from "./tablas/tablas.module";
 import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -16,7 +18,9 @@ import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
+        RouterModule,
         AppRoutingModule,
+        HttpClientModule,
         UtilidadesModule,
         TablasModule,
         FacilityModule,
