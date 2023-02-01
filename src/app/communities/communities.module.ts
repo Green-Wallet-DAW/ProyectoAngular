@@ -4,9 +4,9 @@ import { YourcommunitiesComponent } from './yourcommunities/yourcommunities.comp
 import { GlobalcommunityComponent } from './globalcommunity/globalcommunity.component';
 import { JoincommunityComponent } from './joincommunity/joincommunity.component';
 import { CreatecommunityComponent } from './createcommunity/createcommunity.component';
-import { LeavecommunityComponent } from './leavecommunity/leavecommunity.component';
+
 import { DonatecommunityComponent } from './donatecommunity/donatecommunity.component';
-import { TransfercommunityComponent } from './transfercommunity/transfercommunity.component';
+
 import { AppRoutingModule } from '../app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 
@@ -19,9 +19,9 @@ import {HttpClientModule} from '@angular/common/http';
     GlobalcommunityComponent,
     JoincommunityComponent,
     CreatecommunityComponent,
-    LeavecommunityComponent,
+
     DonatecommunityComponent,
-    TransfercommunityComponent
+
    
   ],
   imports: [
@@ -34,9 +34,9 @@ import {HttpClientModule} from '@angular/common/http';
     GlobalcommunityComponent,
     JoincommunityComponent,
     CreatecommunityComponent,
-    LeavecommunityComponent,
+
     DonatecommunityComponent,
-    TransfercommunityComponent
+
     
   ]
 })
