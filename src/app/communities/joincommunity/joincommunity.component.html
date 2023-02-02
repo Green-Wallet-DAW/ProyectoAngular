@@ -17,25 +17,53 @@
               </tr>
             </thead>
             <tbody *ngFor="let com of comunidades">
-              <tr data-bs-toggle="collapse" data-bs-target="#contenido" aria-controls="contenido" aria-expanded="false" aria-label="Toggle navigation">
+              <tr data-bs-toggle="collapse" attr.data-bs-target="#contenido_{{com.id}}" aria-controls="contenido" aria-expanded="false" aria-label="Toggle navigation">
                 <td>{{com.name}}</td>
                 <td>{{com.energy_produced}}</td>
                 <td>{{com.members}}</td>
               </tr>
-             
+             <tr id="contenido_{{com.id}}" class="collapse">
+              <td colspan="3">
+                {{com.name}}<br>
+                {{com.descripcion}}
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#staticBackdrop_{{com.id}}">
+            Join a community
+          </button>
+              </td>
+             </tr>
+
+<!-- Modal -->
+<div class="modal fade " id="staticBackdrop_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+  <div class="modal-dialog ">
+    <div class="modal-content bg-light">
+      <div class="card w-50">
+          <div class="card-body">
+            <h5 class="card-title">Request sent!</h5>
+            <p class="card-text">Your request to join this community {{com.name}} was correctly sent and one of our administrators is reviewing it. You will get an email with the oucome of the request.</p>
+          </div>
+        </div>
+      
+      
+          <a href="#" class="" routerLink="">Return to Dashboard</a>
+     
+    </div>
+  </div>
+</div>
+
+
             </tbody>
           
         </table>
         
-        <div id="contenido" class="collapse">
+        <!-- <div id="contenido" class="collapse">
                 
-          <!-- {{com.name}}
-          {{com.descripcion}} -->
+          {{com.name}}
+          {{com.descripcion}}
           <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
               Join a community
             </button>
           
-        </div>
+        </div> -->
       
         </div>
         <ng-template #espera>Esperando datos...</ng-template>
@@ -46,13 +74,13 @@
 
   
   <!-- Modal -->
-  <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+  <!-- <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
     <div class="modal-dialog ">
       <div class="modal-content bg-light">
         <div class="card w-50">
             <div class="card-body">
               <h5 class="card-title">Request sent!</h5>
-              <p class="card-text">Your request to join this community <!-- {{com.name}} --> was correctly sent and one of our administrators is reviewing it. You will get an email with the oucome of the request.</p>
+              <p class="card-text">Your request to join this community  {{com.name}}  was correctly sent and one of our administrators is reviewing it. You will get an email with the oucome of the request.</p>
             </div>
           </div>
         
@@ -61,4 +89,4 @@
        
       </div>
     </div>
-  </div>
+  </div> -->

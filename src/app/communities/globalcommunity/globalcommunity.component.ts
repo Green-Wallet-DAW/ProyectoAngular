@@ -6,13 +6,13 @@ import { GlobalcomunitiesService } from './globalcomunities.service';
   templateUrl: './globalcommunity.component.html',
   styleUrls: ['./globalcommunity.component.css']
 })
-export class GlobalcommunityComponent {
+export class GlobalcommunityComponent implements OnInit{
   members: any;
 
   constructor(private globalService: GlobalcomunitiesService) {}
 
   ngOnInit() {
-    this.globalService.devolver()
+    this.globalService.ganadores()
       .subscribe( result =>  this.members = result)
   }
 }

@@ -25,11 +25,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let elemento of members">
-                        <th scope="row">{{elemento.id}}</th>
-                        <td>{{elemento.member}}</td>
-                        <td>{{elemento.Total_Production}}</td>
-                        <td>{{elemento.Total_carbon_saved}}</td>
+                      <tr *ngFor="let mem of members">
+                        <th scope="row">{{mem.id}}</th>
+                        <td>{{mem.member}}</td>
+                        <td>{{mem.Total_Production}}</td>
+                        <td>{{mem.Total_carbon_saved}}</td>
                         <!-- <td>
                             <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" title="Ver registro {{elemento.id}}"><i class="bi bi-eye"></i></a>
                             <a href="#" class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" title="Modificar registro {{elemento.id}}"><i class="bi bi-pencil"></i></a>

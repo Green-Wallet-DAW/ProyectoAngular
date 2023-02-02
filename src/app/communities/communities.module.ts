@@ -5,7 +5,6 @@ import { GlobalcommunityComponent } from './globalcommunity/globalcommunity.comp
 import { JoincommunityComponent } from './joincommunity/joincommunity.component';
 import { CreatecommunityComponent } from './createcommunity/createcommunity.component';
 
-import { DonatecommunityComponent } from './donatecommunity/donatecommunity.component';
 
 import { AppRoutingModule } from '../app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
@@ -20,9 +19,6 @@ import {HttpClientModule} from '@angular/common/http';
     JoincommunityComponent,
     CreatecommunityComponent,
 
-    DonatecommunityComponent,
-
-   
   ],
   imports: [
     CommonModule,
@@ -35,9 +31,10 @@ import {HttpClientModule} from '@angular/common/http';
     JoincommunityComponent,
     CreatecommunityComponent,
 
-    DonatecommunityComponent,
-
-    
   ]
 })
 export class CommunitiesModule { }
+// https://www.bezkoder.com/angular-13-firebase-crud/#Create_Data_Service
+// https://medium.com/@andydev404/enviando-e-mail-desde-angular-con-node-js-e9c2db57af57
+
+

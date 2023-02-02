@@ -6,7 +6,7 @@ import { YourcomunitiesService } from './yourcomunities.service';
   templateUrl: './yourcommunities.component.html',
   styleUrls: ['./yourcommunities.component.css']
 })
-export class YourcommunitiesComponent {
+export class YourcommunitiesComponent implements OnInit{
   comunidades: any;
 
   constructor(private comunidadesService: YourcomunitiesService) {}

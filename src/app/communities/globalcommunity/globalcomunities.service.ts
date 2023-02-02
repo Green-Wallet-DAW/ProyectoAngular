@@ -8,7 +8,7 @@ export class GlobalcomunitiesService {
 
   constructor(private http: HttpClient) { }
 
-  devolver() {
+  ganadores() {
     return this.http.get("http://localhost/api/globalcoms");
   }  
 }
