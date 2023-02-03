@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
     phone_number: null,
     cumn: null,
     newsletter: null,
-    news: null,
+    // news: null,
   };
   isSuccessful = false;
   isSignUpFailed = false;
@@ -26,13 +26,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { name, email, password, phone_number, cumn, news, newsletter } = this.form;
+    const { name, email, password, phone_number, cumn, newsletter  } = this.form;
 
-    if(this.form.news){
-      this.form.newsletter = 1;
-    }else{
-      this.form.newsletter = 0;
-    }
+    //No se como funciona los checkbox, no me deja pasar info si no se marca la casilla
+    // this.form.newsletter = 1; 
+    // if(this.form.news){
+    //   this.form.newsletter = 2;
+    // }
     console.log(this.form);
     this.authService.register(name, email, password, phone_number, cumn, newsletter).subscribe(
       data => {
