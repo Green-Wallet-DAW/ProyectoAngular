@@ -12,18 +12,20 @@
               <tr>
                 <th scope="col">Name</th>
                 <th scope="col">Energy Produced</th>
-                <th scope="col">Members</th>
+                <th colspan="2" scope="col">Members</th>
+                
                 
               </tr>
             </thead>
             <tbody *ngFor="let com of comunidades">
-              <tr data-bs-toggle="collapse" attr.data-bs-target="#contenido_{{com.id}}" aria-controls="contenido" aria-expanded="false" aria-label="Toggle navigation">
+              <tr>
                 <td>{{com.name}}</td>
                 <td>{{com.energy_produced}}</td>
                 <td>{{com.members}}</td>
+                <td><i class="bi bi-eye-fill"  data-bs-toggle="collapse" attr.data-bs-target="#contenido_{{com.id}}" aria-controls="contenido" aria-expanded="false" aria-label="Toggle navigation"></i></td>
               </tr>
              <tr id="contenido_{{com.id}}" class="collapse">
-              <td colspan="3">
+              <td colspan="4">
                 {{com.name}}<br>
                 {{com.descripcion}}
           <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#staticBackdrop_{{com.id}}">
@@ -34,6 +36,24 @@
 
 <!-- Modal -->
 <div class="modal fade " id="staticBackdrop_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+  <div class="modal-dialog ">
+    <div class="modal-content bg-light">
+      <div class="card w-50">
+          <div class="card-body">
+            <p class="card-text">Are you sure you want to join this community?</p>
+          </div>
+        </div>
+      
+      
+        <button type="button" class="btn btn-outline-success">NO</button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#staticBackdrop2_{{com.id}}">YES</button>
+     
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade " id="staticBackdrop2_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
   <div class="modal-dialog ">
     <div class="modal-content bg-light">
       <div class="card w-50">
