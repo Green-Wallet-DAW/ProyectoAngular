@@ -18,7 +18,6 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
 import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
