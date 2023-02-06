@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GeneralviewComponent } from './facility/generalview/generalview.component';
 import { MostrarServiciosComponent } from './tienda-tokens/mostrar-servicios/mostrar-servicios.component';
+import { ShowCommunityServicesComponent } from './tienda-tokens/show-community-services/show-community-services.component';
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
@@ -16,6 +17,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
+  {path: 'userServices', component:MostrarServiciosComponent},
+  {path: 'communityServices', component:ShowCommunityServicesComponent}
 ];
 
 @NgModule({

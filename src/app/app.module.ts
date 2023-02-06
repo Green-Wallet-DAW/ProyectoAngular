@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 
+import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     declarations: [
@@ -29,7 +32,9 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
+        RouterModule,
         AppRoutingModule,
+        HttpClientModule,
         UtilidadesModule,
         TablasModule,
         FacilityModule,

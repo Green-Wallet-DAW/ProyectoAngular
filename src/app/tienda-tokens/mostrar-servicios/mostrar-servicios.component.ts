@@ -11,23 +11,33 @@ import { TokenServicesService } from 'src/app/_services/token-services.service';
 })
 export class MostrarServiciosComponent implements OnInit{
   
-  servicios?:string;
+  public userServices:any;
+  public loading = false;
 
-  constructor(private dataServices: TokenServicesService) {}
+  constructor(private _dataServices: TokenServicesService) {
+  }
 
-  getAllServices(){
-    this.dataServices.getServices().subscribe(
-      result =>{
-        this.servicios = result;
+  getUserServices(){
+    this.loading = true;
+    this._dataServices.getUserRoledServices()
+    .subscribe(
+      results => {
+        this.userServices = results;
+        this.loading = false;
       },
-      err => {
-        this.servicios = JSON.parse(err.error).message;
+      notFound =>{
+        this.userServices = JSON.parse(notFound.error).message;
+        this.loading = false;
       }
     )
   }
 
+
   ngOnInit(): void {
-    this.getAllServices();
+    this.getUserServices();
   }
 
+  hireService(){
+    
+  }
 }
