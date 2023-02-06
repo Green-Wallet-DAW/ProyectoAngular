@@ -7,15 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UtilidadesModule } from './utilidades/utilidades.module';
-<<<<<<< HEAD
-import { FacilityModule } from './facility/facility.module';
-import { TablasModule } from "./tablas/tablas.module";
-import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
-import { RouterModule } from '@angular/router';
-<<<<<<< HEAD
-=======
 
-=======
 import { FacilityModule } from './facility/facility.module';import { TablasModule } from "./tablas/tablas.module";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -23,8 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
->>>>>>> borja
->>>>>>> 430eaa1f94cc2de04b2e68e5634a485a9335fddd
+
 
 @NgModule({
     declarations: [
@@ -38,21 +29,10 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
-        RouterModule,
         AppRoutingModule,
         UtilidadesModule,
         TablasModule,
         FacilityModule,
-<<<<<<< HEAD
-        TiendaTokensModule,
-=======
-<<<<<<< HEAD
-        TiendaTokensModule
-=======
-        FormsModule,
-        HttpClientModule,
->>>>>>> borja
->>>>>>> 430eaa1f94cc2de04b2e68e5634a485a9335fddd
     ]
 })
 export class AppModule { }
