@@ -9,19 +9,13 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
   {path: 'generalview' ,component: GeneralviewComponent},
   {path: 'serviciosUsuario', component:MostrarServiciosComponent},
-  
-=======
-  {path: 'generalview' ,
-  component: GeneralviewComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }
->>>>>>> borja
 ];
 
 @NgModule({
