@@ -98,32 +98,26 @@
           </div>
 
           <div class="form-group">
-            <label>I want to receive news and updates about Green Wallet</label><br>
             <input
-              type="radio"
-              name="newsletter"
-              id="newsletter1"
-              value="1"
-              style="margin-right: 10px;"
-              [(ngModel)]="form.newsletter"
-              #newsletter="ngModel"
+            type="checkbox"
+            name="newsletter"
+            id="newsletter"
+            style="margin-right: 10px; height: 20px; width: 20px;"
+            [(ngModel)]="form.newsletter"
+            #newsletter="ngModel"
             />
-            <label for="newsletter1"><strong>Yes</strong></label>
+            <label for="newsletter">I want to receive news and updates about Green Wallet</label>
 
-            <input
-              type="radio"
-              name="newsletter"
-              id="newsletter0"
-              value="0"
-              style="margin-right: 10px; margin-left: 20px;"
-              [(ngModel)]="form.newsletter"
-              #newsletter="ngModel"
-            />
-            <label for="newsletter0"><strong>No</strong></label>
           </div>
 
-        <div class="form-group">
-          <button class="btn btn-primary btn-block">Register</button>
+        <div class="bot">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block">Register</button>
+          </div>
+  
+          <div class="form-group">
+            <button [routerLink]="['/login']" class="btn btn-primary btn-block">Login</button>
+          </div>
         </div>
   
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
