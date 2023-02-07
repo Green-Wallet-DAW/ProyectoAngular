@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from 'src/app/_services/auth.service';
 import { TokenServicesService } from 'src/app/_services/token-services.service';
 
 
@@ -13,8 +14,9 @@ export class MostrarServiciosComponent implements OnInit{
   
   public userServices:any;
   public loading = false;
+  public userID:string;
 
-  constructor(private _dataServices: TokenServicesService) {
+  constructor(private _dataServices: TokenServicesService, private authServ:AuthService) {
   }
 
   getUserServices(){
