@@ -6,23 +6,32 @@
         <div class="caja">
           <div class="row">
             <div class="col-6">
-              <h2>My home {{art.id_instalation}} Overview</h2>
-              <p>Total energi produced: {{art.energy_produced}}</p>
+              <h2>My home {{art.faciliy_name}} Overview</h2>
+              <p>Total energi produced: {{art.energia_producida}}</p>
               <p>Total carbon saved: {{art.carbono_ahorrado}}</p>
               <p>Total tokens produced: </p>
             </div>
             <div class="col-6">
-              <p>Residence: </p>
+              <p>Residence: {{art.street_name}}</p>
               <p>Energy Power Provider: </p>
-              <p>Contract Number/Code: </p>
+              <p>Contract Number/Code:  {{art.contractNumber}}</p>
             </div>
 
           </div>
-          <div class="row">
-            <div class="caja_graf d-flex justify-content-center align-items-center flex-column">
-              <p>Aqui va la grafica</p>
+            <div class="row">
+              <div class="caja_graf d-flex justify-content-between align-items-center flex-column">
+                <p>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{art.faciliy_name}}" aria-expanded="false" attr.aria-controls="contenido{{art.faciliy_name}}">
+                  General
+                </button>
+              </p>
+              <div class="collapse" id="contenido{{art.faciliy_name}}">
+                <div class="card card-body">
+                  Aqui va la grafica
+                </div>
+              </div>
 
-          </div>
+            </div>
           </div>
         </div>
       </div>
