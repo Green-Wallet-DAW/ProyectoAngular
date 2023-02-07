@@ -14,6 +14,10 @@ export class UserService {
     return this.http.get(API_URL + 'detailsU', { responseType: 'text' });
   }
 
+  // updatePublicContent(): Observable<any> {
+  //   return this.http.get(API_URL + 'detailsU', { responseType: 'text' });
+  // }
+
   getUserBoard(): Observable<any> {
     return this.http.get(API_URL + 'user', { responseType: 'text' });
   }

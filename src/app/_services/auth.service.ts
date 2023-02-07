@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<any> {
-    this.router.navigate(['profile']); 
+    this.router.navigate(['home']); 
     return this.http.post(AUTH_API + 'loginU', {
       email,
       password
@@ -33,5 +33,17 @@ export class AuthService {
       cumn,
       newsletter
     }, httpOptions);
+
+  }
+
+  update(name: string, email: string, phone_number: string, cumn: string, newsletter: boolean): Observable<any> {
+    return this.http.patch(AUTH_API + 'updateU', {
+      name,
+      email,
+      phone_number,
+      cumn,
+      newsletter
+    }, httpOptions);
+
   }
 }
