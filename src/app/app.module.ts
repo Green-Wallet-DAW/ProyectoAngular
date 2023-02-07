@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -21,6 +21,14 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+<<<<<<< HEAD
+>>>>>>> borja
+=======
+import { EditComponent } from './edit/edit.component';
+import { DataTablesModule } from 'angular-datatables';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { ErrorComponent } from './error/error.component';
 >>>>>>> borja
 
 @NgModule({
@@ -30,6 +38,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
         RegisterComponent,
         ProfileComponent,
         HomeComponent,
+        EditComponent,
+        ErrorComponent,
     ],
     providers: [authInterceptorProviders],
     bootstrap: [AppComponent],
@@ -45,6 +55,13 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
 =======
         FormsModule,
         HttpClientModule,
+<<<<<<< HEAD
+>>>>>>> borja
+=======
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        DataTablesModule,
 >>>>>>> borja
     ]
 })
