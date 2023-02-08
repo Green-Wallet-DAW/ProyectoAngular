@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
     password: null,
     phone_number: null,
     cumn: null,
-    newsletter: false,
+    newsletter: true,
     // news: null,
   };
   isSuccessful = false;

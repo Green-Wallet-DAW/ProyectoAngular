@@ -10,8 +10,9 @@ const API_URL = 'http://localhost/api/';
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'detailsU', { responseType: 'text' });
+  getPublicContent(){
+    console.log("Data is coming.");
+    return this.http.get(API_URL + 'detailsU', { responseType: 'text'});
   }
 
   // updatePublicContent(): Observable<any> {
