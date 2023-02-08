@@ -36,8 +36,9 @@ export class AuthService {
 
   }
 
-  update(name: string, email: string, phone_number: string, cumn: string, newsletter: boolean): Observable<any> {
-    return this.http.patch(AUTH_API + 'updateU', {
+  update(id: number, name: string, email: string, phone_number: string, cumn: string, newsletter: boolean): Observable<any> {
+    return this.http.put(AUTH_API + 'updateU', {
+      id,
       name,
       email,
       phone_number,

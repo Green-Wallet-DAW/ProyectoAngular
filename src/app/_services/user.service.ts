@@ -11,7 +11,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getPublicContent(){
-    console.log("Data is coming.");
     return this.http.get(API_URL + 'detailsU', { responseType: 'text'});
   }
 

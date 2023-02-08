@@ -27,8 +27,10 @@ export class EditComponent implements OnInit{
   isSignUpFailed = false;
   errorMessage = '';
   public enter = -1;
+  prueba = false;
 
   formUpdate = new FormGroup({
+    id: new FormControl(''),
     name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
     email: new FormControl('', [Validators.required, Validators.maxLength(100)]),
     phone_number: new FormControl('', [Validators.required]),
@@ -38,8 +40,8 @@ export class EditComponent implements OnInit{
   public loading = false;
   // form: { name: any; email: any; phone_number: any; cumn: any; newsletter: any; };
 
-  constructor(private authService: AuthService, private token: UserService, private router: Router, private toastr: ToastrService) {
-    this.user = new User('','','','', false);
+  constructor(private authService: AuthService, private token: UserService, private router: Router, private toastr: ToastrService, private token2: TokenStorageService) {
+    // this.user = new User('','','','', false);
    }
 
   ngOnInit(): void {
@@ -48,14 +50,26 @@ export class EditComponent implements OnInit{
     .subscribe(
       result =>{
         // console.log("entra result");
+        const currentuser = this.token2.getUser();
         this.user = result;
         this.loading = false;
+        if(currentuser.success.newsletter == 1){
+          this.prueba = true;
+        }else{
+          this.prueba = false;
+        }
         this.formUpdate.setValue({
-          name: this.user[0].name,
-          email: this.user[0].email,
-          phone_number: this.user[0].phone_number,
-          cumn: this.user[0].cumn,
-          newsletter: this.user[0].newsletter
+          id: currentuser.success.id,
+          name: currentuser.success.name,
+          email: currentuser.success.email,
+          phone_number: currentuser.success.phone_number,
+          cumn: currentuser.success.cumn,
+          newsletter: this.prueba,
+          // name: "name",
+          // email: "sfs@email.com",
+          // phone_number: "4575467547",
+          // cumn: "21345678NGG",
+          // newsletter: true,
         });
       },
       error => {
@@ -73,18 +87,26 @@ export class EditComponent implements OnInit{
     );
   }
 
+  id1 = 0;
+  name1 = "";
+  email1 = "";
+  phone_number1 = "";
+  cumn1 = "";
+  newsletter1 = false;
+
   onSubmit(): void {
     if(this.formUpdate.valid){
-      this.user[0].name = this.formUpdate.value.name!;
-      this.user[0].email  = this.formUpdate.value.email!;
-      this.user[0].phone_number  = this.formUpdate.value.phone_number!;
-      this.user[0].cumn  = this.formUpdate.value.cumn!;
-      this.user[0].newsletter  = this.formUpdate.value.newsletter;
+      this.id1 = parseInt(this.formUpdate.value.id!);
+      this.name1 = this.formUpdate.value.name!;
+      this.email1  = this.formUpdate.value.email!;
+      this.phone_number1  = this.formUpdate.value.phone_number!;
+      this.cumn1  = this.formUpdate.value.cumn!;
+      this.newsletter1  = this.formUpdate.value.newsletter;
       // const newsletter = this.formUpdate.value.newsletter ? 1 : 0; This for a 1/0 return
       this.loading = true;
 
       // console.log(this.form);
-      this.authService.update(this.user[0].name, this.user[0].email, this.user[0].phone_number, this.user[0].cumn, this.user[0].newsletter,).subscribe(
+      this.authService.update(this.id1, this.name1, this.email1, this.phone_number1, this.cumn1, this.newsletter1,).subscribe(
         result => {
           // console.log(data);
           this.loading = false;
