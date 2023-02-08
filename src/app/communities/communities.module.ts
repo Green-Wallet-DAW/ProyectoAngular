@@ -8,6 +8,7 @@ import { CreatecommunityComponent } from './createcommunity/createcommunity.comp
 
 import { AppRoutingModule } from '../app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
+import { UsuariosPipe } from './createcommunity/usuarios.pipe';
 
 
 
@@ -18,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
     GlobalcommunityComponent,
     JoincommunityComponent,
     CreatecommunityComponent,
+    UsuariosPipe,
 
   ],
   imports: [
