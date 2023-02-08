@@ -1,26 +1,8 @@
-*{
+.caja{
+  margin-top:2vh;
+  margin-bottom:2vh;
   border:1px solid black;
-
+  background-color: #f8f8f8;
+  border-radius: 30px;
+ 
 }
-.container-fluid{
-  min-height:50vh;
-  background-image: url("/assets/cesped4k.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.caja_graf{
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  min-height:50vh;
-  background-image: url("/assets/chart-example.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.caja_botones{
-  height:20vh;
-}
-.btn{
-  background-color:#049201;
-  color: white;
-}
-

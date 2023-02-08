@@ -1,0 +1,16 @@
+#con{
+    min-height: 85vh;
+}
+.card{
+    width: 90%;
+    opacity: 0.96;
+}
+.card h5{
+    font-size: 22px;
+}
+.titulos{
+    font-size: 30px;
+}
+span{
+    color: red;
+}

@@ -1,20 +1,32 @@
 <div class="container-fluid">
   <div class="row">
+    <div *ngIf="caja!=null; else espera">
 
-      <div class="caja_graf d-flex justify-content-center align-items-center flex-column">
-        <p>Aqui va la grafica</p>
-        <p>Detras el fondo del cesped creciendo</p>
+      <div *ngFor="let art of caja">
+        <div class="caja">
+          <div class="row">
+            <div class="col-6">
+              <h2>My home {{art.id_instalation}} Overview</h2>
+              <p>Total energi produced: {{art.energy_produced}}</p>
+              <p>Total carbon saved: {{art.carbono_ahorrado}}</p>
+              <p>Total tokens produced: </p>
+            </div>
+            <div class="col-6">
+              <p>Residence: </p>
+              <p>Energy Power Provider: </p>
+              <p>Contract Number/Code: </p>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="caja_graf d-flex justify-content-center align-items-center flex-column">
+              <p>Aqui va la grafica</p>
+
+          </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-  </div>
-  <div class="row imag">
-
-    <div class="caja_botones d-flex justify-content-evenly align-items-center ">
-      <button type="button" class="btn">Today</button>
-      <button type="button" class="btn">This Week</button>
-      <button type="button" class="btn">This month</button>
-      <button type="button" class="btn">This year</button>
-    </div>
-
+    <ng-template #espera>Generando tu informacion...</ng-template>
   </div>
 </div>
