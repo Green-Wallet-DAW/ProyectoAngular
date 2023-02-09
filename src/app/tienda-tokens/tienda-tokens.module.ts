@@ -3,16 +3,19 @@ import { CommonModule } from '@angular/common';
 import { MostrarServiciosComponent } from './mostrar-servicios/mostrar-servicios.component';
 import { UtilidadesModule } from '../utilidades/utilidades.module';
 import { CajasDesplegablesComponent } from '../utilidades/cajas-desplegables/cajas-desplegables.component';
-
+import {TokenServicesService} from '../_services/token-services.service';
+import { ShowCommunityServicesComponent } from './show-community-services/show-community-services.component'; 
 
 
 @NgModule({
   declarations: [
-    MostrarServiciosComponent
+    MostrarServiciosComponent,
+    ShowCommunityServicesComponent
   ],
   imports: [
     CommonModule,
     UtilidadesModule,
+
   ],
   exports: [
     MostrarServiciosComponent

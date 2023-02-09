@@ -1,0 +1,7 @@
+.bot{
+    display: flex;
+    justify-content: space-between;
+}
+.form-group{
+    margin-top: 20px;
+}
