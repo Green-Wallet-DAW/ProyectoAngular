@@ -11,8 +11,8 @@ export class GeneralviewComponent implements OnInit{
 
   constructor(private _gvc: GeneralviewServiceService) {}
 
-  mostrarTodo(){
-    this._gvc.retornar()
+  generalView(){
+    this._gvc.generalView()
     .subscribe(
       result => {
         this.caja = result
@@ -23,7 +23,45 @@ export class GeneralviewComponent implements OnInit{
       );
   }
 
-  ngOnInit(): void {
-    this.mostrarTodo();
+  mostrarDiario(){
+    this._gvc.dailyView()
+    .subscribe(
+      result => {
+        this.caja = result
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+      }
+      );
   }
+
+  mostrarMes(){
+    this._gvc.monthView()
+    .subscribe(
+      result => {
+        this.caja = result
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+      }
+      );
+  }
+  mostrarAnyo(){
+    this._gvc.yearView()
+    .subscribe(
+      result => {
+        this.caja = result
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+      }
+      );
+  }
+
+
+  ngOnInit(): void {
+    this.mostrarMes();
+  }
+
+
 }
