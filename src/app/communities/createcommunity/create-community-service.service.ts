@@ -19,7 +19,7 @@ export class CreateCommunityServiceService {
 
 
   constructor(private http: HttpClient) {
-    this.url = "http://localhost/api/------(comunidades)";
+    this.url = "http://localhost/api/comunidad/guardar";
   }
   introducirComunidad(comunidad: Comunidades): Observable<any> {
     return this.http.post(this.url, comunidad, httpOptions);

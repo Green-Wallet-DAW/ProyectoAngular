@@ -14,6 +14,88 @@
     </button>
 </form>
 
+
+
+
+<form [formGroup]="formularioAlta" (ngSubmit)="onSubmit()" class="mt-4 text-start">
+  <div class="row mb-3">
+    <div class="col-12 col-md-8">
+      <label for="nombre" class="form-label">Nombre</label>
+      <input type="text" id="nombre" class="form-control" placeholder="Introduce nombre" formControlName="nombre" required>
+    <span *ngIf="this.formularioAlta.get('nombre')?.touched && this.formularioAlta.get('nombre')?.errors?.['required']">(El nombre no puede quedar vacío)</span>
+    <span *ngIf="this.formularioAlta.get('nombre')?.touched && this.formularioAlta.get('nombre')?.errors?.['minlength']">(Debe tener como mínimo 3 caracteres)</span>
+    <span *ngIf="this.formularioAlta.get('nombre')?.touched && this.formularioAlta.get('nombre')?.errors?.['maxlength']">(Debe tener como máximo 50 caracteres)</span>
+    </div>
+    <div class="col-12 mt-2 col-md-4 mt-md-0">
+      <label for="descripcion" class="form-label">Descripcion</label>
+      <input type="text" id="descripcion" class="form-control" placeholder="Introduce'descripcion" formControlName="descripcion" required>
+      <span *ngIf="this.formularioAlta.get('descripcion')?.touched && this.formularioAlta.get('descripcion')?.errors?.['required']">(La'descripcion no puede quedar vacía)</span>
+      <span *ngIf="this.formularioAlta.get('descripcion')?.touched && this.formularioAlta.get('descripcion')?.errors?.['max']">(La'descripcion no puede ser mayor de 119)</span>
+      <span *ngIf="this.formularioAlta.get('descripcion')?.touched && this.formularioAlta.get('descripcion')?.errors?.['min']">(La'descripcion no puede ser menor de 0)</span>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <label for="master" class="form-label">master</label>
+      <input type="text" id="master" class="form-control" placeholder="Introduce master" formControlName="master" required>
+      <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['required']">(El master no puede quedar vacío)</span>
+      <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
+    </div>
+   
+    <!-- <div class="col-12 mt-2 col-md-4 mt-md-0">
+      <label for="contratado (0=NO/1=SI)" class="form-label">Contratado</label>
+      <input type="text" id="contratado" class="form-control" placeholder="0/1" formControlName="contratado" required>
+      <span *ngIf="this.formularioAlta.get('contratado')?.touched && this.formularioAlta.get('contratado')?.errors?.['required']">(Contratado no puede quedar vacío)</span>
+    </div> -->
+
+  </div>
+  <div class="my-3 text-center">
+    <button type="submit" class="btn btn-dark btn-lg" [disabled]="!formularioAlta.valid">Añadir</button>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- Modal -->
 <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
   <div class="modal-dialog ">

@@ -16,14 +16,13 @@ export class CreatecommunityComponent implements OnInit{
   public introducido = -1;
   formularioAlta = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
-    edad: new FormControl('', [Validators.required, Validators.min(1), Validators.max(119)]),
-    cargo: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-    contratado: new FormControl('', [Validators.required])
+    descripcion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]),
+    master: new FormControl('', [Validators.required, Validators.maxLength(20)]),
   });
   public cargando = false;
 
   constructor(private _createComunityService: CreateCommunityServiceService, private router: Router, private toastr: ToastrService) {
-    this.comunidad = new Comunidades("", 0, "", 0);
+    this.comunidad = new Comunidades("", "", "");
   }
 
   ngOnInit(): void {
@@ -33,10 +32,9 @@ export class CreatecommunityComponent implements OnInit{
   onSubmit() {
     if (this.formularioAlta.valid) {
       this.comunidad.nombre = this.formularioAlta.value.nombre!;
-      this.comunidad.edad = Number(this.formularioAlta.value.edad);
-      this.comunidad.cargo = this.formularioAlta.value.cargo!;
+      this.comunidad.descripcion = this.formularioAlta.value.descripcion!;
+      this.comunidad.master = this.formularioAlta.value.master!;
       // this.empleado.contratado = Number(this.formularioAlta.value.contratado);
-      this.comunidad.contratado = this.formularioAlta.value.contratado ? 1 : 0;
       this.cargando = true;
       this._createComunityService.introducirComunidad(this.comunidad)
         .subscribe(
