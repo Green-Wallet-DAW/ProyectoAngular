@@ -15,7 +15,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
 
 @NgModule({
@@ -38,6 +38,7 @@ import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
         FacilityModule,
         FormsModule,
         TiendaTokensModule,
+
     ]
 })
 export class AppModule { }

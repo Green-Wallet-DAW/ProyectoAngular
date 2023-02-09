@@ -36,3 +36,11 @@
     background-color: #F8F8F8;
     border: none;
 }
+.linkService{
+    margin-left: 5%;
+    text-decoration: none;
+    color: grey;
+}
+.linkService:visited{
+    color: rgb(201, 201, 78);
+}

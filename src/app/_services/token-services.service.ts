@@ -27,7 +27,10 @@ export class TokenServicesService {
   }
   hiringService(user_id:string, serv_id:string): Observable<any>{
     var restofURL = "/hire/"+ user_id + "/" + serv_id;
-
     return this.http.get(API_URL + restofURL);
+  }
+  hiringCommunityService(comm_id:string, serv_id:string): Observable<any> {
+      var restofURL1 = "/hireComm/" + comm_id + "/" + serv_id;
+      return this.http.get(API_URL + restofURL1);
   }
 }

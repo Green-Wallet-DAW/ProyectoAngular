@@ -10,10 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
-  {path: 'generalview' ,component: GeneralviewComponent},
-  {path: 'userServices', component:MostrarServiciosComponent},
-  {path: 'communityServices', component:ShowCommunityServicesComponent},
-  {path: 'hireService/:user_id/:serv_id', component:MostrarServiciosComponent},
+  { path: 'generalview' ,component: GeneralviewComponent},
+  { path: 'userServices', component:MostrarServiciosComponent},
+  { path: 'communityServices', component:ShowCommunityServicesComponent},
+  { path: 'hireService/:user_id/:serv_id', component:MostrarServiciosComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
