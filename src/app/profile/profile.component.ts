@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
+    console.log(this.currentUser);
     if(this.currentUser.success.newsletter == 1){
       this.news = "YES";
     }else{

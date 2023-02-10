@@ -1,6 +1,6 @@
-<div class="col-md-12">
-    <div class="card card-container">
-    
+<div class="row mt-5">
+  <div class="col d-flex justify-content-center">
+    <div class="userBox login">
       <form
         *ngIf="!isLoggedIn"
         name="form"
@@ -12,12 +12,13 @@
         <label for="email">Email</label>
         <input
           type="email"
-          class="form-control"
+          class="form-control p_input"
           name="email"
           [(ngModel)]="form.email"
           required
           email
           #email="ngModel"
+          placeholder="Email*"
         />
         <div class="alert-danger" *ngIf="email.errors && f.submitted">
           <div *ngIf="email.errors.required">Email is required</div>
@@ -30,12 +31,13 @@
           <label for="password">Password</label>
           <input
             type="password"
-            class="form-control"
+            class="form-control p_input"
             name="password"
             [(ngModel)]="form.password"
             required
             minlength="10"
             #password="ngModel"
+            placeholder="Password*"
           />
           <div
             class="alert alert-danger"
@@ -48,15 +50,12 @@
             </div>
           </div>
         </div>
-        <div class="bot">
+        <div class="text-center cajaUE fs-1 mt-4">
           <div class="form-group">
-            <button class="btn btn-primary btn-block">
-              Login
-            </button>
+            <button id="logB" class="btn btn-success btn-block enter-btn fs-3">LOG IN</button>
           </div>
-  
-          <div class="form-group">
-            <button [routerLink]="['/register']" class="btn btn-primary btn-block">Register</button>
+          <div>
+            <button id="forgot" type="button" class="btn btn-success btn-block fs-3">FORGOT PASSWORD</button>
           </div>
         </div>
 
@@ -70,10 +69,13 @@
           </div>
         </div>
       </form>
-  
-      <!-- <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}.
-      </div> -->
+
     </div>
   </div>
-  
+  <div class="textB">
+    Don’t have a Green Wallet account?
+    <br>
+    <a id="enlace" [routerLink]="['/register']"><strong>Click here to get started !</strong></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</div>

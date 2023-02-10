@@ -27,7 +27,7 @@ export class EditComponent implements OnInit{
   isSignUpFailed = false;
   errorMessage = '';
   public enter = -1;
-  prueba = false;
+  news = false;
 
   formUpdate = new FormGroup({
     id: new FormControl(''),
@@ -54,9 +54,9 @@ export class EditComponent implements OnInit{
         this.user = result;
         this.loading = false;
         if(currentuser.success.newsletter == 1){
-          this.prueba = true;
+          this.news = true;
         }else{
-          this.prueba = false;
+          this.news = false;
         }
         this.formUpdate.setValue({
           id: currentuser.success.id,
@@ -64,7 +64,7 @@ export class EditComponent implements OnInit{
           email: currentuser.success.email,
           phone_number: currentuser.success.phone_number,
           cumn: currentuser.success.cumn,
-          newsletter: this.prueba,
+          newsletter: this.news,
           // name: "name",
           // email: "sfs@email.com",
           // phone_number: "4575467547",
@@ -113,6 +113,22 @@ export class EditComponent implements OnInit{
           this.isSuccessful = true;
           this.isSignUpFailed = false;
           this.enter = 1;
+
+          const currentuser = this.token2.getUser();
+          currentuser.success.id = this.id1;
+          currentuser.success.name = this.name1;
+          currentuser.success.email = this.email1;
+          currentuser.success.phone_number = this.phone_number1;
+          currentuser.success.cumn = this.cumn1;
+          if(this.newsletter1){
+            currentuser.success.newsletter = 1;
+          }else{
+            currentuser.success.newsletter = 0;
+          }
+          console.log(currentuser);
+          this.token2.saveUser(currentuser);
+
+
           this.toastr.success('Your information has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-right', timeOut:2000});
           setTimeout(() => {
             this.router.navigate(['/profile']);

@@ -23,6 +23,7 @@ import { ErrorComponent } from './error/error.component';
 import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
 import { RouterModule } from '@angular/router';
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
+import { User } from './edit/user';
 
 @NgModule({
     declarations: [

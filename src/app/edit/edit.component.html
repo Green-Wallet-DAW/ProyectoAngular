@@ -1,57 +1,3 @@
-<!-- <div class="container" *ngIf="currentUser; else loggedOut">
-    <header class="jumbotron">
-      <h3>
-        Edit your profile
-      </h3>
-    </header>
-    <div>
-      <strong>Username:</strong>
-      <input type="text" value="{{ currentUser.success.name }}">
-    </div>
-    <div>
-      <strong>Email:</strong>
-      <input type="text" value="{{ currentUser.success.email }}">
-    </div>
-    <div>
-        <strong>Phone number:</strong>
-        <input type="text" value="{{ currentUser.success.phone_number }}">
-    </div>
-    <div>
-        <strong>Credit Union Member Number:</strong>
-        <input type="text" value="{{ currentUser.success.cumn }}">
-        
-    </div>
-    <div class="form-group">
-      <input
-        type="checkbox"
-        name="newsletter"
-        id="newsletter"
-        style="margin-right: 10px; height: 20px; width: 20px;"
-        [(ngModel)]="form.newsletter"
-        #newsletter="ngModel"
-      />
-      <label for="newsletter">I want to receive news and updates about Green Wallet</label>
-    </div>
-
-    <div class="form-group">
-      <button class="btn btn-primary btn-block">Edit</button>
-    </div>
-
-    <div class="form-group">
-      <button [routerLink]="['/profile']" class="btn btn-primary btn-block">Back</button>
-    </div>
-
-    <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
-      Edition failed!<br />{{ errorMessage }}
-    </div>
-    
-  </div>
-  
-  <ng-template #loggedOut>
-    Please login.
-  </ng-template>
-   -->
-
 <div class="row" id="con">
   <div class="container d-flex align-items-center justify-content-center">
     <div class="card text-center my-3">
@@ -64,10 +10,10 @@
         <h5 class="card-title">Enter the data you want modified</h5>
         <form [formGroup]="formUpdate" (ngSubmit)="onSubmit()" class="mt-4 text-start">
           <div class="row mb-3">
-            <div class="col-12" hidden>
+            <!-- <div class="col-12" hidden>
               <label for="id" class="form-label">id</label>
               <input type="number" id="id" class="form-control" formControlName="id">
-            </div>
+            </div> -->
             <div class="col-12">
               <label for="name" class="form-label">Name</label>
               <input type="text" id="name" class="form-control" formControlName="name" required>
@@ -90,7 +36,7 @@
               <label for="cumn" class="form-label">Credit Union Member Number</label>
               <input type="text" id="cumn" class="form-control" formControlName="cumn">
             </div>
-            <div class="col-12 my-2 form-check form-switch">
+            <div class="col-12 my-2 form-check form-switch ms-3">
               <input type="checkbox" id="newsletter" role="switch" class="form-check-input form-control" formControlName="newsletter">
               <label for="newsletter" class="form-check-label">I wish to receive updates and news about Green Wallet (NO/YES)</label>
             </div>
