@@ -20,6 +20,7 @@ export class TokenStorageService {
   }
 
   public getToken(): string | null {
+    // console.log(JSON.parse(window.sessionStorage.getItem(TOKEN_KEY)));
     return window.sessionStorage.getItem(TOKEN_KEY);
   }
 
@@ -28,12 +29,12 @@ export class TokenStorageService {
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
-  public getUser(): any {
+  public getUser() {
     const user = window.sessionStorage.getItem(USER_KEY);
-    if (user) {
+    // if (user) {
       return JSON.parse(user);
-    }
+    // }
 
-    return {};
+    // return {};
   }
 }
