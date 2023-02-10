@@ -11,7 +11,7 @@ export class GeneralviewComponent implements OnInit{
 
   constructor(private _gvc: GeneralviewServiceService) {}
 
-  generalView(){
+  mostrarGeneral(){
     this._gvc.generalView()
     .subscribe(
       result => {

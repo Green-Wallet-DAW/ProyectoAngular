@@ -6,7 +6,8 @@ import {Observable} from 'rxjs';
   const API_URL_DAILY ="http://localhost/api/generalviewdaily";
   const API_URL_MONTH ="http://localhost/api/generalviewmonth";
   const API_URL_YEAR ="http://localhost/api/generalviewyear";
-@Injectable({
+
+  @Injectable({
   providedIn: 'root'
 })
 export class GeneralviewServiceService{

@@ -15,21 +15,17 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> borja
-=======
+
 import { EditComponent } from './edit/edit.component';
 import { DataTablesModule } from 'angular-datatables';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ErrorComponent } from './error/error.component';
->>>>>>> borja
-=======
+
 
 import { TiendaTokensModule } from './tienda-tokens/tienda-tokens.module';
 import { RouterModule } from '@angular/router';
->>>>>>> refs/remotes/origin/main
+
 
 @NgModule({
     declarations: [
@@ -51,22 +47,13 @@ import { RouterModule } from '@angular/router';
         UtilidadesModule,
         TablasModule,
         FacilityModule,
-<<<<<<< HEAD
-<<<<<<< HEAD
-        TiendaTokensModule
-=======
+        TiendaTokensModule,
         FormsModule,
         HttpClientModule,
-<<<<<<< HEAD
->>>>>>> borja
-=======
         ReactiveFormsModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),
         DataTablesModule,
->>>>>>> borja
-=======
->>>>>>> refs/remotes/origin/main
     ]
 })
 export class AppModule { }
