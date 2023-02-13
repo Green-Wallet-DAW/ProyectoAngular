@@ -21,23 +21,23 @@
   <div class="row mb-3">
     <div class="col-12 col-md-8">
       <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" id="nombre" class="form-control" placeholder="Introduce nombre" formControlName="nombre" required>
-    <span *ngIf="this.formularioAlta.get('nombre')?.touched && this.formularioAlta.get('nombre')?.errors?.['required']">(El nombre no puede quedar vacío)</span>
-    <span *ngIf="this.formularioAlta.get('nombre')?.touched && this.formularioAlta.get('nombre')?.errors?.['minlength']">(Debe tener como mínimo 3 caracteres)</span>
-    <span *ngIf="this.formularioAlta.get('nombre')?.touched && this.formularioAlta.get('nombre')?.errors?.['maxlength']">(Debe tener como máximo 50 caracteres)</span>
+      <input type="text" id="nombre" class="form-control" placeholder="Introduce nombre" formControlName="name" required>
+    <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['required']">(El nombre no puede quedar vacío)</span>
+    <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['minlength']">(Debe tener como mínimo 3 caracteres)</span>
+    <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['maxlength']">(Debe tener como máximo 50 caracteres)</span>
     </div>
     <div class="col-12 mt-2 col-md-4 mt-md-0">
       <label for="descripcion" class="form-label">Descripcion</label>
-      <input type="text" id="descripcion" class="form-control" placeholder="Introduce'descripcion" formControlName="descripcion" required>
-      <span *ngIf="this.formularioAlta.get('descripcion')?.touched && this.formularioAlta.get('descripcion')?.errors?.['required']">(La'descripcion no puede quedar vacía)</span>
-      <span *ngIf="this.formularioAlta.get('descripcion')?.touched && this.formularioAlta.get('descripcion')?.errors?.['max']">(La'descripcion no puede ser mayor de 119)</span>
-      <span *ngIf="this.formularioAlta.get('descripcion')?.touched && this.formularioAlta.get('descripcion')?.errors?.['min']">(La'descripcion no puede ser menor de 0)</span>
+      <input type="text" id="descripcion" class="form-control" placeholder="Introduce'description" formControlName="description" required>
+      <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['required']">(La'descripcion no puede quedar vacía)</span>
+      <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['max']">(La'descripcion no puede ser mayor de 119)</span>
+      <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['min']">(La'descripcion no puede ser menor de 0)</span>
     </div>
   </div>
   <div class="row mb-3">
     <div class="col-12 col-md-6">
-      <label for="master" class="form-label">master</label>
-      <input type="text" id="master" class="form-control" placeholder="Introduce master" formControlName="master" required>
+      <label for="masters" class="form-label">master</label>
+      <input type="text" id="masters" class="form-control" placeholder="Introduce master" formControlName="master" required>
       <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['required']">(El master no puede quedar vacío)</span>
       <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
     </div>

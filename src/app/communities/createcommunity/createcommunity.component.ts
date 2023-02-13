@@ -15,14 +15,14 @@ export class CreatecommunityComponent implements OnInit{
   public mensajeErr = "";
   public introducido = -1;
   formularioAlta = new FormGroup({
-    nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
-    descripcion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]),
-    master: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+    name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+    description: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]),
+    master: new FormControl('', [Validators.required]),
   });
   public cargando = false;
 
   constructor(private _createComunityService: CreateCommunityServiceService, private router: Router, private toastr: ToastrService) {
-    this.comunidad = new Comunidades("", "", "");
+    this.comunidad = new Comunidades("", "", 0);
   }
 
   ngOnInit(): void {
@@ -31,9 +31,9 @@ export class CreatecommunityComponent implements OnInit{
 
   onSubmit() {
     if (this.formularioAlta.valid) {
-      this.comunidad.nombre = this.formularioAlta.value.nombre!;
-      this.comunidad.descripcion = this.formularioAlta.value.descripcion!;
-      this.comunidad.master = this.formularioAlta.value.master!;
+      this.comunidad.name = this.formularioAlta.value.name!;
+      this.comunidad.description = this.formularioAlta.value.description!;
+      this.comunidad.master = Number(this.formularioAlta.value.master);
       // this.empleado.contratado = Number(this.formularioAlta.value.contratado);
       this.cargando = true;
       this._createComunityService.introducirComunidad(this.comunidad)
@@ -45,7 +45,7 @@ export class CreatecommunityComponent implements OnInit{
             // this.toastr.success('El empleado se ha registrado con éxito!!', 'Añadido empleado');
             this.toastr.success('El empleado se ha registrado con éxito!!', 'Añadido empleado', { positionClass: 'toast-bottom-right', timeOut: 2000 });
             setTimeout(() => {
-              this.router.navigate(['/empleados']);
+              this.router.navigate(['/yourCommunity']);
             }, 50);
             // console.log("Empleado registrado con éxito");
             // this.getEmpleados();

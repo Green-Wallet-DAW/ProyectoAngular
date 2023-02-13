@@ -1,8 +1,8 @@
 export class Comunidades {
     constructor (
-        public nombre:string,
-        public descripcion:string,
-        public master:string
+        public name:string,
+        public description:string,
+        public master:number
     ){}
         
 }
