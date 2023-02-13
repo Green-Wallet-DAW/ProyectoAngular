@@ -1,0 +1,81 @@
+<div class="row mt-5">
+  <div class="col d-flex justify-content-center">
+    <div class="userBox login">
+      <form
+        *ngIf="!isLoggedIn"
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control p_input"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+          placeholder="Email*"
+        />
+        <div class="alert-danger" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors.required">Email is required</div>
+          <div *ngIf="email.errors.email">
+            Email must be a valid email address
+          </div>
+        </div>
+      </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control p_input"
+            name="password"
+            [(ngModel)]="form.password"
+            required
+            minlength="10"
+            #password="ngModel"
+            placeholder="Password*"
+          />
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="password.errors && f.submitted"
+          >
+            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 10 characters
+            </div>
+          </div>
+        </div>
+        <div class="text-center cajaUE fs-1 mt-4">
+          <div class="form-group">
+            <button id="logB" class="btn btn-success btn-block enter-btn fs-3">LOG IN</button>
+          </div>
+          <div>
+            <button id="forgot" type="button" class="btn btn-success btn-block fs-3">FORGOT PASSWORD</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div
+            class="alert alert-danger"
+            role="alert"
+            *ngIf="f.submitted && isLoginFailed"
+          >
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="textB">
+    Don’t have a Green Wallet account?
+    <br>
+    <a id="enlace" [routerLink]="['/register']"><strong>Click here to get started !</strong></a>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</div>

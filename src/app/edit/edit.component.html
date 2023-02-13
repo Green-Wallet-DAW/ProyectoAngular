@@ -1,0 +1,52 @@
+<div class="row" id="con">
+  <div class="container d-flex align-items-center justify-content-center">
+    <div class="card text-center my-3">
+      <div class="card-header titulos">Edit your profile
+        <div class="ms-3 spinner-border text-primary" role="status" *ngIf="loading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Enter the data you want modified</h5>
+        <form [formGroup]="formUpdate" (ngSubmit)="onSubmit()" class="mt-4 text-start">
+          <div class="row mb-3">
+            <!-- <div class="col-12" hidden>
+              <label for="id" class="form-label">id</label>
+              <input type="number" id="id" class="form-control" formControlName="id">
+            </div> -->
+            <div class="col-12">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" id="name" class="form-control" formControlName="name" required>
+              <span *ngIf="this.formUpdate.get('name')?.touched && this.formUpdate.get('name')?.errors?.['required']">This field cannot be empty</span>
+              <span *ngIf="this.formUpdate.get('name')?.touched && this.formUpdate.get('name')?.errors?.['minLength']">The name must be at least 5 characters</span>
+              <span *ngIf="this.formUpdate.get('name')?.touched && this.formUpdate.get('name')?.errors?.['maxLength']">The name must be at least 40 characters</span>
+            </div>
+            <div class="col-12 mt-2">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" class="form-control" formControlName="email" required>
+              <span *ngIf="this.formUpdate.get('email')?.touched && this.formUpdate.get('email')?.errors?.['required']">This field cannot be empty</span>
+              <span *ngIf="this.formUpdate.get('email')?.touched && this.formUpdate.get('email')?.errors?.['maxLength']">The name must be at least 100 characters</span>
+            </div>
+            <div class="col-12 mt-2">
+              <label for="phone_number" class="form-label">Phone number</label>
+              <input type="text" id="phone_number" class="form-control" formControlName="phone_number" required>
+              <span *ngIf="this.formUpdate.get('phone_number')?.touched && this.formUpdate.get('phone_number')?.errors?.['required']">This field cannot be empty</span>
+            </div>
+            <div class="col-12 mt-2">
+              <label for="cumn" class="form-label">Credit Union Member Number</label>
+              <input type="text" id="cumn" class="form-control" formControlName="cumn">
+            </div>
+            <div class="col-12 my-2 form-check form-switch ms-3">
+              <input type="checkbox" id="newsletter" role="switch" class="form-check-input form-control" formControlName="newsletter">
+              <label for="newsletter" class="form-check-label">I wish to receive updates and news about Green Wallet (NO/YES)</label>
+            </div>
+          </div>
+          <div class="my-3 text-center">
+            <button class="btn btn-success btn-lg me-3" type="text" routerLink="/profile">Return</button>
+            <button class="btn btn-success btn-lg" type="submit" [disabled]="!formUpdate">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

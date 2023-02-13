@@ -20,3 +20,9 @@ html, body{
     padding: 0px;
     overflow-x: hidden; 
 }
+
+.btn-success{
+    background-color: #049201;
+    border-radius: 10px;
+    height: 50px;
+}
