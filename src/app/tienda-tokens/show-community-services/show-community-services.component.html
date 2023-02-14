@@ -1,29 +1,33 @@
 <div class="container-fluid">
 
-    <!-- <h1 *ngIf="communityServices.length == 0">No hay Datos</h1> -->
+    <label for="Community Selector" class="fs-3">Select Community</label>
+    <select class="form-select form-select-sm form-select-mt-1" name="Community Selector" id="">
+        <option value=""></option>
+
+    </select>
 
         <div *ngIf="charging" class="spinner-border text-success" role="status">
         <span class="visually-hidden">Loading...</span>
         </div>
-<form action="">
+<form>
     <div *ngFor="let service of communityServices">
-
+        <div *ngIf="communityServices.lenght == 0">
+            <p class="fs-1">No data</p>
+        </div>
         <div id="caja">
             <button id="boton" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{service.id}}" attr.aria-controls="contenido{{service.id}}" aria-expanded="false" aria-label="Toggle navigation">
                 <svg id="flechaCaja" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#049201" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                     <path id="path1" d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                 </svg>
                 <span id="tituloCaja">{{service.name}}</span> <span id="tituloCaja">{{service.precio}}</span> 
-                <input type="submit" value="Hire Service" class="btn btn-success ms-5" role="button">
+                <button (click)="hireCommunityService('1', service.id)"  title="Hire Service {{service.name}}" type="submit" class="btn btn-success ms-5" role="button">Hire Service</button>
             </button>
             
             <div id="descripcionCaja">
                 {{service.description}}
-                
             </div>
-            <div id="contenido{{service.id}}" class="collapse">
-                {{service.link}}
-                
+            <div id="contenido{{service.id}}" class="collapse linkService">
+                <a href="{{service.link}}">{{service.link}}</a>
             </div>
         </div>
         

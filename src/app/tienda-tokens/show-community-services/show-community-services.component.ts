@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenServicesService } from 'src/app/_services/token-services.service';
+// import { TokenServicesService } from 'app/_services/token-services.service';
+import { TokenServicesService } from 'app/_services/token-services.service';
+
 
 @Component({
   selector: 'app-show-community-services',
@@ -30,5 +32,17 @@ export class ShowCommunityServicesComponent implements OnInit{
   }
   ngOnInit(): void {
       this.getCommunityServices();
+  }
+
+  hireCommunityService(comm_id:string, serv_id:string){
+    this._dataServices.hiringCommunityService(comm_id, serv_id)
+    .subscribe(
+      success =>{
+        console.log(success);
+      },
+      err=>{
+        console.log("No data");
+      }
+    )
   }
 }

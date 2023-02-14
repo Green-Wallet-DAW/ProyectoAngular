@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MostrarServiciosComponent } from './mostrar-servicios/mostrar-servicios.component';
 import { UtilidadesModule } from '../utilidades/utilidades.module';
 import { CajasDesplegablesComponent } from '../utilidades/cajas-desplegables/cajas-desplegables.component';
-import {TokenServicesService} from '../_services/token-services.service';
+import { TokenServicesService } from 'app/_services/token-services.service';
 import { ShowCommunityServicesComponent } from './show-community-services/show-community-services.component'; 
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ShowCommunityServicesComponent } from './show-community-services/show-c
   imports: [
     CommonModule,
     UtilidadesModule,
+    RouterModule,
 
   ],
   exports: [
