@@ -22,7 +22,6 @@ export class EditComponent implements OnInit{
   // public newsletter: any;
 
   public user: any;
-
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
