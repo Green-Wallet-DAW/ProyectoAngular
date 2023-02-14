@@ -1,35 +1,48 @@
 <div class="container-fluid">
   <div class="row">
-    <div >
+    <div *ngIf="caja!=null; else espera">
 
-      <div >
+      <div *ngFor="let art of caja; let in = index">
         <div class="caja">
           <div class="row">
-            <div class="col-6">
-              <h2>My home devices</h2>
-              <p>Total energi produced: </p>
-              <p>Total carbon saved: </p>
-              <p>Total tokens produced </p>
+            <div class="col-7">
+              <h2>My home {{art.faciliy_name}} Overview</h2>
+
+              <div class="scroll-container">
+                <div *ngFor="let mac of caja[in].maquinas;">
+                  <table class="tabla">
+                    <tr>
+                      <th>
+                        Device  {{mac.id}}
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>energy_produced: {{mac.energy_produced}}</p>
+                      </td>
+                      <td>
+                        <p>carbono_ahorrado: {{mac.carbono_ahorrado}}</p>
+                      </td>
+                      <td>
+                        <p>tokens: {{mac.tokens}}</p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+
             </div>
-            <div class="col-6">
-              <p>Residence: </p>
+            <div class="col-5">
+              <p>Residence: {{art.street_name}}</p>
               <p>Energy Power Provider: </p>
-              <p>Contract Number/Code:  </p>
+              <p>Contract Number/Code:  {{art.contractNumber}}</p>
             </div>
 
           </div>
-            <div class="row">
-              <div class="caja_graf d-flex justify-content-between align-items-center flex-column">
-                <p>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#contenido" aria-expanded="false" aria-controls="contenido">
-                  General
-                </button>
-              </p>
-              <div class="collapse" id="contenido">
-                <div class="card card-body">
-                  Aqui va la grafica
-                </div>
-              </div>
+          <div class="row">
+            <div class="caja_graf d-flex justify-content-between align-items-center flex-column">
+
 
             </div>
           </div>

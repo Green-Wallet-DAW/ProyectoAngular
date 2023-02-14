@@ -12,19 +12,78 @@ export class MydevicesComponent implements OnInit {
   constructor(private _mvc: MydevicesService) {}
 
 
-  mostrarGeneral(){
+  showGeneral(){
     this._mvc.generalView()
     .subscribe(
       result => {
         this.caja = result
+        console.log(this.caja[0].maquinas);
+
       },
       err => {
         this.caja = JSON.parse(err.error).message;
+
+      }
+      );
+  }
+  showDaily(){
+    this._mvc.dailyView()
+    .subscribe(
+      result => {
+        this.caja = result
+        console.log(this.caja[0].maquinas);
+
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+
+      }
+      );
+  }
+  showWeekly(){
+    this._mvc.weeklyView()
+    .subscribe(
+      result => {
+        this.caja = result
+        console.log(this.caja[0].maquinas);
+
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+
+      }
+      );
+  }
+  showMontly(){
+    this._mvc.montlyView()
+    .subscribe(
+      result => {
+        this.caja = result
+        console.log(this.caja[0].maquinas);
+
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+
+      }
+      );
+  }
+  showYearly(){
+    this._mvc.yearlyView()
+    .subscribe(
+      result => {
+        this.caja = result
+        console.log(this.caja[0].maquinas);
+
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+
       }
       );
   }
   ngOnInit(): void {
-    this.mostrarGeneral();
+    this.showMontly();
   }
 
 }
