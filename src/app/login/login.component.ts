@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         this.roles = this.tokenStorage.getUser().roles;
         this.rol = this.tokenStorage.getUser().success.rol;
 
-        if(this.rol == "admin"){ //Guard
+        if(this.rol == "admin"){ //Guarda
           this.logout();
         }else if(this.rol == "user"){
           this.reloadPage();
