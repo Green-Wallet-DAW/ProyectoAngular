@@ -26,9 +26,4 @@ export class AppComponent implements OnInit{
       this.name = user.name;
     }
   }
-
-  logout(): void {
-    this.router.navigate(['/login']);
-    this.tokenStorageService.signOut();
-  }
 }

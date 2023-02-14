@@ -1,13 +1,13 @@
 <div class="col-8 mt-5 mb-3">
   <div class="container userBox" >
-    <div class="uCon cajaUE fs-1 pt-4">
-      <strong>Edit your profile</strong>
-      <div class="ms-3 spinner-border text-primary" role="status" *ngIf="loading">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-      <button class="btn btn-success btn-lg" type="submit" [disabled]="!formUpdate">Submit</button>
-    </div>
-        <form [formGroup]="formUpdate" (ngSubmit)="onSubmit()" class="mt-4 text-start">
+    <form [formGroup]="formUpdate" (ngSubmit)="onSubmit()" class="mt-4 text-start">
+          <div class="uCon cajaUE fs-1 pt-4">
+            <strong>Edit your profile</strong>
+            <div class="ms-3 spinner-border text-primary" role="status" *ngIf="loading">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <button class="btn btn-success btn-lg" type="submit" [disabled]="!formUpdate">Submit</button>
+          </div>
             <!-- <div class="col-12" hidden>
               <label for="id" class="form-label">id</label>
               <input type="number" id="id" class="form-control" formControlName="id">
