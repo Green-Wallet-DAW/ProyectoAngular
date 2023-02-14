@@ -1,40 +1,42 @@
-<nav class="navbar navbar-expand-xl navbar-light d-none d-xl-block" id="nav">
-    <div class="container-fluid px-2">
-      <a class="navbar-brand fw-bold" href="#">Green Wallets</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="lista navbar-nav ms-auto">
-          <li class="nav-item me-xl-2">
-            <a id="home" class="nav-link active" aria-current="page" href="#">HOME</a>
-          </li>
-          <li class="nav-item mx-xl-2">
-            <a class="nav-link active" href="#">WHAT WE DO</a>
-          </li>
-          <li class="nav-item mx-xl-2">
-            <a class="nav-link active" href="#">FINANCIAL INSTITUTIONS</a>
-          </li>
-          <li class="nav-item mx-xl-2">
-            <a class="nav-link active" href="#">COMPANIES</a>
-          </li>
-          <li class="nav-item mx-xl-2">
-            <a class="nav-link active" href="#">INDIVIDUALS</a>
-          </li>
-          <li class="nav-item mx-xl-2">
-            <a class="nav-link active" href="#">PROFILE</a>
-          </li>
-          <li class="nav-item ms-xl-2 d-flex align-items-center">
+<nav id="nav" class="navbar navbar-expand-xl navbar-light d-none d-xl-block">
+  <div class="container-fluid px-2">
+    <a class="navbar-brand fw-bold" href="#">Green Wallets</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="lista navbar-nav ms-auto">
+        <li class="nav-item me-xl-2">
+          <a id="home" class="nav-link active" aria-current="page" href="#">HOME</a>
+        </li>
+        <li class="nav-item mx-xl-2">
+          <a class="nav-link active" href="https://wallets.green/what-we-do">WHAT WE DO</a>
+        </li>
+        <li class="nav-item mx-xl-2">
+          <a class="nav-link active" href="https://wallets.green/financial-institutions">FINANCIAL INSTITUTIONS</a>
+        </li>
+        <li class="nav-item mx-xl-2">
+          <a class="nav-link active" href="https://wallets.green/companies">COMPANIES</a>
+        </li>
+        <li class="nav-item mx-xl-2">
+          <a class="nav-link active" href="https://wallets.green/individuals">INDIVIDUALS</a>
+        </li>
+        <li class="nav-item mx-xl-2" *ngIf="isLoggedIn">
+          <a href="/profile" class="nav-link active" routerLink="profile">PROFILE</a>
+        </li>
+        <li class="nav-item ms-xl-2 d-flex align-items-center" *ngIf="isLoggedIn">
+          <a href class="nav-link" (click)="logout()">
             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#049201" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
               <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
               <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
             </svg>
-          </li>
-        </ul>
-      </div>
+          </a>
+        </li>
+      </ul>
     </div>
-    <div id="borde"></div>
-  </nav>
+  </div>
+  <div id="borde"></div>
+</nav>
 <div class="container-fluid d-xl-none">
   <div id="cabz"><a href="#">Green Wallets</a></div>
 </div>
