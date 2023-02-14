@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { TokenServicesService } from 'app/_services/token-services.service';
-import { TokenServicesService } from 'app/_services/token-services.service';
+// import { TokenServicesService } from 'app/_services/token-services.service';
+import { TokenServicesService } from 'src/app/_services/token-services.service';
 
 
 @Component({

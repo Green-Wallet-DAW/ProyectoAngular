@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { TokenServicesService } from 'app/_services/token-services.service';
-import { AuthService } from 'app/_services/auth.service';
+// import { TokenServicesService } from 'app/_services/token-services.service';
+// import { AuthService } from 'app/_services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TokenStorageService } from 'app/_services/token-storage.service';
+import { TokenServicesService } from 'src/app/_services/token-services.service';
+// import { TokenStorageService } from 'app/_services/token-storage.service';
+import { AuthService } from 'src/app/_services/auth.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

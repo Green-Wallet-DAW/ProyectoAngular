@@ -25,7 +25,12 @@ export class TokenServicesService {
   getCommunityRoledServices(): Observable<any>{
     return this.http.get(API_URL + "/community");
   }
-  hiringService(id:String): Observable<any>{
-    return this.http.get(API_URL + "/hire/" + id);
+  hiringService(user_id:String, serv_id): Observable<any>{
+    let restofURL =   "/hire/" + user_id + "/" + serv_id;
+    return this.http.get(API_URL + restofURL);
+  }
+  hiringCommunityService(comm_id:String, serv_id): Observable<any>{
+    let restofURL =  "/hireComm/" + comm_id + "/" + serv_id;
+    return this.http.get(API_URL + restofURL);
   }
 }
