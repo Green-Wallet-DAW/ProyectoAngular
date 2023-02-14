@@ -1,29 +1,37 @@
 <div class="container-fluid">
-    <!-- <h2 *ngIf="userServices.length == 0">No hay datos</h2> -->
-
         <div *ngIf="loading" class="spinner-border text-success" role="status">
         <span class="visually-hidden">Loading...</span>
         </div>
-<form action="">
+<form>
+
     <div *ngFor="let servicio of userServices">
+        <p *ngIf="userServices.length == 0" class="fs-1">No data</p>
+
         <div id="caja">
             <button id="boton" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{servicio.id}}" attr.aria-controls="contenido{{servicio.id}}" aria-expanded="false" aria-label="Toggle navigation">
                 <svg id="flechaCaja" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#049201" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                     <path id="path1" d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                 </svg>
                 <span id="tituloCaja">{{servicio.name}}</span> <span id="tituloCaja">{{servicio.precio}}</span>
-                <input type="submit" value="Hire Service" class="btn btn-success ms-5" role="button">
             </button>
+            <button type="submit" (click)="hireService(currentUser.success.id , servicio.id)"  title="hire service {{servicio.name}}"  class="btn btn-success ms-5" role="button">Hire Service</button>
+            <!-- currentUser.id 
+            
+            -->
             <div id="descripcionCaja">
                 {{servicio.description}}
             </div>
             <div class="row">
-                <div id="contenido{{servicio.id}}" class="collapse">
-                    {{servicio.link}}
+                <div id="contenido{{servicio.id}}" class="collapse linkService">
+                    <a href="{{servicio.link}}">{{servicio.link}}</a>
                 </div>
             </div>
         </div>
+                    <!-- <div *ngIf="servicio.precio > currentUser.token">
+                
+            </div> -->
     </div>
+    
 </form>
     <ng-template>No data or they are loading...</ng-template>
 </div>
