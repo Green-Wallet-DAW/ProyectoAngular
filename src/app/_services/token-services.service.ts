@@ -33,4 +33,9 @@ export class TokenServicesService {
     let restofURL =  "/hireComm/" + comm_id + "/" + serv_id;
     return this.http.get(API_URL + restofURL);
   }
+  getServiceById(serv_id:number): Observable<any>{
+    let restOfUrl = "/search/" + serv_id;
+    return this.http.get(API_URL + restOfUrl);
+
+  }
 }

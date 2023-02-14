@@ -22,6 +22,7 @@ export class MostrarServiciosComponent implements OnInit{
   public loading = false;
   public userID:number |null ;
   public serviceID:number | null;
+  servicio:any;
   currentUser:any;
 
 
@@ -46,12 +47,17 @@ export class MostrarServiciosComponent implements OnInit{
   
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
+
     this.getUserServices();
     // console.log(this.currentUser.success.id);
   }
-
+  
   hireService(user_id:number, serv_id:number){
+    this.servicio = this._dataServices.getServiceById(serv_id);
     console.log(serv_id+" "+user_id);
+
+    let precioService = this.servicio.precio;
+
     this._dataServices.hiringService(user_id, serv_id)
     .subscribe(
       success =>{
@@ -60,7 +66,9 @@ export class MostrarServiciosComponent implements OnInit{
         setTimeout(()=>{
           this.router.navigate(["/userServices"]);
         }, 5000)
-        
+        this.currentUser.success.tokens -= precioService;
+        this.token.saveUser(this.currentUser);
+        //  this.servicio.precio;
       },
       err =>{
         console.log("no data");
