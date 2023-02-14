@@ -20,7 +20,7 @@ export class MostrarServiciosComponent implements OnInit{
   
   public userServices:any;
   public loading = false;
-  public userID:string |null ;
+  public userID:number |null ;
   public serviceID:string | null;
   currentUser:any;
 
@@ -48,7 +48,7 @@ export class MostrarServiciosComponent implements OnInit{
     this.getUserServices();
   }
 
-  hireService(user_id:string, serv_id:string){
+  hireService(user_id:number, serv_id:string){
     // console.log(this.userID, this.serviceID);
     
     this._dataServices.hiringService(user_id, serv_id)
