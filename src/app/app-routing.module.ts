@@ -13,16 +13,15 @@ import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {path: 'generalview' ,component: GeneralviewComponent},
-  {path: 'mydevices', component: MydevicesComponent},
-  {path: 'serviciosUsuario', component:MostrarServiciosComponent},
+  {path: 'userServices', component:MostrarServiciosComponent},
+  {path: 'communityServices', component:ShowCommunityServicesComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/edit', component: EditComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  {path: 'userServices', component:MostrarServiciosComponent},
-  {path: 'communityServices', component:ShowCommunityServicesComponent}
+
 ];
 
 @NgModule({
