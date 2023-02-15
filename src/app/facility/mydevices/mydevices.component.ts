@@ -8,17 +8,17 @@ import { MydevicesService } from './mydevices.service';
 })
 export class MydevicesComponent implements OnInit {
   caja: any;
-
+  public loading = false;
   constructor(private _mvc: MydevicesService) {}
-
+  i:any;
 
   showGeneral(){
+    this.loading = true;
     this._mvc.generalView()
     .subscribe(
       result => {
         this.caja = result
-        console.log(this.caja[0].maquinas);
-
+        this.loading=false;
       },
       err => {
         this.caja = JSON.parse(err.error).message;
@@ -27,11 +27,12 @@ export class MydevicesComponent implements OnInit {
       );
   }
   showDaily(){
+    this.loading = true;
     this._mvc.dailyView()
     .subscribe(
       result => {
         this.caja = result
-        console.log(this.caja[0].maquinas);
+        this.loading=false;
 
       },
       err => {
@@ -41,11 +42,12 @@ export class MydevicesComponent implements OnInit {
       );
   }
   showWeekly(){
+    this.loading = true;
     this._mvc.weeklyView()
     .subscribe(
       result => {
         this.caja = result
-        console.log(this.caja[0].maquinas);
+        this.loading=false;
 
       },
       err => {
@@ -55,11 +57,12 @@ export class MydevicesComponent implements OnInit {
       );
   }
   showMontly(){
+    this.loading = true;
     this._mvc.montlyView()
     .subscribe(
       result => {
         this.caja = result
-        console.log(this.caja[0].maquinas);
+        this.loading=false;
 
       },
       err => {
@@ -69,11 +72,12 @@ export class MydevicesComponent implements OnInit {
       );
   }
   showYearly(){
+    this.loading = true;
     this._mvc.yearlyView()
     .subscribe(
       result => {
         this.caja = result
-        console.log(this.caja[0].maquinas);
+        this.loading=false;
 
       },
       err => {
@@ -82,8 +86,32 @@ export class MydevicesComponent implements OnInit {
       }
       );
   }
+
+  showValues(i){
+
+    switch(i){
+      case 0:
+        this.showGeneral();
+      break;
+      case 1:
+        this.showDaily();
+      break;
+      case 2:
+        this.showWeekly();
+      break;
+      case 3:
+        this.showMontly();
+      break;
+      case 4:
+        this.showYearly();
+      break;
+      default:
+        this.showGeneral();
+    }
+  }
+
   ngOnInit(): void {
-    this.showMontly();
+    this.showValues(this.i);
   }
 
 }

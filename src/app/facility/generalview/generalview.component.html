@@ -1,6 +1,27 @@
 <div class="container-fluid">
+  <div *ngIf="loading" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
   <div class="row">
-    <div *ngIf="caja!=null; else espera">
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(0)">General</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(1)">Daily</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(2)">Weekly</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(3)">Montly</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(4)">Yearly</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngIf="caja!=null;">
 
       <div *ngFor="let art of caja">
         <div class="caja">
@@ -21,7 +42,7 @@
             <div class="row">
               <div class="caja_graf d-flex justify-content-between align-items-center flex-column">
                 <p>
-                <button class="btn btn-primary" (click)="mostrarDiario" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{art.faciliy_name}}" aria-expanded="false" attr.aria-controls="contenido{{art.faciliy_name}}">
+                <button class="btn btn-primary" (click)="showWeekly" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{art.faciliy_name}}" aria-expanded="false" attr.aria-controls="contenido{{art.faciliy_name}}">
                   General
                 </button>
               </p>

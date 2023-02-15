@@ -2,7 +2,7 @@
         <div *ngIf="loading" class="spinner-border text-success" role="status">
         <span class="visually-hidden">Loading...</span>
         </div>
-<form>
+
 
     <div *ngFor="let servicio of userServices">
         <p *ngIf="userServices.length == 0" class="fs-1">No data</p>
@@ -14,7 +14,7 @@
                 </svg>
                 <span id="tituloCaja">{{servicio.name}}</span> <span id="tituloCaja">{{servicio.precio}}</span>
             </button>
-            <button type="submit" (click)="hireService(currentUser.success.id , servicio.id)"  title="hire service {{servicio.name}}"  class="btn btn-success ms-5" role="button">Hire Service</button>
+            <button (click)="hireService(currentUser.success.id , servicio.id)"  title="hire service {{servicio.name}}"  class="btn btn-success ms-5" role="button">Hire Service</button>
             <!-- currentUser.id 
             
             -->
@@ -31,7 +31,6 @@
                 
             </div> -->
     </div>
-    
-</form>
+
     <ng-template>No data or they are loading...</ng-template>
 </div>

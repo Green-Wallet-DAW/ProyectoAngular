@@ -1,7 +1,26 @@
 <div class="container-fluid">
+  <div *ngIf="loading" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
   <div class="row">
-    <div *ngIf="caja!=null; else espera">
-
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(0)">General</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(1)">Daily</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(2)">Weekly</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(3)">Montly</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(4)">Yearly</button>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngIf="caja!=null;">
       <div *ngFor="let art of caja; let in = index">
         <div class="caja">
           <div class="row">
@@ -26,6 +45,9 @@
                       <td>
                         <p>tokens: {{mac.tokens}}</p>
                       </td>
+                      <!-- <td>
+                        <p>fecha: {{mac.date}}</p>
+                      </td> -->
                     </tr>
                   </table>
                 </div>

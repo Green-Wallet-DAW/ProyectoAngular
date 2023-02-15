@@ -20,9 +20,11 @@ export class MostrarServiciosComponent implements OnInit{
   
   public userServices:any;
   public loading = false;
-  public userID:string |null ;
-  public serviceID:string | null;
+  public userID:number |null ;
+  public serviceID:number | null;
+  servicio:any;
   currentUser:any;
+
 
   constructor(private _dataServices: TokenServicesService, private authServ:AuthService, private router: Router, private aRoute: ActivatedRoute, private token: TokenStorageService, private toastr: ToastrService) {
   }
@@ -42,27 +44,36 @@ export class MostrarServiciosComponent implements OnInit{
     )
   }
 
-
+  
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    this.getUserServices();
-  }
 
-  hireService(user_id:string, serv_id:string){
-    // console.log(this.userID, this.serviceID);
-    
+    this.getUserServices();
+    // console.log(this.currentUser.success.id);
+  }
+  
+  hireService(user_id:number, serv_id:number){
+    this.servicio = this._dataServices.getServiceById(serv_id);
+    console.log(serv_id+" "+user_id);
+
+    let precioService = this.servicio.precio;
+
     this._dataServices.hiringService(user_id, serv_id)
     .subscribe(
       success =>{
+        console.log("exito");
         this.toastr.success("The service has been contracted.", "Service Hired" ,{positionClass: 'toast-bottom-right', timeOut:2000});
         setTimeout(()=>{
           this.router.navigate(["/userServices"]);
-        }, 50)
+        }, 5000)
+        this.currentUser.success.tokens -= precioService;
+        this.token.saveUser(this.currentUser);
+        //  this.servicio.precio;
       },
       err =>{
         console.log("no data");
         alert("Error");
-        this.toastr.error("The service couldn't be hired")
+        this.toastr.error("The service couldn't be hired");
       }
     )
   }

@@ -13,6 +13,7 @@ import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {path: 'generalview' ,component: GeneralviewComponent},
+  {path: 'mydevices', component: MydevicesComponent},
   {path: 'userServices', component:MostrarServiciosComponent},
   {path: 'communityServices', component:ShowCommunityServicesComponent},
   { path: 'home', component: HomeComponent },
