@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 const API_URL = "http://localhost/api/serviceList";
 
@@ -32,5 +32,10 @@ export class TokenServicesService {
   hiringCommunityService(comm_id:String, serv_id): Observable<any>{
     let restofURL =  "/hireComm/" + comm_id + "/" + serv_id;
     return this.http.get(API_URL + restofURL);
+  }
+  getServiceById(serv_id:number): Observable<any[]>{
+    let restOfUrl = "/search/" + serv_id;
+    return of([this.http.get(API_URL + restOfUrl)]);
+
   }
 }
