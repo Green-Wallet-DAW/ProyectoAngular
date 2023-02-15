@@ -6,3 +6,9 @@ export class Comunidades {
     ){}
         
 }
+export class Com_Usu {
+    constructor (
+        public id_comunity: number,
+        public id_user: number
+    ){}
+}

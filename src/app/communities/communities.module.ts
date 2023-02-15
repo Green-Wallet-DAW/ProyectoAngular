@@ -11,6 +11,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 
 import { ToastrModule } from 'ngx-toastr';
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -31,7 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     BrowserModule,
     ToastrModule.forRoot(),
-   
+    DataTablesModule,
   ],
   exports: [
     YourcommunitiesComponent,

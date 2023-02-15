@@ -1,6 +1,6 @@
-<form action="" method="post">
+<!-- <form action="" method="post">
     <fieldset>
-        <!-- <legend>Personalia:</legend> -->
+        <legend>Personalia:</legend>
         <label for="fname">Enter the name of your community:</label><br>
         <input type="text" name="fname" placeholder="Community Name*"><br>
         <label for="description">Write a description for your community:</label><br>
@@ -9,10 +9,10 @@
         </textarea>
         
     </fieldset>
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" [disabled]="!formularioAlta.valid">
       Join a community
     </button>
-</form>
+</form> -->
 
 
 
@@ -20,15 +20,15 @@
 <form [formGroup]="formularioAlta" (ngSubmit)="onSubmit()" class="mt-4 text-start">
   <div class="row mb-3">
     <div class="col-12 col-md-8">
-      <label for="nombre" class="form-label">Nombre</label>
-      <input type="text" id="nombre" class="form-control" placeholder="Introduce nombre" formControlName="name" required>
+      <label for="nombre" class="form-label">Enter the name of your community:</label>
+      <input type="text" id="nombre" class="form-control" placeholder="Community Name*" formControlName="name" required>
     <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['required']">(El nombre no puede quedar vacío)</span>
     <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['minlength']">(Debe tener como mínimo 3 caracteres)</span>
     <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['maxlength']">(Debe tener como máximo 50 caracteres)</span>
     </div>
     <div class="col-12 mt-2 col-md-4 mt-md-0">
-      <label for="descripcion" class="form-label">Descripcion</label>
-      <input type="text" id="descripcion" class="form-control" placeholder="Introduce'description" formControlName="description" required>
+      <label for="descripcion" class="form-label">Write a description for your community:</label>
+      <input type="description" id="descripcion" class="form-control" formControlName="description" required>
       <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['required']">(La'descripcion no puede quedar vacía)</span>
       <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['max']">(La'descripcion no puede ser mayor de 119)</span>
       <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['min']">(La'descripcion no puede ser menor de 0)</span>
@@ -50,7 +50,9 @@
 
   </div>
   <div class="my-3 text-center">
-    <button type="submit" class="btn btn-dark btn-lg" [disabled]="!formularioAlta.valid">Añadir</button>
+    <button type="submit" class="btn btn-success" [disabled]="!formularioAlta.valid">
+      Join a community
+    </button>
   </div>
 </form>
 
