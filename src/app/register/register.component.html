@@ -29,9 +29,9 @@
               placeholder="Username*"
             />
             <div class="alert-danger" *ngIf="f.submitted">
-              <div *ngIf="this.form.get('name')?.touched && this.form.get('name')?.errors?.['required']">Username is required</div>
-              <div *ngIf="this.form.get('name')?.touched && this.form.get('name')?.errors?.['minLength']">Username must be at least 5 characters</div>
-              <div *ngIf="this.form.get('name')?.touched && this.form.get('name')?.errors?.['maxLength']">
+              <div *ngIf="this.form.get('name')?.errors?.['required']">Username is required</div>
+              <div *ngIf="this.form.get('name')?.errors?.['minLength']">Username must be at least 5 characters</div>
+              <div *ngIf="this.form.get('name')?.errors?.['maxLength']">
                 Username must be at most 40 characters
               </div>
             </div>
@@ -49,8 +49,8 @@
               placeholder="Password*"
             />
             <div class="alert-danger" *ngIf="f.submitted">
-              <div *ngIf="this.form.get('password')?.touched && this.form.get('password')?.errors?.['required']">Password is required</div>
-              <div *ngIf="this.form.get('password')?.touched && this.form.get('password')?.errors?.['minLength']">Password must be at least 10 characters</div>
+              <div *ngIf="this.form.get('password')?.errors?.['required']">Password is required</div>
+              <div *ngIf="this.form.get('password')?.errors?.['minLength']">Password must be at least 10 characters</div>
             </div>
           </div>
           <div class="form-group col">
@@ -66,9 +66,9 @@
               placeholder="Confirm Password*"
             />
             <div class="alert-danger" *ngIf="f.submitted">
-              <div *ngIf="this.form.get('cpassword')?.touched && this.form.get('cpassword')?.errors?.['required']">Confirm Password is required</div>
-              <div *ngIf="this.form.get('cpassword')?.touched && this.form.get('cpassword')?.errors?.['minLength']">Confirm Password must be at least 10 characters</div>
-              <div *ngIf="this.form.get('cpassword')?.touched && this.form.get('cpassword')?.hasError('matching')">Password and Confirm Password must match</div>
+              <div *ngIf="this.form.get('cpassword')?.errors?.['required']">Confirm Password is required</div>
+              <div *ngIf="this.form.get('cpassword')?.errors?.['minLength']">Confirm Password must be at least 10 characters</div>
+              <div *ngIf="this.form.get('cpassword')?.hasError('matching')">Password and Confirm Password must match</div>
             </div>
           </div>
         </div>
@@ -87,8 +87,9 @@
               placeholder="Email*"
             />
             <div class="alert-danger" *ngIf="f.submitted">
-              <span *ngIf="this.form.get('email')?.touched && this.form.get('email')?.errors?.['required']">Email is required</span>
-              <span *ngIf="this.form.get('email')?.touched && this.form.get('email')?.errors?.['maxLength']">The name must be at least 100 characters</span>
+              <span *ngIf="this.form.get('email')?.errors?.['required']">Email is required</span>
+              <span *ngIf="this.form.get('email')?.errors?.['email']">Type a valid email address</span>
+              <span *ngIf="this.form.get('email')?.errors?.['maxLength']">The name must be at least 100 characters</span>
             </div>
           </div>        
           <div class="form-group col-4">
@@ -103,7 +104,7 @@
                 placeholder="Phone number*"
               />
               <div class="alert-danger" *ngIf="f.submitted">
-                <span *ngIf="this.form.get('phone_number')?.touched && this.form.get('phone_number')?.errors?.['required']">Phone number is required</span>
+                <span *ngIf="this.form.get('phone_number')?.errors?.['required']">Phone number is required</span>
               </div>
           </div>
         </div>
@@ -119,6 +120,22 @@
               placeholder="Credit Union Member Number"
             />
           </div>
+          <div class="row">
+            <div class="form-group ms-2 form-check">
+              <input
+              class="form-check-input form-control"
+              type="checkbox"
+              name="conf"
+              id="conf"
+              formControlName="conf"
+              style="margin-right: 10px; height: 25px; width: 25px;"
+              />
+              <a href="https://wallets.green/privacy-policy"><label for="conf" class="form-check-label">I accept Terms and Conditions of Use*</label></a>
+              <div class="alert-danger" *ngIf="f.submitted">
+                <div *ngIf="this.form.get('conf')?.errors?.['required']">You must accept terms and conditions</div>
+              </div>
+            </div>
+          </div>
 
           <div class="row">
             <div class="form-group ms-2 form-check">
@@ -128,7 +145,7 @@
               name="newsletter"
               id="newsletter"
               formControlName="newsletter"
-              style="margin-right: 10px; height: 20px; width: 20px;"
+              style="margin-right: 10px; height: 25px; width: 25px;"
               />
               <label for="newsletter" class="form-check-label">I wish to receive updates and news about Green Wallet</label>
             </div>

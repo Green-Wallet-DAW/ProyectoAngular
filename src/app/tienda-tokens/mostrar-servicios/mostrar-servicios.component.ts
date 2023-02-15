@@ -57,18 +57,20 @@ export class MostrarServiciosComponent implements OnInit{
     console.log(serv_id+" "+user_id);
 
     let precioService = this.servicio.precio;
-
+    console.log(this.servicio);
     this._dataServices.hiringService(user_id, serv_id)
     .subscribe(
       success =>{
         console.log("exito");
         this.toastr.success("The service has been contracted.", "Service Hired" ,{positionClass: 'toast-bottom-right', timeOut:2000});
+        console.log(this.currentUser.success.tokens);
+        this.currentUser.success.tokens = this.currentUser.success.tokens - precioService;
+        console.log(this.currentUser.success.tokens);
+        this.token.saveUser(this.currentUser);
+        //  this.servicio.precio;
         setTimeout(()=>{
           this.router.navigate(["/userServices"]);
         }, 5000)
-        this.currentUser.success.tokens -= precioService;
-        this.token.saveUser(this.currentUser);
-        //  this.servicio.precio;
       },
       err =>{
         console.log("no data");
