@@ -8,12 +8,17 @@ import { YourcomunitiesService } from './yourcomunities.service';
 })
 export class YourcommunitiesComponent implements OnInit{
   comunidades: any;
+  usuarios:any;
 
   constructor(private comunidadesService: YourcomunitiesService) {}
 
   ngOnInit() {
     this.comunidadesService.retornar()
-      .subscribe( result =>  this.comunidades = result)
-  }
+      .subscribe( result =>  this.comunidades = result);
   
+    
+  }
+  verUsuario(id: string) {
+    this.comunidadesService.getUsuarios(id).subscribe();
+  }
 }

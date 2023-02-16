@@ -5,11 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class YourcomunitiesService {
-
-  constructor(private http: HttpClient) { }
+ public url: string;
+  constructor(private http: HttpClient) { 
+    this.url = "http://localhost/api";
+  }
 
   retornar() {
-    return this.http.get("http://localhost/api/miscomunidades");
+    return this.http.get(this.url+"/miscomunidades");
   }  
+
+  getUsuarios(id: string) {
+    return this.http.get(this.url+"/misusuarios/"+id);
+  }
+
+ 
   
 }
