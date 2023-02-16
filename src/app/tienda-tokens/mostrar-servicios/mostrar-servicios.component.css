@@ -1,3 +1,5 @@
+@import "~ngx-toastr/toastr";
+
 #caja{
     background-color: #F8F8F8;
     width: 65vw;
