@@ -9,11 +9,12 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditComponent } from './edit/edit.component';
+import { ServiceGuardGuard } from './service-guard.guard';
 
 const routes: Routes = [
   {path: 'generalview' ,component: GeneralviewComponent},
   {path: 'userServices', component:MostrarServiciosComponent},
-  {path: 'communityServices', component:ShowCommunityServicesComponent},
+  {path: 'communityServices', component:ShowCommunityServicesComponent, canActivate:[ServiceGuardGuard]},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
