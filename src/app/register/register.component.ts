@@ -11,19 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  // form: any = {
-  //   name: null,
-  //   email: '',
-  //   password: null,
-  //   phone_number: null,
-  //   cumn: null,
-  //   newsletter: true,
-  //   cpassword: ['', [
-  //     Validators.required,
-  //     matchValidator('password')
-  //   ]],
-  //   // news: null,
-  // };
+
   form = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(40)]),
     email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(100)]),
@@ -32,7 +20,7 @@ export class RegisterComponent implements OnInit {
     newsletter: new FormControl(true, [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(10), matchValidator('cpassword', true)]),
     cpassword: new FormControl('', [Validators.required, Validators.minLength(10), matchValidator('password')]),
-    conf: new FormControl(false, [Validators.required]),
+    conf: new FormControl('', [Validators.required]),
   });
 
 
@@ -54,7 +42,7 @@ export class RegisterComponent implements OnInit {
         data => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
-          this.toastr.success('Your information has been registered successfully! You will be redirected now to the login', 'Account created', {positionClass: 'toast-bottom-center', timeOut:10000});
+          this.toastr.success('Your information has been registered successfully! You will be redirected now to the login', 'Account created', {positionClass: 'toast-bottom-center', timeOut: 5000});
           
           this.router.navigate(['/login']);
 

@@ -130,7 +130,7 @@
               formControlName="conf"
               style="margin-right: 10px; height: 25px; width: 25px;"
               />
-              <a href="https://wallets.green/privacy-policy"><label for="conf" class="form-check-label">I accept Terms and Conditions of Use*</label></a>
+              <label for="conf" class="form-check-label"><a href="https://wallets.green/privacy-policy" target="_blank">I accept Terms and Conditions of Use*</a></label>
               <div class="alert-danger" *ngIf="f.submitted">
                 <div *ngIf="this.form.get('conf')?.errors?.['required']">You must accept terms and conditions</div>
               </div>

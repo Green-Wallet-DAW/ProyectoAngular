@@ -33,22 +33,20 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe(
       data => {
-        console.log(JSON.stringify(data));
         this.tokenStorage.saveToken(data.success.token);
         this.tokenStorage.saveUser(data);
-
+        
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.rol = this.tokenStorage.getUser().success.rol;
-
+        
         if(this.rol == "admin"){ //Guarda
           this.logout();
         }else if(this.rol == "user"){
           this.reloadPage();
           this.router.navigate(['/home']);
         }
-        
       },
       err => {
         this.errorMessage = err.error.message;
