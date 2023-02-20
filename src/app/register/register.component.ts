@@ -6,6 +6,7 @@ import { matchValidator } from './form-validator';
 import { ToastrService } from 'ngx-toastr';
 import {callJSFun} from '../register/emails.js';
 
+declare var $: any;
 
 @Component({
   selector: 'app-register',
@@ -56,6 +57,7 @@ export class RegisterComponent implements OnInit {
     if(this.form.valid){
       this.valid = true;
       this.code = this.stringGenerator();
+      $('#staticBackdrop').modal('show');
       
       callJSFun(this.form.value.email, this.form.value.name, this.code);
 
@@ -73,7 +75,6 @@ export class RegisterComponent implements OnInit {
           this.isSignUpFailed = false;
           this.toastr.success('Your information has been registered successfully! You will be redirected now to the login', 'Account created', {positionClass: 'toast-bottom-center', timeOut: 5000});
           
-          console.log("redirect?");
           this.router.navigate(['/login']);
 
         },
