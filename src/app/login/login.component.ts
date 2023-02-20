@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
   rol: string;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,) { }
+  constructor(private toastr: ToastrService ,private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -43,16 +44,23 @@ export class LoginComponent implements OnInit {
         
         if(this.rol == "admin"){ //Guarda
           this.logout();
-        }else if(this.rol == "user"){
+        }else{
           this.reloadPage();
           this.router.navigate(['/home']);
+
         }
       },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
+        this.router.navigate(['/login']);
+        this.toastr.error("Email and password didn't match, try again", 'Login Failed', {positionClass: 'toast-bottom-center', timeOut:5000});
       }
       );
+    }
+
+    forgot(){
+
     }
     
     reloadPage(): void { 
@@ -60,8 +68,8 @@ export class LoginComponent implements OnInit {
     }
 
     logout(): void {
-      this.router.navigate(['/login']);
       this.tokenStorage.signOut();
+      this.router.navigate(['/login']);
     }
 
 }
