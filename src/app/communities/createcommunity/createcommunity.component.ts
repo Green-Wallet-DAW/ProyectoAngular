@@ -5,6 +5,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Comunidades } from './comunidades';
 import { CreateCommunityServiceService } from './create-community-service.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { AuthService } from 'src/app/_services/auth.service';
+import { AuthInterceptorService } from 'src/app/_services/auth-interceptor.service';
 
 @Component({
   selector: 'app-createcommunity',
@@ -31,7 +33,7 @@ export class CreatecommunityComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.currentuser=this.to
+    this.currentuser=this.token.getUser();
 
   }
 
