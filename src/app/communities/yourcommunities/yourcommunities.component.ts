@@ -15,10 +15,14 @@ export class YourcommunitiesComponent implements OnInit{
   constructor(private comunidadesService: YourcomunitiesService, private authServ:AuthService, private token: TokenStorageService) {}
 
   ngOnInit() {
-    this.comunidadesService.retornar(this.token.getUser().success.id)
-      .subscribe( result =>  this.comunidades = result);
+    this.getComunidades();
   
     
+  }
+  
+  getComunidades(){
+    this.comunidadesService.retornar(this.token.getUser().success.id)
+      .subscribe( result =>  this.comunidades = result);
   }
   verUsuario(id: string) {
     this.comunidadesService.getUsuarios(id).subscribe();
