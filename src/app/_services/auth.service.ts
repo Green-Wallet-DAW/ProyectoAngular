@@ -51,4 +51,13 @@ export class AuthService {
     }, httpOptions);
 
   }
+
+  updatePass(id: number, password: string): Observable<any>{
+    return this.http.put(AUTH_API + 'updatePass', {
+      id,
+      password
+    }, httpOptions);
+
+  }
+  
 }

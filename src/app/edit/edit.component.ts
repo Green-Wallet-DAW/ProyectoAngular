@@ -36,6 +36,9 @@ export class EditComponent implements OnInit{
     cumn: new FormControl(''),
     newsletter: new FormControl(true, [Validators.required]),
   });
+  formPass = new FormGroup({
+    password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(255)])
+  });
   public loading = false;
   // form: { name: any; email: any; phone_number: any; cumn: any; newsletter: any; };
 
@@ -147,6 +150,18 @@ export class EditComponent implements OnInit{
       );
     }else{
       this.toastr.error("The form did not validated correctly", 'ERROR UPDATING PROFILE', {positionClass: 'toast-bottom-right'});
+    }
+  }
+
+  newPass(){
+    const currentuser = this.token2.getUser();
+    currentuser.success.id = this.id1;
+    if(this.formPass.valid){
+      this.authService.updatePass(currentuser.success.id, this.formPass.value.password).subscribe(
+        result => {
+          console.log();
+        }
+      );
     }
   }
 }
