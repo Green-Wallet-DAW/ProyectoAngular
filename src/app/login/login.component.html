@@ -92,7 +92,7 @@
       </div>
       <form
         name="form2"
-        (ngSubmit)="forgot()"
+        (ngSubmit)="send()"
         #f="ngForm"
         novalidate
         [formGroup]="form2">
@@ -112,7 +112,7 @@
           <span *ngIf="this.form2.get('email')?.errors?.['maxLength']">The email must be at least 100 characters</span>
         </div>
         <div class="modal-footer form-group">
-          <button (click)="send()" class="btn btn-success btn-block enter-btn fs-5" id="send2" [disabled]="!form2" type="submit">Submit</button>
+          <button class="btn btn-success btn-block enter-btn fs-5" id="send2" [disabled]="!form2" type="submit">Submit</button>
         </div>
       </form>
       
