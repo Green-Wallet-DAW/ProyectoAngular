@@ -19,6 +19,7 @@ export class ShowCommunityServicesComponent implements OnInit{
   getCommunityServices(){
 
     this.charging = true;
+
     this._dataServices.getCommunityRoledServices()
     .subscribe(
       foundresults => {

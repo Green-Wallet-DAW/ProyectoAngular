@@ -14,7 +14,7 @@
                 </svg>
                 <span id="tituloCaja">{{servicio.name}}</span> <span id="tituloCaja">{{servicio.precio}}</span>
             </button>
-            <button (click)="hireService(currentUser.success.id , servicio.id)"  title="hire service {{servicio.name}}"  class="btn btn-success ms-5" role="button">Hire Service</button>
+            <button (click)="hireService(currentUser.success.id , servicio.id, currentUser.success.tokens ,servicio.precio)"  title="hire service {{servicio.name}}"  class="btn btn-success ms-5" role="button">Hire Service</button>
             <!-- currentUser.id 
             
             -->
