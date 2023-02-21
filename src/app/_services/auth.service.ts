@@ -24,8 +24,8 @@ export class AuthService {
 
   }
 
-  password(email: string): Observable<any> {
-    return this.http.get(AUTH_API + 'forgotPass/' + email);
+  password(email: string): Observable<any>{
+    return this.http.get(AUTH_API + 'forgotPass/' + email, httpOptions);
   }
 
   register(name: string, email: string, password: string, phone_number: string, cumn: string, newsletter: boolean): Observable<any> {

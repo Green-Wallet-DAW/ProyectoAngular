@@ -55,7 +55,7 @@
             <button id="logB" class="btn btn-success btn-block enter-btn fs-3">LOG IN</button>
           </div>
           <div>
-            <button id="forgot" type="button" class="btn btn-block btn-success fs-3">FORGOT PASSWORD</button>
+            <button (click)="forgot()" id="forgot" type="button" class="btn btn-block btn-success fs-3">FORGOT PASSWORD</button>
             <!-- <a href="http://localhost/login"><button type="button" class="btn btn-block btn-success fs-3">LOGIN ADMIN</button></a> -->
           </div>
         </div>
@@ -70,7 +70,7 @@
           </div>
         </div>
       </form>
-
+      <!-- <button (click)="prueba()" class="btn btn-success btn-block enter-btn fs-3">Prueba</button> -->
     </div>
   </div>
   <div class="textB">
@@ -79,4 +79,43 @@
     <a id="enlace" [routerLink]="['/register']"><strong>Click here to get started !</strong></a>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="staticBackdropLabel">Remembering your password</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form
+        name="form2"
+        (ngSubmit)="forgot()"
+        #f="ngForm"
+        novalidate
+        [formGroup]="form2">
+        <div class="modal-body form-group">
+          <h5>Type your email here</h5>
+          <input type="email"
+          class="form-control"
+          name="email"
+          id="email"
+          formControlName="email"
+          required
+          placeholder="Enter the email you want the new password to be sent to*">
+        </div>
+        <div class="alert-danger" *ngIf="f.submitted">
+          <span *ngIf="this.form2.get('email')?.errors?.['required']">You must enter an email to continue</span>
+          <span *ngIf="this.form2.get('email')?.errors?.['email']">You must a valid email to continue</span>
+          <span *ngIf="this.form2.get('email')?.errors?.['maxLength']">The email must be at least 100 characters</span>
+        </div>
+        <div class="modal-footer form-group">
+          <button (click)="send()" class="btn btn-success btn-block enter-btn fs-5" id="send2" [disabled]="!form2" type="submit">Submit</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
 </div>

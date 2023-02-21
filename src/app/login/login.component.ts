@@ -3,6 +3,10 @@ import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import {callJSFun} from '../login/emails.js';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+declare var $: any;
 
 @Component({
   selector: 'app-login',
@@ -19,6 +23,10 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   rol: string;
+
+  form2 = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(100)])
+  });
 
   constructor(private toastr: ToastrService ,private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,) { }
 
@@ -47,7 +55,7 @@ export class LoginComponent implements OnInit {
         }else{
           this.reloadPage();
           this.router.navigate(['/home']);
-
+          
         }
       },
       err => {
@@ -59,8 +67,35 @@ export class LoginComponent implements OnInit {
       );
     }
 
-    forgot(){
+    prueba(){
+      let email = "greenswallet1@gmail.com";
+      let body = "This is the body";
 
+      callJSFun(email, body);
+    }
+    
+    forgot(){
+      $('#staticBackdrop').modal('show');
+    }
+  
+    send(){
+      if(this.form2.valid){
+        // let body = this.authService.password(this.form2.value.email);
+        this.authService.password(this.form2.value.email).subscribe(
+          result => {
+            // console.log(result);
+            callJSFun(this.form2.value.email, result);
+          },
+          error => {
+            if(error instanceof ErrorEvent){
+              this.errorMessage = error.error.message;
+            }else{
+              this.errorMessage = "Error status: " + error.status;
+            }
+          }
+        );
+        $('#staticBackdrop').modal('hide');
+      }
     }
     
     reloadPage(): void { 
@@ -71,5 +106,6 @@ export class LoginComponent implements OnInit {
       this.tokenStorage.signOut();
       this.router.navigate(['/login']);
     }
-
-}
+    
+  }
+  
