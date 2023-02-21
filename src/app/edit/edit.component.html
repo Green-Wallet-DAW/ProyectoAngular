@@ -6,8 +6,10 @@
             <div class="ms-3 spinner-border text-primary" role="status" *ngIf="loading">
               <span class="visually-hidden">Loading...</span>
             </div>
-            <button class="btn btn-success btn-lg" (click)="modal()" type="button">Change password</button>
-            <button class="btn btn-success btn-lg" type="submit" [disabled]="!formUpdate">Submit</button>
+            <div>
+              <button class="btn btn-success btn-lg me-4" (click)="modal()" type="button">Change password</button>
+              <button class="btn btn-success btn-lg" type="submit" [disabled]="!formUpdate">Submit</button>
+            </div>
           </div>
             <!-- <div class="col-12" hidden>
               <label for="id" class="form-label">id</label>
@@ -51,7 +53,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="staticBackdropLabel">Remembering your password</h3>
+        <h3 class="modal-title" id="staticBackdropLabel">Changing your password</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form
@@ -61,7 +63,7 @@
         novalidate
         [formGroup]="formPass">
         <div class="modal-body form-group">
-          <h5>Type your email here</h5>
+          <h5>Type the new password here</h5>
           <input type="text"
           class="form-control"
           name="password"

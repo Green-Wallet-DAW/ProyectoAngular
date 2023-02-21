@@ -61,18 +61,6 @@ export class MostrarServiciosComponent implements OnInit{
     this._dataServices.hiringService(user_id, serv_id)
     .subscribe(
       success =>{
-<<<<<<< HEAD
-        console.log("exito");
-        this.toastr.success("The service has been contracted.", "Service Hired" ,{positionClass: 'toast-bottom-right', timeOut:2000});
-        console.log(this.currentUser.success.tokens);
-        this.currentUser.success.tokens = this.currentUser.success.tokens - precioService;
-        console.log(this.currentUser.success.tokens);
-        this.token.saveUser(this.currentUser);
-        //  this.servicio.precio;
-        setTimeout(()=>{
-          this.router.navigate(["/userServices"]);
-        }, 5000)
-=======
         console.log("The service has been hired");
         this.toastr.success("The service has been hired.", "Service Hired");
         // setTimeout(()=>{
@@ -81,7 +69,6 @@ export class MostrarServiciosComponent implements OnInit{
         this.currentUser.success.tokens -= precioService;
         this.token.saveUser(this.currentUser);
         //  this.servicio.precio;
->>>>>>> refs/remotes/origin/main
       },
       err =>{
         console.log("The service couldn't be hired");
