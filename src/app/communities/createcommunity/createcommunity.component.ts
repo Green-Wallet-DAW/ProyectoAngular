@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Comunidades } from './comunidades';
 import { CreateCommunityServiceService } from './create-community-service.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-createcommunity',
@@ -12,30 +13,35 @@ import { CreateCommunityServiceService } from './create-community-service.servic
 })
 export class CreatecommunityComponent implements OnInit{
   public comunidad: Comunidades;
+  currentuser:any;
   public mensajeErr = "";
   public introducido = -1;
   formularioAlta = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
     description: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]),
     master: new FormControl('', [Validators.required]),
+    id_comunity: new FormControl('', [Validators.required]),
+    id_user: new FormControl('', [Validators.required]),
   });
   public cargando = false;
 
   constructor(private _createComunityService: CreateCommunityServiceService, private router: Router, private toastr: ToastrService) {
-    this.comunidad = new Comunidades("", "", 0);
+    this.comunidad = new Comunidades("", "", 0, 0, 0);
+   
   }
 
   ngOnInit(): void {
+    this.currentuser=this.to
 
   }
 
   onSubmit() {
-    
-
     if (this.formularioAlta.valid) {
       this.comunidad.name = this.formularioAlta.value.name!;
       this.comunidad.description = this.formularioAlta.value.description!;
       this.comunidad.master = Number(this.formularioAlta.value.master);
+      this.comunidad.id_comunity = Number(this.formularioAlta.value.id_comunity);
+      this.comunidad.id_user = Number(this.formularioAlta.value.id_user);
       // this.empleado.contratado = Number(this.formularioAlta.value.contratado);
       this.cargando = true;
       this._createComunityService.introducirComunidad(this.comunidad)

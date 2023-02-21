@@ -24,7 +24,7 @@ export class CreateCommunityServiceService {
   introducirComunidad(comunidad: Comunidades): Observable<any> {
     return this.http.post(this.url+'guardar', comunidad, httpOptions);
   }
-  introducirUserCom(anyadir: Com_Usu): Observable<any> {
-    return this.http.post(this.url+'guardar2', anyadir, httpOptions);
-  }
+  // introducirUserCom(anyadir: Com_Usu): Observable<any> {
+  //   return this.http.post(this.url+'guardar2', anyadir, httpOptions);
+  // }
 }
