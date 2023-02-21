@@ -30,6 +30,8 @@ export class CreatecommunityComponent implements OnInit{
   }
 
   onSubmit() {
+    
+
     if (this.formularioAlta.valid) {
       this.comunidad.name = this.formularioAlta.value.name!;
       this.comunidad.description = this.formularioAlta.value.description!;

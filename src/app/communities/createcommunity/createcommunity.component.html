@@ -37,7 +37,7 @@
   <div class="row mb-3">
     <div class="col-12 col-md-6">
       <label for="masters" class="form-label">master</label>
-      <input type="text" id="masters" class="form-control" placeholder="Introduce master" formControlName="master" required>
+      <input type="hidden" id="masters" class="form-control" value="" formControlName="master" required>
       <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['required']">(El master no puede quedar vacío)</span>
       <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
     </div>
