@@ -66,13 +66,6 @@ export class LoginComponent implements OnInit {
       }
       );
     }
-
-    prueba(){
-      let email = "greenswallet1@gmail.com";
-      let body = "This is the body";
-
-      callJSFun(email, body);
-    }
     
     forgot(){
       $('#staticBackdrop').modal('show');

@@ -7,6 +7,7 @@ import { TokenStorageService } from '../_services/token-storage.service';
 import { UserService } from '../_services/user.service';
 import { User } from './user';
 
+declare var $: any;
 
 @Component({
   selector: 'app-edit',
@@ -37,14 +38,13 @@ export class EditComponent implements OnInit{
     newsletter: new FormControl(true, [Validators.required]),
   });
   formPass = new FormGroup({
-    password: new FormControl('', [Validators.required, Validators.minLength(5), Validators.maxLength(255)])
+    password: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(255)])
   });
   public loading = false;
-  // form: { name: any; email: any; phone_number: any; cumn: any; newsletter: any; };
 
   constructor(private authService: AuthService, private token: UserService, private router: Router, private toastr: ToastrService, private token2: TokenStorageService) {
-    // this.user = new User('','','','', false);
-   }
+  
+  }
 
   ngOnInit(): void {
     this.loading = true;
@@ -131,7 +131,7 @@ export class EditComponent implements OnInit{
           this.token2.saveUser(currentuser);
 
 
-          this.toastr.success('Your information has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-right', timeOut:2000});
+          this.toastr.success('Your information has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-right', timeOut:4000});
           setTimeout(() => {
             this.router.navigate(['/profile']);
           }, 50);
@@ -149,19 +149,31 @@ export class EditComponent implements OnInit{
         }
       );
     }else{
-      this.toastr.error("The form did not validated correctly", 'ERROR UPDATING PROFILE', {positionClass: 'toast-bottom-right'});
+      this.toastr.error("The form did not validated correctly", 'ERROR UPDATING PROFILE', {positionClass: 'toast-bottom-center'});
     }
   }
 
   newPass(){
     const currentuser = this.token2.getUser();
-    currentuser.success.id = this.id1;
     if(this.formPass.valid){
       this.authService.updatePass(currentuser.success.id, this.formPass.value.password).subscribe(
         result => {
-          console.log();
+          console.log(currentuser.success.id+" "+this.formPass.value.password);
+          $('#staticBackdrop').modal('hide');
+          this.toastr.success('Your password has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-center', timeOut:4000});
+        },
+        error => {
+          if(error instanceof ErrorEvent){
+            this.errorMessage = error.error.message;
+          }else{
+            this.errorMessage = "Error status: " + error.status;
+          }
         }
       );
     }
+  }
+
+  modal(){
+    $('#staticBackdrop').modal('show');
   }
 }

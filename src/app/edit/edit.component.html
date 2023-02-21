@@ -6,6 +6,7 @@
             <div class="ms-3 spinner-border text-primary" role="status" *ngIf="loading">
               <span class="visually-hidden">Loading...</span>
             </div>
+            <button class="btn btn-success btn-lg" (click)="modal()" type="button">Change password</button>
             <button class="btn btn-success btn-lg" type="submit" [disabled]="!formUpdate">Submit</button>
           </div>
             <!-- <div class="col-12" hidden>
@@ -43,4 +44,42 @@
         <div class="mt-2 mb-4">
           <button class="btn btn-success btn-lg me-3" type="text" routerLink="/profile">Return</button>
         </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="staticBackdropLabel">Remembering your password</h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form
+        name="formPass"
+        (ngSubmit)="newPass()"
+        #f="ngForm"
+        novalidate
+        [formGroup]="formPass">
+        <div class="modal-body form-group">
+          <h5>Type your email here</h5>
+          <input type="text"
+          class="form-control"
+          name="password"
+          id="password"
+          formControlName="password"
+          required
+          placeholder="Enter the new password*">
+        </div>
+        <div class="alert-danger" *ngIf="f.submitted">
+          <span *ngIf="this.formPass.get('password')?.errors?.['required']">You must enter an new password to continue</span>
+          <span *ngIf="this.formPass.get('password')?.errors?.['minLength']">The password must be at least 10 characters</span>
+          <span *ngIf="this.formPass.get('password')?.errors?.['maxLength']">The password must be at max. 255 characters</span>
+        </div>
+        <div class="modal-footer form-group">
+          <button class="btn btn-success btn-block enter-btn fs-5" id="send2" [disabled]="!formPass" type="submit">Submit</button>
+        </div>
+      </form>
+      
+    </div>
+  </div>
 </div>
