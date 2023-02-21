@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Comunidades, Com_Usu } from './comunidades';
+import { Comunidades } from './comunidades';
 
 const httpOptions = {
   headers: new HttpHeaders({

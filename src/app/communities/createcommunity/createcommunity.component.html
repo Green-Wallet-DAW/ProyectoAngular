@@ -34,21 +34,33 @@
       <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['min']">(La'descripcion no puede ser menor de 0)</span>
     </div>
   </div>
-  <div class="row mb-3">
+  <!-- <div class="row mb-3">
     <div class="col-12 col-md-6">
       <label for="masters" class="form-label">master</label>
       <input type="hidden" id="masters" class="form-control" value="" formControlName="master" required>
       <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['required']">(El master no puede quedar vacío)</span>
       <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
     </div>
+    <div class="col-12 col-md-6">
+      <label for="id_comunitys" class="form-label">id_comunity</label>
+      <input type="number" id="id_comunitys" class="form-control" value="" formControlName="id_comunity" required>
+      <span *ngIf="this.formularioAlta.get('id_comunity')?.touched && this.formularioAlta.get('id_comunity')?.errors?.['required']">(El master no puede quedar vacío)</span>
+      <span *ngIf="this.formularioAlta.get('id_comunity')?.touched && this.formularioAlta.get('id_comunity')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
+    </div>
+    <div class="col-12 col-md-6">
+      <label for="id_users" class="form-label">id_user</label>
+      <input type="number" id="id_users" class="form-control" value="currentuser.success.id" formControlName="id_user" required>
+      <span *ngIf="this.formularioAlta.get('id_user')?.touched && this.formularioAlta.get('id_user')?.errors?.['required']">(El master no puede quedar vacío)</span>
+      <span *ngIf="this.formularioAlta.get('id_user')?.touched && this.formularioAlta.get('id_user')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
+    </div>
    
-    <!-- <div class="col-12 mt-2 col-md-4 mt-md-0">
+    <div class="col-12 mt-2 col-md-4 mt-md-0">
       <label for="contratado (0=NO/1=SI)" class="form-label">Contratado</label>
       <input type="text" id="contratado" class="form-control" placeholder="0/1" formControlName="contratado" required>
       <span *ngIf="this.formularioAlta.get('contratado')?.touched && this.formularioAlta.get('contratado')?.errors?.['required']">(Contratado no puede quedar vacío)</span>
-    </div> -->
+    </div>
 
-  </div>
+  </div>-->
   <div class="my-3 text-center">
     <button type="submit" class="btn btn-success" [disabled]="!formularioAlta.valid">
       Join a community

@@ -3,7 +3,7 @@ export class Comunidades {
         public name:string,
         public description:string,
         public master:number,
-        public id_comunity: number,
+        // public id_comunity: number,
         public id_user: number
     ){}
         

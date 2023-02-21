@@ -6,7 +6,7 @@ import { Comunidades } from './comunidades';
 import { CreateCommunityServiceService } from './create-community-service.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { AuthService } from 'src/app/_services/auth.service';
-import { AuthInterceptorService } from 'src/app/_services/auth-interceptor.service';
+
 
 @Component({
   selector: 'app-createcommunity',
@@ -21,19 +21,21 @@ export class CreatecommunityComponent implements OnInit{
   formularioAlta = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
     description: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(255)]),
-    master: new FormControl('', [Validators.required]),
-    id_comunity: new FormControl('', [Validators.required]),
-    id_user: new FormControl('', [Validators.required]),
+    master: new FormControl(this.token.getUser().success.id),
+    // id_comunity: new FormControl(),
+    id_user: new FormControl(this.token.getUser().success.id),
   });
   public cargando = false;
 
-  constructor(private _createComunityService: CreateCommunityServiceService, private router: Router, private toastr: ToastrService) {
-    this.comunidad = new Comunidades("", "", 0, 0, 0);
+ 
+
+  constructor(private authServ:AuthService, private _createComunityService: CreateCommunityServiceService, private router: Router, private token: TokenStorageService, private toastr: ToastrService) {
+    this.comunidad = new Comunidades("", "", 0, 0);
    
   }
 
   ngOnInit(): void {
-    this.currentuser=this.token.getUser();
+    // this.currentuser=this.token.getUser();
 
   }
 
@@ -42,7 +44,7 @@ export class CreatecommunityComponent implements OnInit{
       this.comunidad.name = this.formularioAlta.value.name!;
       this.comunidad.description = this.formularioAlta.value.description!;
       this.comunidad.master = Number(this.formularioAlta.value.master);
-      this.comunidad.id_comunity = Number(this.formularioAlta.value.id_comunity);
+      // this.comunidad.id_comunity = Number(this.formularioAlta.value.id_comunity);
       this.comunidad.id_user = Number(this.formularioAlta.value.id_user);
       // this.empleado.contratado = Number(this.formularioAlta.value.contratado);
       this.cargando = true;
@@ -68,7 +70,7 @@ export class CreatecommunityComponent implements OnInit{
               this.mensajeErr = error.error.message;
             }
             else if (error.status == 409) {
-              this.mensajeErr = "Empleado ya existe"
+              this.mensajeErr = "La comunidad ya existe"
             } else {
               this.mensajeErr = "Error status:" + error.status;
             }

@@ -10,8 +10,8 @@ export class YourcomunitiesService {
     this.url = "http://localhost/api";
   }
 
-  retornar() {
-    return this.http.get(this.url+"/miscomunidades");
+  retornar(id: number) {
+    return this.http.get(this.url+"/miscomunidades/"+id);
   }  
 
   getUsuarios(id: string) {
