@@ -7,11 +7,13 @@ import { TokenStorageService } from '../_services/token-storage.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  public loading = false;
   currentUser: any;
   news = "";
   constructor(private token: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.currentUser = this.token.getUser();
     console.log(this.currentUser);
     if(this.currentUser.success.newsletter == 1){
@@ -19,5 +21,6 @@ export class ProfileComponent implements OnInit {
     }else{
       this.news = "NO";
     }
+    this.loading = false;
   }
 }

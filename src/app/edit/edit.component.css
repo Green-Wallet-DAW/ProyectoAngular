@@ -76,3 +76,14 @@ th{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+#no{
+    background-color: white;
+    color: #049201;
+    border-color: #049201;
+    border-width: 3px;
+}
+
+.bcaja{
+    width: 70px;
+}

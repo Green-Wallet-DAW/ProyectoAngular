@@ -2,6 +2,9 @@
   <div class="container userBox" *ngIf="currentUser; else loggedOut">
       <div class="row cajaUE uCon fs-1 pt-4">
         <strong class="col">Your profile</strong>
+        <div class="ms-3 spinner-border text-primary" role="status" *ngIf="loading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
         <button [routerLink]="['/profile/edit']" class="btn btn-success btn-block enter-btn fs-4 me-4" style="width: 110px;">Edit</button>
       </div>
       <div class="uCon">
@@ -26,7 +29,7 @@
         <strong>Account created at: </strong>{{currentUser.success.created_at}}
       </div> -->
   </div>
-  <button type="button" class="btn btn-success fs-4" [routerLink]="['/home']">Back</button>
+  <button type="button" class="btn btn-success fs-4" [routerLink]="['/home']">Return</button>
 </div>
   
   <ng-template #loggedOut>

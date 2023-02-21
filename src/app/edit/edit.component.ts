@@ -98,6 +98,39 @@ export class EditComponent implements OnInit{
 
   onSubmit(): void {
     if(this.formUpdate.valid){
+      $('#staticBackdrop2').modal('show');
+    }
+  }
+
+  newPass(){
+    const currentuser = this.token2.getUser();
+    if(this.formPass.valid){
+      this.loading = true;
+      this.authService.updatePass(currentuser.success.id, this.formPass.value.password).subscribe(
+        result => {
+          this.loading = false;
+          console.log(currentuser.success.id+" "+this.formPass.value.password);
+          $('#staticBackdrop').modal('hide');
+          this.toastr.success('Your password has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-center', timeOut:4000});
+        },
+        error => {
+          this.loading = false;
+          if(error instanceof ErrorEvent){
+            this.errorMessage = error.error.message;
+          }else{
+            this.errorMessage = "Error status: " + error.status;
+          }
+        }
+      );
+    }
+  }
+
+  modal(){
+    $('#staticBackdrop').modal('show');
+  }
+
+  modal2(){
+    if(this.formUpdate.valid){
       this.id1 = parseInt(this.formUpdate.value.id!);
       this.name1 = this.formUpdate.value.name!;
       this.email1  = this.formUpdate.value.email!;
@@ -131,7 +164,8 @@ export class EditComponent implements OnInit{
           this.token2.saveUser(currentuser);
 
 
-          this.toastr.success('Your information has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-right', timeOut:4000});
+          $('#staticBackdrop2').modal('hide');
+          this.toastr.success('Your information has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-center', timeOut:4000});
           setTimeout(() => {
             this.router.navigate(['/profile']);
           }, 50);
@@ -151,29 +185,5 @@ export class EditComponent implements OnInit{
     }else{
       this.toastr.error("The form did not validated correctly", 'ERROR UPDATING PROFILE', {positionClass: 'toast-bottom-center'});
     }
-  }
-
-  newPass(){
-    const currentuser = this.token2.getUser();
-    if(this.formPass.valid){
-      this.authService.updatePass(currentuser.success.id, this.formPass.value.password).subscribe(
-        result => {
-          console.log(currentuser.success.id+" "+this.formPass.value.password);
-          $('#staticBackdrop').modal('hide');
-          this.toastr.success('Your password has been updated successfully!', 'Profile updated', {positionClass: 'toast-bottom-center', timeOut:4000});
-        },
-        error => {
-          if(error instanceof ErrorEvent){
-            this.errorMessage = error.error.message;
-          }else{
-            this.errorMessage = "Error status: " + error.status;
-          }
-        }
-      );
-    }
-  }
-
-  modal(){
-    $('#staticBackdrop').modal('show');
   }
 }
