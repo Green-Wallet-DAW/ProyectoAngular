@@ -16,12 +16,16 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<any> {
-    this.router.navigate(['home']); 
+    this.router.navigate(['/home']);
     return this.http.post(AUTH_API + 'loginU', {
       email,
       password
     }, httpOptions);
 
+  }
+
+  password(email: string): Observable<any>{
+    return this.http.get(AUTH_API + 'forgotPass/' + email, httpOptions);
   }
 
   register(name: string, email: string, password: string, phone_number: string, cumn: string, newsletter: boolean): Observable<any> {
