@@ -11,6 +11,8 @@
 npm-debug.log
 yarn-error.log
 
+src\app\_services\auth.service.ts
+
 # IDEs and editors
 .idea/
 .project

@@ -20,7 +20,7 @@
         <strong>Subscribed to newsletter: </strong>{{news}}
       </div>
       <div class="uCon">
-        <strong>Tokens: </strong>{{currentUser.success.tokens}}
+        <strong>Tokens: </strong>{{currentUser.success.token}}
       </div>
       <!-- <div class="uCon">
         <strong>Account created at: </strong>{{currentUser.success.created_at}}
@@ -28,11 +28,11 @@
   </div>
   <button type="button" class="btn btn-success fs-4" [routerLink]="['/home']">Back</button>
 </div>
-  
+
   <ng-template #loggedOut>
     Please login.
   </ng-template>
-  
+
   <!-- <p>
     <strong>Token:</strong>
     {{ currentUser.accessToken.substring(0, 20) }} ...

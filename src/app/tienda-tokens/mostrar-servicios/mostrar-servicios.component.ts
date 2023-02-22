@@ -14,10 +14,10 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-mostrar-servicios',
   templateUrl: './mostrar-servicios.component.html',
   styleUrls: ['./mostrar-servicios.component.css'],
-  
+
 })
 export class MostrarServiciosComponent implements OnInit{
-  
+
   public userServices:any;
   public loading = false;
   public userID:number |null ;
@@ -44,14 +44,14 @@ export class MostrarServiciosComponent implements OnInit{
     )
   }
 
-  
+
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
 
     this.getUserServices();
     // console.log(this.currentUser.success.id);
   }
-  
+
   hireService(user_id:number, serv_id:number, userTokens:number ,precioServ:number){
     // this.servicio = this._dataServices.getServiceById(serv_id);
 

@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {callJSFun} from '../login/emails.js';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {GeneralviewServiceService} from '../facility/generalview/generalview-service.service';
 
 declare var $: any;
 
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(100)])
   });
 
-  constructor(private toastr: ToastrService ,private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router,) { }
+  constructor(private toastr: ToastrService ,private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private gvn: GeneralviewServiceService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
@@ -38,24 +39,26 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
+
     const { email, password } = this.form;
 
     this.authService.login(email, password).subscribe(
       data => {
         this.tokenStorage.saveToken(data.success.token);
         this.tokenStorage.saveUser(data);
-        
+    
+
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
         this.rol = this.tokenStorage.getUser().success.rol;
-        
+
         if(this.rol == "admin"){ //Guarda
           this.logout();
         }else{
           this.reloadPage();
           this.router.navigate(['/home']);
-          
+
         }
       },
       err => {
@@ -66,11 +69,11 @@ export class LoginComponent implements OnInit {
       }
       );
     }
-    
+
     forgot(){
       $('#staticBackdrop').modal('show');
     }
-  
+
     send(){
       if(this.form2.valid){
         // let body = this.authService.password(this.form2.value.email);
@@ -90,8 +93,8 @@ export class LoginComponent implements OnInit {
         $('#staticBackdrop').modal('hide');
       }
     }
-    
-    reloadPage(): void { 
+
+    reloadPage(): void {
       window.location.reload();
     }
 
@@ -99,6 +102,6 @@ export class LoginComponent implements OnInit {
       this.tokenStorage.signOut();
       this.router.navigate(['/login']);
     }
-    
+
   }
-  
+

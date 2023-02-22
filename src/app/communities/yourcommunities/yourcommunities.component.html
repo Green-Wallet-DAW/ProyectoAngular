@@ -4,14 +4,14 @@
 
   <div *ngFor="let com of comunidades" class="card text-bg-light mb-3" style="max-width: 100%;">
     <div class="card-body">
-      <div id="boton" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{com.id}}" aria-controls="contenido" 
-        aria-expanded="false" aria-label="Toggle navigation">
+      <div id="boton" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{com.id}}" aria-controls="contenido"
+        aria-expanded="false" aria-label="Toggle navigation"  (click)="verUsuario(com.id)">
         <svg id="flechaCaja" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#049201"
           class="bi bi-caret-right-fill" viewBox="0 0 16 16">
           <path id="path1"
             d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
         </svg>
-        <span id="tituloCaja" (click)="verUsuario(com.id)">{{com.name}}</span>
+        <span id="tituloCaja">{{com.name}}</span>
         <span>Community Wallet</span>
       </div>
       <div id="descripcionCaja">
@@ -45,15 +45,11 @@
             </thead>
             <tbody>
               <tr *ngFor="let el of usuarios">
-                      
-                        <td>{{el.member}}</td>
-                        <td>{{el.edad}}</td>
-                        <td>{{el.cargo}}</td>
-                        <!-- <td>
-                            <a href="#" class="btn btn-sm btn-info" data-bs-toggle="tooltip" title="Ver registro {{elemento.id}}"><i class="bi bi-eye"></i></a>
-                            <a href="#" class="btn btn-sm btn-warning ms-1" data-bs-toggle="tooltip" title="Modificar registro {{elemento.id}}"><i class="bi bi-pencil"></i></a>
-                            <a class="btn btn-sm btn-danger ms-1" data-bs-toggle="tooltip" title="Borrar registro {{elemento.id}}" (click)="verUsaurio(elemento.id)"><i class="bi bi-trash3"></i></a>
-                        </td> -->
+
+                        <td>{{el.members}}</td>
+                        <td>{{el.energy_produced}}</td>
+                        <td>{{el.carbono_ahorrado}}</td>
+
                       </tr>
 
             </tbody>
@@ -76,7 +72,7 @@
             <div class="card-body">
               <p class="card-text">Are you sure you want to leave the community {{com.name}}?</p>
             </div>
-            
+
           </div>
 
 
@@ -97,7 +93,7 @@
               <h5 class="card-title">Request sent!</h5>
               <p class="card-text">Your request to leave the community {{com.name}} was correctly sent and one of our administrators is reviewing it. You will get an email with the outcome of the request.</p>
             </div>
-            
+
           </div>
 
 
@@ -117,12 +113,12 @@
               <p class="card-text">Specify the ammount to donate to {{com.name}}:</p>
               <input type="number" name="tokenComunityDonate" placeholder="Token ammount*">
             </div>
-            
+
           </div>
 
-          <button type="button" class="btn btn-outline-success">Back</button>
+          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Back</button>
           <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#Donate2_{{com.id}}">Donate</button>
-        
+
 
         </div>
       </div>
@@ -139,7 +135,7 @@
               <p class="card-text">Specify the ammount to donate to {{com.name}}:</p>
               <input type="number" name="tokenComunityDonate" placeholder="Token ammount*">
             </div>
-            
+
           </div>
 
           <button type="button" class="btn btn-outline-success">Back</button>

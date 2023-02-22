@@ -19,7 +19,7 @@ export class CreateCommunityServiceService {
 
 
   constructor(private http: HttpClient) {
-    this.url = "http://localhost/api/comunidad/";
+    this.url = "http://localhost/proyectolaravel/public/api/comunidad/";
   }
   introducirComunidad(comunidad: Comunidades): Observable<any> {
     return this.http.post(this.url+'guardar', comunidad, httpOptions);

@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div *ngIf="loading" class="spinner-border text-success" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(0)">General</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(1)">Daily</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(2)">Weekly</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(3)">Montly</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="showValues(4)">Yearly</button>
+    </div>
+
+  </div>
+  <div class="row">
+    <div *ngIf="caja!=null;">
+      <div *ngFor="let art of caja; let in = index">
+
+        <div class="caja">
+          <div class="row">
+            <div class="col-7">
+              <h2>My home {{art.faciliy_name}} Overview</h2>
+
+              <div class="scroll-container">
+
+                <div *ngFor="let mac of caja[in].maquinas;">
+
+                  <table class="tabla">
+                    <tr>
+                      <th>
+                        Device  {{mac.id}}
+                      </th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>energy_produced: {{mac.energy_produced}}</p>
+                      </td>
+                      <td>
+                        <p>carbono_ahorrado: {{mac.carbono_ahorrado}}</p>
+                      </td>
+                      <td>
+                        <p>tokens: {{mac.tokens}}</p>
+                      </td>
+                    </tr>
+                  </table>
+
+                </div>
+
+              </div>
+
+            </div>
+            <div class="col-5">
+              <p>Residence: {{art.street_name}}</p>
+              <p>Energy Power Provider: </p>
+              <p>Contract Number/Code:  {{art.contractNumber}}</p>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="caja_graf d-flex justify-content-between align-items-center flex-column">
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #espera>Generando tu informacion...</ng-template>
+  </div>
+</div>

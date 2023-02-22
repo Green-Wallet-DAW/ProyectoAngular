@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { JoincomunitiesService } from './joincomunities.service';
-
+declare var $:any;
 
 @Component({
   selector: 'app-joincommunity',
@@ -38,14 +38,18 @@ export class JoincommunityComponent implements OnInit {
         info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
       },
     };
-    
+
     this.Comunidades();
-      
+
       }
-  
+
       Comunidades(){
         this.comunidadesService.devolver()
           .subscribe( result =>  {this.comunidades = result; this.muestratabla= true})
+      }
+
+      prueba(){
+        $('.cosas').modal('hide');
       }
 
 
