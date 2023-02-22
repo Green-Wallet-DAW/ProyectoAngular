@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
-const AUTH_API = 'http://localhost/api/';
+const AUTH_API = 'http://localhost/proyectolaravel/public/api/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -16,7 +16,7 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): Observable<any> {
-    this.router.navigate(['home']); 
+    this.router.navigate(['home']);
     return this.http.post(AUTH_API + 'loginU', {
       email,
       password

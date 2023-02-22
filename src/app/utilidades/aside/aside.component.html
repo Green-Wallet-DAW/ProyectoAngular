@@ -12,9 +12,8 @@
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li><a class="link-dark rounded fs-4"
             [routerLink]="['/generalview']"> General view</a></li>
-          <li><a href="#" class="link-dark rounded fs-4"
-            [routerLink]="['/mydevices']">My devices</a>
-          </li>
+          <li><a class="link-dark rounded fs-4"
+            [routerLink]="['/mydevices']" >My devices</a></li>
         </ul>
       </div>
     </li>
@@ -24,8 +23,8 @@
       </button>
       <div class="subelement collapse" id="dashboard-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a href="#" class="link-dark rounded fs-4">My Community</a></li>
-          <li><a href="#" class="link-dark rounded fs-4">Global Community</a></li>
+          <li><a [routerLink]="['/home']" class="link-dark rounded fs-4">My Community</a></li>
+          <li><a [routerLink]="['/home']" class="link-dark rounded fs-4">Global Community</a></li>
         </ul>
       </div>
     </li>

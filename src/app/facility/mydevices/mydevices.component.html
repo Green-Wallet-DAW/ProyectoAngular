@@ -18,17 +18,21 @@
     <div class="col">
       <button class="btn btn-success" (click)="showValues(4)">Yearly</button>
     </div>
+
   </div>
   <div class="row">
     <div *ngIf="caja!=null;">
       <div *ngFor="let art of caja; let in = index">
+
         <div class="caja">
           <div class="row">
             <div class="col-7">
               <h2>My home {{art.faciliy_name}} Overview</h2>
 
               <div class="scroll-container">
+
                 <div *ngFor="let mac of caja[in].maquinas;">
+
                   <table class="tabla">
                     <tr>
                       <th>
@@ -45,14 +49,12 @@
                       <td>
                         <p>tokens: {{mac.tokens}}</p>
                       </td>
-                      <!-- <td>
-                        <p>fecha: {{mac.date}}</p>
-                      </td> -->
                     </tr>
                   </table>
-                </div>
-              </div>
 
+                </div>
+
+              </div>
 
             </div>
             <div class="col-5">

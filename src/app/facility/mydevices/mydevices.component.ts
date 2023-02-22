@@ -1,5 +1,6 @@
 import { Component , OnInit} from '@angular/core';
 import { MydevicesService } from './mydevices.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-mydevices',
@@ -8,13 +9,18 @@ import { MydevicesService } from './mydevices.service';
 })
 export class MydevicesComponent implements OnInit {
   caja: any;
-  public loading = false;
-  constructor(private _mvc: MydevicesService) {}
   i:any;
+  id:number;
+  public loading: boolean = false;
+  currentUser: any;
 
-  showGeneral(){
+
+  constructor(private _mvc: MydevicesService, private token: TokenStorageService) {}
+
+
+  showGeneral(id:number){
     this.loading = true;
-    this._mvc.generalView()
+    this._mvc.generalView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -26,24 +32,9 @@ export class MydevicesComponent implements OnInit {
       }
       );
   }
-  showDaily(){
+  showDaily(id:number){
     this.loading = true;
-    this._mvc.dailyView()
-    .subscribe(
-      result => {
-        this.caja = result
-        this.loading=false;
-
-      },
-      err => {
-        this.caja = JSON.parse(err.error).message;
-
-      }
-      );
-  }
-  showWeekly(){
-    this.loading = true;
-    this._mvc.weeklyView()
+    this._mvc.dailyView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -56,9 +47,9 @@ export class MydevicesComponent implements OnInit {
       }
       );
   }
-  showMontly(){
+  showWeekly(id:number){
     this.loading = true;
-    this._mvc.montlyView()
+    this._mvc.weeklyView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -71,9 +62,24 @@ export class MydevicesComponent implements OnInit {
       }
       );
   }
-  showYearly(){
+  showMontly(id:number){
     this.loading = true;
-    this._mvc.yearlyView()
+    this._mvc.montlyView(id)
+    .subscribe(
+      result => {
+        this.caja = result
+        this.loading=false;
+
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+
+      }
+      );
+  }
+  showYearly(id:number){
+    this.loading = true;
+    this._mvc.yearlyView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -91,26 +97,28 @@ export class MydevicesComponent implements OnInit {
 
     switch(i){
       case 0:
-        this.showGeneral();
+        this.showGeneral(this.id);
       break;
       case 1:
-        this.showDaily();
+        this.showDaily(this.id);
       break;
       case 2:
-        this.showWeekly();
+        this.showWeekly(this.id);
       break;
       case 3:
-        this.showMontly();
+        this.showMontly(this.id);
       break;
       case 4:
-        this.showYearly();
+        this.showYearly(this.id);
       break;
       default:
-        this.showGeneral();
+        this.showGeneral(this.id);
     }
   }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+    console.log(typeof (this.id= this.currentUser.success.id));
     this.showValues(this.i);
   }
 

@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-const API_URL_GENERAL ="http://localhost/api/mydevices";
-const API_URL_DAILY ="http://localhost/api/mydevicesdaily";
-const API_URL_WEEKLY = "http://localhost/api/mydevicesweekly";
-const API_URL_MONTLY = "http://localhost/api/mydevicesmontly";
-const API_URL_YEARLY = "http://localhost/api/mydevicesyearly";
+const API_URL_GENERAL ="http://localhost/proyectolaravel/public/api/mydevices";
+const API_URL_DAILY ="http://localhost/proyectolaravel/public/api/mydevicesdaily";
+const API_URL_WEEKLY = "http://localhost/proyectolaravel/public/api/mydevicesweekly";
+const API_URL_MONTLY = "http://localhost/proyectolaravel/public/api/mydevicesmontly";
+const API_URL_YEARLY = "http://localhost/proyectolaravel/public/api/mydevicesyearly";
 
   @Injectable({
   providedIn: 'root'
@@ -15,19 +15,24 @@ export class MydevicesService {
 
   constructor(private http: HttpClient) { }
 
-  generalView(): Observable<any>{
-    return this.http.get(API_URL_GENERAL);
+  generalView(id:number): Observable<any>{
+    console.log(API_URL_GENERAL+"/"+id);
+    return this.http.get(API_URL_GENERAL+"/"+id);
   }
-  dailyView(): Observable<any>{
-    return this.http.get(API_URL_DAILY);
+  dailyView(id:number): Observable<any>{
+    console.log(API_URL_DAILY+"/"+id);
+    return this.http.get(API_URL_DAILY+"/"+id);
   }
-  weeklyView(): Observable<any>{
-    return this.http.get(API_URL_WEEKLY);
+  weeklyView(id:number): Observable<any>{
+    console.log(API_URL_WEEKLY+"/"+id);
+    return this.http.get(API_URL_WEEKLY+"/"+id);
   }
-  montlyView(): Observable<any>{
-    return this.http.get(API_URL_MONTLY);
+  montlyView(id:number): Observable<any>{
+    console.log(API_URL_MONTLY+"/"+id);
+    return this.http.get(API_URL_MONTLY+"/"+id);
   }
-  yearlyView(): Observable<any>{
-    return this.http.get(API_URL_YEARLY);
+  yearlyView(id:number): Observable<any>{
+    console.log(API_URL_YEARLY+"/"+id);
+    return this.http.get(API_URL_YEARLY+"/"+id);
   }
 }

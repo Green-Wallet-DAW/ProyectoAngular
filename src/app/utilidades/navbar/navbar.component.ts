@@ -29,8 +29,8 @@ export class NavbarComponent {
   }
 
   logout(): void {
-    this.router.navigate(['/login']);
     this.tokenStorageService.signOut();
+    this.router.navigate(['/login']);
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import  { GeneralviewServiceService } from './generalview-service.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
 
 @Component({
   selector: 'app-generalview',
@@ -9,15 +10,19 @@ import  { GeneralviewServiceService } from './generalview-service.service';
 export class GeneralviewComponent implements OnInit{
   caja: any;
   i:any;
+  id:number;
   public loading: boolean = false;
+  currentUser: any;
 
-  constructor(private _gvc: GeneralviewServiceService) {}
+  constructor(private _gvc: GeneralviewServiceService, private token: TokenStorageService) {}
 
-  showGeneral(){
+  showGeneral(id:number){
     this.loading=true;
-    this._gvc.generalView()
+    this._gvc.generalView(id)
+
     .subscribe(
       result => {
+
         this.caja = result
         this.loading=false;
       },
@@ -27,9 +32,9 @@ export class GeneralviewComponent implements OnInit{
       );
   }
 
-  showDaily(){
+  showDaily(id:number){
     this.loading = true;
-    this._gvc.dailyView()
+    this._gvc.dailyView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -40,9 +45,9 @@ export class GeneralviewComponent implements OnInit{
       }
       );
   }
-  showWeekly(){
+  showWeekly(id:number){
     this.loading = true;
-    this._gvc.weeklyView()
+    this._gvc.weeklyView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -53,9 +58,9 @@ export class GeneralviewComponent implements OnInit{
       }
       );
   }
-  showMontly(){
+  showMontly(id:number){
     this.loading = true;
-    this._gvc.monthView()
+    this._gvc.monthView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -66,9 +71,9 @@ export class GeneralviewComponent implements OnInit{
       }
       );
   }
-  showYearly(){
+  showYearly(id:number){
     this.loading = true;
-    this._gvc.yearView()
+    this._gvc.yearView(id)
     .subscribe(
       result => {
         this.caja = result
@@ -85,26 +90,28 @@ export class GeneralviewComponent implements OnInit{
 
     switch(i){
       case 0:
-        this.showGeneral();
+        this.showGeneral(this.id);
       break;
       case 1:
-        this.showDaily();
+        this.showDaily(this.id);
       break;
       case 2:
-        this.showWeekly();
+        this.showWeekly(this.id);
       break;
       case 3:
-        this.showMontly();
+        this.showMontly(this.id);
       break;
       case 4:
-        this.showYearly();
+        this.showYearly(this.id);
       break;
       default:
-        this.showGeneral();
+        this.showGeneral(this.id);
     }
   }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
+    console.log(typeof (this.id= this.currentUser.success.id));
     this.showValues(this.i);
   }
 

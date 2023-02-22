@@ -8,6 +8,7 @@ import { MydevicesComponent } from './mydevices/mydevices.component';
   declarations: [
     GeneralviewComponent,
     MydevicesComponent,
+
   ],
   imports: [
     CommonModule,
