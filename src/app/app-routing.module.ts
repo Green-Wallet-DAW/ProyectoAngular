@@ -8,10 +8,15 @@ import { ShowCommunityServicesComponent } from './tienda-tokens/show-community-s
 
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditComponent } from './edit/edit.component';
 import { ServiceGuardGuard } from './service-guard.guard';
+
+import { CreatecommunityComponent } from './communities/createcommunity/createcommunity.component';
+import { GlobalcommunityComponent } from './communities/globalcommunity/globalcommunity.component';
+import { JoincommunityComponent } from './communities/joincommunity/joincommunity.component';
+import { YourcommunitiesComponent } from './communities/yourcommunities/yourcommunities.component';
+import { HomeComponent } from './dashboard/home/home.component';
 
 const routes: Routes = [
   {path: 'generalview' ,component: GeneralviewComponent},
@@ -19,8 +24,13 @@ const routes: Routes = [
   {path: 'addfacility', component: AddfacilityComponent},
   {path: 'userServices', component:MostrarServiciosComponent},
   {path: 'communityServices', component:ShowCommunityServicesComponent, canActivate:[ServiceGuardGuard]},
+  {path: 'globalCommunities' ,component: GlobalcommunityComponent},
+  {path: 'yourCommunity' ,component: YourcommunitiesComponent},
+  {path: 'createCommunity' ,component: CreatecommunityComponent},
+  {path: 'joinCommunity' ,component: JoincommunityComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/edit', component: EditComponent },

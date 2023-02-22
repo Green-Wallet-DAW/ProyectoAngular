@@ -1,0 +1,47 @@
+.main{
+    min-height: 90%;
+    height: 55vh;
+    /* width: 70%; */
+    text-align: center;
+    display: flex;
+    align-items: start;
+    background-color: #F8F8F8;
+    width: 65vw;
+    mix-blend-mode: darken;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 30px;
+    padding-bottom: 25px;
+    padding-right: 30px;
+    cursor: default;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.botonDash{
+    width: 10%;
+}
+.grafic{
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.placeHolder{
+    width: 90%;
+    height: 90%;
+}
+.info{
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: center; */
+    flex-direction: row;
+}
+.dashboard-content{
+    margin-left: 30%;
+}

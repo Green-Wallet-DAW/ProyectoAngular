@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
   const API_URL_WEEKLY ="http://localhost/proyectolaravel/public/api/generalviewweekly";
   const API_URL_MONTH ="http://localhost/proyectolaravel/public/api/generalviewmonth";
   const API_URL_YEAR ="http://localhost/proyectolaravel/public/api/generalviewyear";
-
+  const TOKENS = "http://localhost/proyectolaravel/public/api/instalaciontokens";
   @Injectable({
   providedIn: 'root'
 })
@@ -34,5 +34,11 @@ export class GeneralviewServiceService{
   dailyView(id:number): Observable<any>{
     console.log(API_URL_DAILY+"/"+id);
     return this.http.get(API_URL_DAILY+"/"+id);
+  }
+
+
+  instalaciontokens(id:number): Observable<any>{
+    console.log(TOKENS+"/"+id);
+    return this.http.get(TOKENS+"/"+id);
   }
 }

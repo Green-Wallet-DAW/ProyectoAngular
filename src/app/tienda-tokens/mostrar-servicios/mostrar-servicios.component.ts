@@ -52,28 +52,32 @@ export class MostrarServiciosComponent implements OnInit{
     // console.log(this.currentUser.success.id);
   }
 
-  hireService(user_id:number, serv_id:number){
-    this.servicio = this._dataServices.getServiceById(serv_id);
+  hireService(user_id:number, serv_id:number, userTokens:number ,precioServ:number){
+    // this.servicio = this._dataServices.getServiceById(serv_id);
+
     console.log(serv_id+" "+user_id);
 
-    let precioService = this.servicio.precio;
-    console.log(this.servicio);
-    this._dataServices.hiringService(user_id, serv_id)
-    .subscribe(
-      success =>{
-        console.log("The service has been hired");
-        this.toastr.success("The service has been hired.", "Service Hired");
-        // setTimeout(()=>{
-        //   this.router.navigate(["/userServices"]);
-        // }, 5000)
-        this.currentUser.success.tokens -= precioService;
-        this.token.saveUser(this.currentUser);
-        //  this.servicio.precio;
-      },
-      err =>{
-        console.log("The service couldn't be hired");
-        this.toastr.error("The service couldn't be hired", "The service an't be hired");
-      }
-    )
+    console.log(userTokens);
+
+    console.log(precioServ);
+    if(userTokens >= precioServ){
+      this._dataServices.hiringService(user_id, serv_id)
+      .subscribe(
+        success =>{
+          console.log("The service has been hired");
+          this.toastr.success("The service has been hired.", "Service Hired");
+          this.currentUser.success.tokens -= precioServ;
+          console.log(precioServ)
+          this.token.saveUser(this.currentUser);
+          //  this.servicio.precio;
+        },
+        err =>{
+          console.log("The service couldn't be hired");
+          this.toastr.error("The service couldn't be hired", "The service can't be hired");
+        }
+      )
+    }else{
+      this.toastr.error("You don't have enough Tokens", "Not enough Tokens")
+    }
   }
 }
