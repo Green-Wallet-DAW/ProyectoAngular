@@ -1,0 +1,129 @@
+<!-- <form action="" method="post">
+    <fieldset>
+        <legend>Personalia:</legend>
+        <label for="fname">Enter the name of your community:</label><br>
+        <input type="text" name="fname" placeholder="Community Name*"><br>
+        <label for="description">Write a description for your community:</label><br>
+        <textarea name="description" rows="10" cols="30" placeholder="Description*">
+            
+        </textarea>
+        
+    </fieldset>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop" [disabled]="!formularioAlta.valid">
+      Join a community
+    </button>
+</form> -->
+
+
+
+
+<form [formGroup]="formularioAlta" (ngSubmit)="onSubmit()" class="mt-4 text-start">
+  <div class="row mb-3">
+    <div class="col-12 col-md-8">
+      <label for="nombre" class="form-label">Enter the name of your community:</label>
+      <input type="text" id="nombre" class="form-control" placeholder="Community Name*" formControlName="name" required>
+    <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['required']">(El nombre no puede quedar vacío)</span>
+    <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['minlength']">(Debe tener como mínimo 3 caracteres)</span>
+    <span *ngIf="this.formularioAlta.get('name')?.touched && this.formularioAlta.get('name')?.errors?.['maxlength']">(Debe tener como máximo 50 caracteres)</span>
+    </div>
+    <div class="col-12 mt-2 col-md-4 mt-md-0">
+      <label for="descripcion" class="form-label">Write a description for your community:</label>
+      <input type="description" id="descripcion" class="form-control" formControlName="description" required>
+      <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['required']">(La'descripcion no puede quedar vacía)</span>
+      <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['max']">(La'descripcion no puede ser mayor de 119)</span>
+      <span *ngIf="this.formularioAlta.get('description')?.touched && this.formularioAlta.get('description')?.errors?.['min']">(La'descripcion no puede ser menor de 0)</span>
+    </div>
+  </div>
+  <!-- <div class="row mb-3">
+    <div class="col-12 col-md-6">
+      <label for="masters" class="form-label">master</label>
+      <input type="hidden" id="masters" class="form-control" value="" formControlName="master" required>
+      <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['required']">(El master no puede quedar vacío)</span>
+      <span *ngIf="this.formularioAlta.get('master')?.touched && this.formularioAlta.get('master')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
+    </div>
+    <div class="col-12 col-md-6">
+      <label for="id_comunitys" class="form-label">id_comunity</label>
+      <input type="number" id="id_comunitys" class="form-control" value="" formControlName="id_comunity" required>
+      <span *ngIf="this.formularioAlta.get('id_comunity')?.touched && this.formularioAlta.get('id_comunity')?.errors?.['required']">(El master no puede quedar vacío)</span>
+      <span *ngIf="this.formularioAlta.get('id_comunity')?.touched && this.formularioAlta.get('id_comunity')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
+    </div>
+    <div class="col-12 col-md-6">
+      <label for="id_users" class="form-label">id_user</label>
+      <input type="number" id="id_users" class="form-control" value="currentuser.success.id" formControlName="id_user" required>
+      <span *ngIf="this.formularioAlta.get('id_user')?.touched && this.formularioAlta.get('id_user')?.errors?.['required']">(El master no puede quedar vacío)</span>
+      <span *ngIf="this.formularioAlta.get('id_user')?.touched && this.formularioAlta.get('id_user')?.errors?.['maxlength']">(Debe tener como máximo 20 caracteres)</span>
+    </div>
+   
+    <div class="col-12 mt-2 col-md-4 mt-md-0">
+      <label for="contratado (0=NO/1=SI)" class="form-label">Contratado</label>
+      <input type="text" id="contratado" class="form-control" placeholder="0/1" formControlName="contratado" required>
+      <span *ngIf="this.formularioAlta.get('contratado')?.touched && this.formularioAlta.get('contratado')?.errors?.['required']">(Contratado no puede quedar vacío)</span>
+    </div>
+
+  </div>-->
+  <div class="my-3 text-center">
+    <button type="submit" class="btn btn-success" [disabled]="!formularioAlta.valid">
+      Join a community
+    </button>
+  </div>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+  <div class="modal-dialog ">
+    <div class="modal-content bg-light">
+      <div class="card w-50">
+          <div class="card-body">
+            <h5 class="card-title">Request sent!</h5>
+            <p class="card-text">Your request to create a community waas correctly sent and one of our administrators is reviewing it. You will get an email with the oucome of the request.</p>
+          </div>
+        </div>
+      
+      
+          <a href="#" class="" routerLink="">Return to Dashboard</a>
+     
+    </div>
+  </div>
+</div>

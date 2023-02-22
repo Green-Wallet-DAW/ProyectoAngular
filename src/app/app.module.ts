@@ -7,7 +7,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UtilidadesModule } from './utilidades/utilidades.module';
 
-import { FacilityModule } from './facility/facility.module';import { TablasModule } from "./tablas/tablas.module";
+
+import { CommunitiesModule } from './communities/communities.module';
+
+
+import { FacilityModule } from './facility/facility.module';
+import { TablasModule } from "./tablas/tablas.module";
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -55,9 +60,9 @@ import { DashboardModule } from './dashboard/dashboard.module';
         UtilidadesModule,
         TablasModule,
         FacilityModule,
+        CommunitiesModule,
         TiendaTokensModule,
         FormsModule,
-        HttpClientModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
         ToastrModule.forRoot(),

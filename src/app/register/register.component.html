@@ -89,7 +89,7 @@
             <div class="alert-danger" *ngIf="f.submitted">
               <span *ngIf="this.form.get('email')?.errors?.['required']">Email is required</span>
               <span *ngIf="this.form.get('email')?.errors?.['email']">Type a valid email address</span>
-              <span *ngIf="this.form.get('email')?.errors?.['maxLength']">The name must be at least 100 characters</span>
+              <span *ngIf="this.form.get('email')?.errors?.['maxLength']">The email must be at max. 100 characters</span>
             </div>
           </div>        
           <div class="form-group col-4">
@@ -150,7 +150,7 @@
               <label for="newsletter" class="form-check-label">I wish to receive updates and news about Green Wallet</label>
             </div>
             <div class="form-group">
-              <button class="btn btn-success btn-block enter-btn fs-3" id="send" [disabled]="!form" type="submit" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Send</button>
+              <button class="btn btn-success btn-block enter-btn fs-3" id="send" [disabled]="!form" type="submit">Send</button>
             </div>
           </div>
           <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
@@ -175,7 +175,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Email validation</h5>
+        <h3 class="modal-title" id="staticBackdropLabel">Email validation</h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form *ngIf="!isSuccessful"
@@ -185,7 +185,7 @@
         novalidate
         [formGroup]="form2">
         <div class="modal-body form-group">
-          <h3>Check your email and type the code to continue your registration.</h3>
+          <h5>Check your email and type the code to continue your registration.</h5>
           <input type="text"
           class="form-control"
           name="code"
