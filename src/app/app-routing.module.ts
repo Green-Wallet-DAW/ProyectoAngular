@@ -14,7 +14,7 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditComponent } from './edit/edit.component';
 import { ServiceGuardGuard } from './service-guard.guard';
-// import { DashboardCoomponentComponent } from './dashboard-module/dashboard-coomponent/dashboard-coomponent.component';
+
 
 const routes: Routes = [
   {path: 'generalview' ,component: GeneralviewComponent},
@@ -32,7 +32,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/edit', component: EditComponent },
-  // {path: 'dashboard', component: DashboardCoomponentComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
 ];
