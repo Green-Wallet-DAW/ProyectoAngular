@@ -1,9 +1,14 @@
-import { ThisReceiver } from '@angular/compiler';
-
 import { Component, OnInit } from '@angular/core';
-import { Facility } from './facility';
 import { AddfacilityServiceService } from './addfacility-service.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+
+import {NgForm} from '@angular/forms';
+import { FormsModule }   from '@angular/forms';
+declare var $: any;
+
+
 
 @Component({
   selector: 'app-addfacility',
@@ -12,32 +17,53 @@ import { FormControl } from '@angular/forms';
 })
 
 
-export class AddfacilityComponent implements OnInit {
+export class AddfacilityComponent {
   router: any;
 
-  constructor(private _gvc: AddfacilityServiceService) {}
+  constructor(private _gvc: AddfacilityServiceService, private toastr: ToastrService, private token: TokenStorageService) {}
 
-  nombre: FormControl = new FormControl('');
-  edicion: FormControl = new FormControl('');
-  facility = [];
+  errorMessage = '';
+  isSuccessful = false;
+  valid = false;
+  currentUser: any;
+  id_user:number;
 
-  addfacility():void{
-    this._gvc.addfacility('asd')
+  form = new FormGroup({
+    number_machine: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
+    facility_name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
+    street_name: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
+    contract_number: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
 
-    .subscribe(
-      result => {
+});
 
-        this.facility = result
+onSubmit(): void {
+  if(this.form.valid){
+      this.valid = true;
 
-      },
-      err => {
-        this.facility = JSON.parse(err.error).message;
-      }
+      this.currentUser = this.token.getUser();
+      console.log(typeof (this.id_user= this.currentUser.success.id));
+
+      console.log("id_user: "+ (this.id_user= this.currentUser.success.id));
+      console.log("number_machine: "+this.form.value.number_machine);
+      console.log("facility_name: "+this.form.value.facility_name);
+      console.log("street_name: "+this.form.value.street_name);
+      console.log("Cnumber: "+this.form.value.contract_number);
+
+      this._gvc.addfacility(this.id_user, this.form.value.number_machine, this.form.value.facility_name, this.form.value.street_name, this.form.value.contract_number).subscribe(
+        data => {
+          this.toastr.success('Your facility has been created successfully!', 'Facility created', {positionClass: 'toast-bottom-center', timeOut: 5000});
+
+
+
+        },
+        error => {
+          if(error instanceof ErrorEvent){
+            this.errorMessage = error.error.message;
+          }
+        }
       );
-      this.router.navigate(['/generalview']);
-  }
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    }else{
+      this.toastr.error("The form did not validated correctly", 'ERROR CREATING FACILITY', {positionClass: 'toast-bottom-right', timeOut:5000});
+    }
   }
 }

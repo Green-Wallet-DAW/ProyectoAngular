@@ -10,7 +10,7 @@
   width: 20vw;
   min-height: 73vh;
   height: 100%;
-
+  
   background: rgba(2, 117, 0, 0.91);
 }
 .subelement{
@@ -19,6 +19,6 @@
 
 }
 
-.link-dark{
+.link-light{
   padding-left: 30px;
 }

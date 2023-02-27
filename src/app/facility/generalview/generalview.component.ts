@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import  { GeneralviewServiceService } from './generalview-service.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { ChartData, ChartEvent, ChartType } from 'chart.js';
+import { ToastrService } from 'ngx-toastr';
+import { GeneralviewChartComponent } from '../generalview-chart/generalview-chart.component';
+
 
 @Component({
   selector: 'app-generalview',
@@ -14,7 +18,27 @@ export class GeneralviewComponent implements OnInit{
   public loading: boolean = false;
   currentUser: any;
 
-  constructor(private _gvc: GeneralviewServiceService, private token: TokenStorageService) {}
+  public doughnutChartLabels: string[] = [ 'Carbon Saved', 'Energy Produced'];
+  public doughnutChartData: ChartData<'doughnut'> = {
+    labels: this.doughnutChartLabels,
+    datasets: [
+
+      { data: [ 500, 450] },
+    ]
+  };
+  public doughnutChartType: ChartType = 'doughnut';
+  router: any;
+  // events
+  public chartClicked({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+  public chartHovered({ event, active }: { event: ChartEvent, active: {}[] }): void {
+    console.log(event, active);
+  }
+
+
+  constructor(private _gvc: GeneralviewServiceService, private token: TokenStorageService, private toastr: ToastrService) {}
 
   showGeneral(id:number){
     this.loading=true;
@@ -22,7 +46,7 @@ export class GeneralviewComponent implements OnInit{
 
     .subscribe(
       result => {
-
+        console.log(result);
         this.caja = result
         this.loading=false;
       },
@@ -85,11 +109,26 @@ export class GeneralviewComponent implements OnInit{
       );
   }
 
-
-  showValues(i){
+  deletefacility(n:number){
+    this.loading = true;
+    this._gvc.deletefacility(n)
+    .subscribe(
+      result => {
+        this.reloadPage();
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+      }
+      );
+  }
+  reloadPage() {
+    window.location.reload();
+  }
+  showValues(i:number){
 
     switch(i){
       case 0:
+        
         this.showGeneral(this.id);
       break;
       case 1:
