@@ -1,11 +1,12 @@
+
 <a href="#" class="btn btn-success" routerLink="/joinCommunity">Join a community</a>
 <a href="#" class="btn btn-success" routerLink="/createCommunity">Create a community</a>
 <div *ngIf="comunidades!=null; else espera">
 
-  <div *ngFor="let com of comunidades" class="card text-bg-light mb-3" style="max-width: 100%;">
-    <div class="card-body">
-      <div id="boton" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{com.id}}" aria-controls="contenido"
-        aria-expanded="false" aria-label="Toggle navigation"  (click)="verUsuario(com.id)">
+  <div *ngFor="let com of comunidades" style="max-width: 100%;">
+    <div id="caja">
+      <div id="boton" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido_{{com.id}}" attr.aria-controls="contenido_{{com.id}}"
+        aria-expanded="false" aria-label="Toggle navigation" (click)="verUsuario(com.id)">
         <svg id="flechaCaja" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#049201"
           class="bi bi-caret-right-fill" viewBox="0 0 16 16">
           <path id="path1"
@@ -15,7 +16,7 @@
         <span>Community Wallet</span>
       </div>
       <div id="descripcionCaja">
-        <div>
+        
           <table>
             <tbody>
               <tr>
@@ -30,9 +31,9 @@
 
             </tbody>
           </table>
-        </div>
+        
       </div>
-      <div id="contenido{{com.id}}" class="collapse">
+      <div id="contenido_{{com.id}}" class="collapse">
         {{com.description}}
         <div class="table-responsive">
           <table class="table table-striped table-hover table-bordered">
@@ -137,3 +138,4 @@
 
 </div>
 <ng-template #espera>Esperando datos...</ng-template>
+
