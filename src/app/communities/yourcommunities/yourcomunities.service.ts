@@ -20,7 +20,7 @@ export class YourcomunitiesService {
     return this.http.get(this.url+"/misusuarios/"+id);
   }
   abandonar(com:number, usu:number): Observable<any>{
-    return this.http.get(this.url+"/eliminarusucom/"+com+"/"+usu);
+    return this.http.delete(this.url+"/eliminarusucom/"+com+"/"+usu);
   }
 
 

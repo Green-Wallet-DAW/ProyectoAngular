@@ -21,9 +21,9 @@ export class JoincommunityComponent implements OnInit {
   public muestratabla: boolean;
   usuarios: any;
   formularioAlta = new FormGroup({
-    id: new FormControl(this.token.getUser().success.id),
-    // id_comunity: new FormControl(),
-    id2: new FormControl(),
+    usuario_id: new FormControl(this.token.getUser().success.id),
+  
+    comunidad_id: new FormControl(),
   });
   public cargando = false;
  
@@ -73,9 +73,9 @@ export class JoincommunityComponent implements OnInit {
       onSubmit(){
         if (this.formularioAlta.valid) {
        
-          this.usuarios.master = Number(this.formularioAlta.value.id);
+          this.usuarios.usuario_id = Number(this.formularioAlta.value.usuario_id);
           // this.comunidad.id_comunity = Number(this.formularioAlta.value.id_comunity);
-          this.usuarios.id_user = Number(this.formularioAlta.value.id2);
+          this.usuarios.comunidad_id = Number(this.formularioAlta.value.comunidad_id);
           // this.empleado.contratado = Number(this.formularioAlta.value.contratado);
           this.cargando = true;
           this.comunidadesService.registrar(this.usuarios)

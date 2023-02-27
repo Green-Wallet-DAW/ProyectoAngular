@@ -10,6 +10,6 @@ export class GlobalcomunitiesService {
   constructor(private http: HttpClient) { }
 
   ganadores(): Observable<any> {
-    return this.http.get("http://localhost/proyectolaravel/public/api/globalcoms");
+    return this.http.get("http://localhost/api/globalcoms");
   }
 }

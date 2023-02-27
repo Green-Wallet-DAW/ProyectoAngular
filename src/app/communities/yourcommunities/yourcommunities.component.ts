@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { YourcomunitiesService } from './yourcomunities.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { AuthService } from 'src/app/_services/auth.service';
+import { SelectControlValueAccessor } from '@angular/forms';
 
 declare var $: any;
 
@@ -13,12 +14,12 @@ declare var $: any;
 export class YourcommunitiesComponent implements OnInit{
   comunidades: any;
   usuarios:any;
-
+  currentuser: any;
   constructor(private comunidadesService: YourcomunitiesService, private authServ:AuthService, private token: TokenStorageService) {}
 
   ngOnInit() {
     this.getComunidades();
-
+    this.currentuser=this.token.getUser();
 
   }
 
@@ -32,7 +33,7 @@ export class YourcommunitiesComponent implements OnInit{
     this.comunidadesService.getUsuarios(id).subscribe( result =>  this.usuarios = result);
   }
 
-  eliminar(com:number, usu:number){
-    
+  eliminarcomusu(com:number, usu:number){
+    this.comunidadesService.abandonar(com, usu).subscribe(result => this.getComunidades());
   }
 }

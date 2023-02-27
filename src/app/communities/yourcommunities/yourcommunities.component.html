@@ -55,9 +55,9 @@
             </tbody>
           </table>
         </div>
-        <!-- <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" attr.data-bs-target="#leave_{{com.id}} (click)="eliminarEmpleado(com.id)">
+        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" attr.data-bs-target="#leave_{{com.id}}">
           Leave the community
-        </button> -->
+        </button>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#Donate_{{com.id}}">
           Donate
         </button>
@@ -76,32 +76,15 @@
           </div>
 
 
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#leave2_{{com.id}}">YES</button>
-            <button type="button" class="btn btn-outline-success">NO</button>
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal" (click)="eliminarcomusu(com.id,this.currentuser.success.id)">YES</button>
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">NO</button>
 
         </div>
       </div>
     </div>
 
 
-    <div class="modal fade " id="leave2_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog ">
-        <div class="modal-content bg-light">
-          <div class="card w-50">
-            <div class="card-body">
-              <h5 class="card-title">Request sent!</h5>
-              <p class="card-text">Your request to leave the community {{com.name}} was correctly sent and one of our administrators is reviewing it. You will get an email with the outcome of the request.</p>
-            </div>
-
-          </div>
-
-
-          <a href="#" class="" routerLink="">Return to Dashboard</a>
-
-        </div>
-      </div>
-    </div>
+   
 
 
     <div class="modal fade " id="Donate_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -117,7 +100,7 @@
           </div>
 
           <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Back</button>
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#Donate2_{{com.id}}">Donate</button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-dismiss="modal" attr.data-bs-target="#Donate2_{{com.id}}">Donate</button>
 
 
         </div>
