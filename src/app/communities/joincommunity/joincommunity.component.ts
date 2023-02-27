@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { JoincomunitiesService } from './joincomunities.service';
+import { TokenStorageService } from 'src/app/_services/token-storage.service';
+import { AuthService } from 'src/app/_services/auth.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { Usuarios } from './usuarios';
 declare var $:any;
 
 @Component({
@@ -9,12 +15,24 @@ declare var $:any;
 })
 export class JoincommunityComponent implements OnInit {
   comunidades: any;
+  public introducido = -1;
   public mensajeErr: string;
   dtOptions: DataTables.Settings = {};
   public muestratabla: boolean;
-  constructor(private comunidadesService: JoincomunitiesService) {
+  usuarios: any;
+  formularioAlta = new FormGroup({
+    id: new FormControl(this.token.getUser().success.id),
+    // id_comunity: new FormControl(),
+    id2: new FormControl(),
+  });
+  public cargando = false;
+ 
+
+
+  constructor(private authServ:AuthService, private comunidadesService: JoincomunitiesService, private router: Router, private token: TokenStorageService, private toastr: ToastrService) {
     this.muestratabla=false;
     this.mensajeErr = '';
+    this.usuarios=new Usuarios(0,0);
   }
 
   ngOnInit() {
@@ -52,7 +70,46 @@ export class JoincommunityComponent implements OnInit {
         $('.cosas').modal('hide');
       }
 
-
+      onSubmit(){
+        if (this.formularioAlta.valid) {
+       
+          this.usuarios.master = Number(this.formularioAlta.value.id);
+          // this.comunidad.id_comunity = Number(this.formularioAlta.value.id_comunity);
+          this.usuarios.id_user = Number(this.formularioAlta.value.id2);
+          // this.empleado.contratado = Number(this.formularioAlta.value.contratado);
+          this.cargando = true;
+          this.comunidadesService.registrar(this.usuarios)
+            .subscribe(
+              result => {
+                this.introducido = 1;
+                this.cargando = false;
+                // this.router.navigate(['/empleados']);
+                // this.toastr.success('El empleado se ha registrado con éxito!!', 'Añadido empleado');
+                this.toastr.success('La comunidad se ha registrado con éxito!!', 'Añadido Comunidad', { positionClass: 'toast-bottom-right', timeOut: 2000 });
+                setTimeout(() => {
+                  this.router.navigate(['/yourCommunity']);
+                }, 50);
+                // console.log("Empleado registrado con éxito");
+                // this.getEmpleados();
+              },
+              error => {
+                this.introducido = 0;
+                this.cargando = false;
+                this.mensajeErr = '';
+                if (error instanceof ErrorEvent) {
+                  this.mensajeErr = error.error.message;
+                }
+                else if (error.status == 409) {
+                  this.mensajeErr = "La comunidad ya existe"
+                } else {
+                  this.mensajeErr = "Error status:" + error.status;
+                }
+                // console.log(this.mensajeErr);
+                this.toastr.error(this.mensajeErr, 'ERROR AÑADIENDO LA COMUNIDAD', { positionClass: 'toast-bottom-right' });
+              }
+            );
+        } else this.toastr.error("El formulario no valida bien", 'ERROR AÑADIENDO COMUNIDAD', { positionClass: 'toast-bottom-right' });
+      }
 
 
   }

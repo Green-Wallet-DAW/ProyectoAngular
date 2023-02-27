@@ -32,4 +32,7 @@ export class YourcommunitiesComponent implements OnInit{
     this.comunidadesService.getUsuarios(id).subscribe( result =>  this.usuarios = result);
   }
 
+  eliminar(com:number, usu:number){
+    
+  }
 }

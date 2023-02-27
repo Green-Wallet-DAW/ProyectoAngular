@@ -1,6 +1,5 @@
-<form action="" method="post">
-    <fieldset>
 
+<form [formGroup]="formularioAlta" (ngSubmit)="onSubmit()">
       <div *ngIf="muestratabla">
         <h5 *ngIf="comunidades.length == 0" class="mt-3 mb-5 border p-4 w-75 mx-auto"> No hay datos para mostrar</h5>
 
@@ -35,41 +34,27 @@
              </div>
 
           <!-- Modal -->
+          
           <div class="modal fade cosas" id="staticBackdrop_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
             <div class="modal-dialog ">
               <div class="modal-content bg-light">
                 <div class="card w-50">
                     <div class="card-body">
                       <p class="card-text">Are you sure you want to join this community?</p>
+                      <input type="number" id="id2" class="form-control" formControlName="id2">
+  
                     </div>
                   </div>
 
 
                   <button type="button" data-bs-dismiss="modal" class="btn btn-outline-success">NO</button>
-                  <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#staticBackdrop2_{{com.id}}">YES</button>
+                  <button type="submit" data-bs-dismiss="modal" class="btn btn-success" [disabled]="!formularioAlta.valid">YES</button>
 
               </div>
             </div>
           </div>
 
-
-<div class="modal fade cosas" id="staticBackdrop2_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-  <div class="modal-dialog ">
-    <div class="modal-content bg-light">
-      <div class="card w-50">
-          <div class="card-body">
-            <h5 class="card-title">Request sent!</h5>
-            <p class="card-text">Your request to join this community {{com.name}} was correctly sent and one of our administrators is reviewing it. You will get an email with the oucome of the request.</p>
-          </div>
-        </div>
-
-
-          <a  class="" data-bs-dismiss="modal" (click)="prueba()" routerLink="/home">Return to Dashboard</a>
-
-    </div>
-  </div>
-</div>
-
+        
 
             </tbody>
 
@@ -79,7 +64,5 @@
         </div>
       </div>
         <ng-template #espera>Esperando datos...</ng-template>
-      </fieldset>
-
 </form>
 
