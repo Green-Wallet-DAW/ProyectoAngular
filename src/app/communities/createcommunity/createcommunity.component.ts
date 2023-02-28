@@ -30,7 +30,7 @@ export class CreatecommunityComponent implements OnInit{
  
 
   constructor(private authServ:AuthService, private _createComunityService: CreateCommunityServiceService, private router: Router, private token: TokenStorageService, private toastr: ToastrService) {
-    this.comunidad = new Comunidades("", "", 0, 0);
+    this.comunidad = new Comunidades("", "",0 , 0);
    
   }
 
@@ -55,7 +55,7 @@ export class CreatecommunityComponent implements OnInit{
             this.cargando = false;
             // this.router.navigate(['/empleados']);
             // this.toastr.success('El empleado se ha registrado con éxito!!', 'Añadido empleado');
-            this.toastr.success('El empleado se ha registrado con éxito!!', 'Añadido empleado', { positionClass: 'toast-bottom-right', timeOut: 2000 });
+            this.toastr.success('La comunidad se ha registrado con éxito!!', 'Añadido Comunidad', { positionClass: 'toast-bottom-right', timeOut: 2000 });
             setTimeout(() => {
               this.router.navigate(['/yourCommunity']);
             }, 50);
@@ -75,9 +75,9 @@ export class CreatecommunityComponent implements OnInit{
               this.mensajeErr = "Error status:" + error.status;
             }
             // console.log(this.mensajeErr);
-            this.toastr.error(this.mensajeErr, 'ERROR AÑADIENDO EMPLEADO', { positionClass: 'toast-bottom-right' });
+            this.toastr.error(this.mensajeErr, 'ERROR AÑADIENDO LA COMUNIDAD', { positionClass: 'toast-bottom-right' });
           }
         );
-    } else this.toastr.error("El formulario no valida bien", 'ERROR AÑADIENDO EMPLEADO', { positionClass: 'toast-bottom-right' });
+    } else this.toastr.error("El formulario no valida bien", 'ERROR AÑADIENDO COMUNIDAD', { positionClass: 'toast-bottom-right' });
   }
 }

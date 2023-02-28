@@ -19,7 +19,9 @@ export class YourcomunitiesService {
   getUsuarios(id: string):  Observable<any> {
     return this.http.get(this.url+"/misusuarios/"+id);
   }
-  
+  abandonar(com:number, usu:number): Observable<any>{
+    return this.http.delete(this.url+"/eliminarusucom/"+com+"/"+usu);
+  }
 
 
 

@@ -13,8 +13,11 @@ export class GlobalcomunitiesService {
 
   ganadores(): Observable<any> {
     return this.http.get("http://localhost/api/globalcoms");
+<<<<<<< HEAD
   }  
   allComm(): Observable<any>{
     return this.http.get(API_URL + "allComs");
+=======
+>>>>>>> christian2
   }
 }
