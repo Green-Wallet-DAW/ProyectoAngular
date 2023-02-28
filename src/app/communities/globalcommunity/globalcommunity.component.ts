@@ -13,6 +13,8 @@ export class GlobalcommunityComponent implements OnInit{
 
   ngOnInit() {
     this.globalService.ganadores()
-      .subscribe( result =>  this.members = result)
+      .subscribe( result =>{
+          this.members = result}
+          )
   }
 }

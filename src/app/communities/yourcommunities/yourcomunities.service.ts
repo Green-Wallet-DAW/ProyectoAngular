@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class YourcomunitiesService {
  public url: string;
   constructor(private http: HttpClient) {
-    this.url = "http://localhost/proyectolaravel/public/api";
+    this.url = "http://localhost/api";
   }
 
   retornar(id: number): Observable<any> {

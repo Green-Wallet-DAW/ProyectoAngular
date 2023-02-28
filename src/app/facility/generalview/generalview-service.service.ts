@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-  const API_URL_GENERAL ="http://localhost/proyectolaravel/public/api/generalview";
-  const API_URL_DAILY ="http://localhost/proyectolaravel/public/api/generalviewdaily";
-  const API_URL_WEEKLY ="http://localhost/proyectolaravel/public/api/generalviewweekly";
-  const API_URL_MONTH ="http://localhost/proyectolaravel/public/api/generalviewmonth";
-  const API_URL_YEAR ="http://localhost/proyectolaravel/public/api/generalviewyear";
-  const TOKENS = "http://localhost/proyectolaravel/public/api/instalaciontokens";
+  const API_URL_GENERAL ="http://localhost/api/generalview";
+  const API_URL_DAILY ="http://localhost/api/generalviewdaily";
+  const API_URL_WEEKLY ="http://localhost/api/generalviewweekly";
+  const API_URL_MONTH ="http://localhost/api/generalviewmonth";
+  const API_URL_YEAR ="http://localhost/api/generalviewyear";
+  const TOKENS = "http://localhost/api/instalaciontokens";
   @Injectable({
   providedIn: 'root'
 })

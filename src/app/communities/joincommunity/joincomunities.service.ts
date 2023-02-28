@@ -10,6 +10,6 @@ export class JoincomunitiesService {
   constructor(private http: HttpClient) { }
 
   devolver(): Observable<any> {
-    return this.http.get("http://localhost/proyectolaravel/public/api/unirseacomunidad");
+    return this.http.get("http://localhost/api/unirseacomunidad");
   }
 }

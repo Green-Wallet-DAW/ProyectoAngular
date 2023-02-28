@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { GlobalcomunitiesService } from 'src/app/communities/globalcommunity/globalcomunities.service';
 // import { TokenServicesService } from 'app/_services/token-services.service';
 // import { TokenServicesService } from 'app/_services/token-services.service';
 import { TokenServicesService } from 'src/app/_services/token-services.service';
@@ -11,15 +13,15 @@ import { TokenServicesService } from 'src/app/_services/token-services.service';
 })
 export class ShowCommunityServicesComponent implements OnInit{
 
+  public community:any;
   public communityServices:any;
   public charging = false;
 
-  constructor(private _dataServices: TokenServicesService) {}
+  constructor(private _dataServices: TokenServicesService, private _commServices: GlobalcomunitiesService, private toastr: ToastrService) {}
 
   getCommunityServices(){
 
     this.charging = true;
-
     this._dataServices.getCommunityRoledServices()
     .subscribe(
       foundresults => {
@@ -36,15 +38,24 @@ export class ShowCommunityServicesComponent implements OnInit{
       this.getCommunityServices();
   }
 
-  hireCommunityService(comm_id:string, serv_id:string){
-    this._dataServices.hiringCommunityService(comm_id, serv_id)
-    .subscribe(
-      success =>{
-        console.log(success);
-      },
-      err=>{
-        console.log("No data");
-      }
-    )
+  hireCommunityService(comm_id:number, serv_id:number, commTokens: number, servTokens: number){
+    
+   this.community =  this._commServices.allComm();
+
+
+if (commTokens >= servTokens) {
+  this._dataServices.hiringCommunityService(comm_id, serv_id)
+  .subscribe(
+    success =>{
+      console.log("The service has been hired");
+      this.toastr.success("The service has been hired", "The service has been hired for the community!");
+      this.community.token -= servTokens;
+    },
+    err=>{
+      console.log("No data");
+    }
+  )
+}
+
   }
 }
