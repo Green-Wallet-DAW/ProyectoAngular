@@ -92,7 +92,22 @@ export class MydevicesComponent implements OnInit {
       }
       );
   }
+  deletemachine(id:number){
 
+    this._mvc.deletemachine(id)
+    .subscribe(
+      result => {
+        this.reloadPage();
+
+      },
+      err => {
+        this.caja = JSON.parse(err.error).message;
+      }
+    );
+  }
+  reloadPage() {
+    window.location.reload();
+  }
   showValues(i){
 
     switch(i){

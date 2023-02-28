@@ -1,23 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, ChartEvent, ChartType } from 'chart.js';
 import { GeneralviewServiceService } from 'src/app/facility/generalview/generalview-service.service';
-import { TokenServicesService } from 'src/app/_services/token-services.service';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
-import { UserService } from 'src/app/_services/user.service';
 
 @Component({
   selector: 'app-chartcomponent',
   templateUrl: './chartcomponent.component.html',
   styleUrls: ['./chartcomponent.component.css']
 })
-export class ChartcomponentComponent  implements OnInit{
-
-  loading = false;
-  currentUser:any;
-  id:number;
-
-  constructor(private genService: GeneralviewServiceService, private token :  TokenStorageService) {}
+export class ChartcomponentComponent {
   // Doughnut
+  loading = false;
+  currentUser: any;
+  id: number;
+
   public doughnutChartLabels: string[] = [ 'Carbon Saved', 'Energy Produced'];
   public doughnutChartData: ChartData<'doughnut'> = {
     labels: this.doughnutChartLabels,
@@ -30,6 +26,9 @@ export class ChartcomponentComponent  implements OnInit{
     ]
   };
   public doughnutChartType: ChartType = 'doughnut';
+
+  constructor(private genService: GeneralviewServiceService, private token: TokenStorageService){}
+
 
 public getData(id:number){
   this.genService.generalView(id).subscribe(
@@ -53,4 +52,5 @@ public getData(id:number){
       console.log(this.currentUser.success.id);
       this.getData(this.id)
   }
+
 }

@@ -1,20 +1,75 @@
-<form method="post">
-  <div class="mb-3">
-    <label for="facility" class="form-label">Facility name</label>
-    <input type="text" class="form-control" id="facility" aria-describedby="facility">
-  </div>
-  <div class="mb-3">
-    <label for="street" class="form-label">Street name</label>
-    <input  class="form-control" id="facility" aria-describedby="street">
+<div class="row userBox facility">
+  <form
+  *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="onSubmit()"
+    #f="ngForm"
+    novalidate
+    [formGroup]="form">
 
-  </div>
-  <div class="mb-3">
-    <label for="contract" class="form-label">Contract number</label>
-    <input type="text" class="form-control" id="contract" aria-describedby="contract">
-  </div>
-  <div class="mb-3">
-    <label for="nmachine" class="form-label">Number machine</label>
-    <input type="text" class="form-control" id="nmachine" aria-describedby="nmachine">
-  </div>
-  <button (click)="addfacility()" type="submit" class="btn btn-primary">Submit</button>
-</form>
+      <div class="row">
+
+        <div class="form-group row">
+          <label  for="number_machine">Number machine</label>
+          <input
+            type="number"
+            class="form-control"
+            name="number_machine"
+            id="number_machine"
+            formControlName="number_machine"
+            required
+            minlength="5"
+            maxlength="40"
+            placeholder="Number machine*"
+          />
+        </div>
+
+        <div class="form-group row">
+          <label  for="facility_name">Facility name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="facility_name"
+            id="facility_name"
+            formControlName="facility_name"
+            required
+            minlength="5"
+            maxlength="40"
+            placeholder="Facility name*"
+          />
+        </div>
+
+        <div class="form-group row">
+          <label for="street_name">Street name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="street_name"
+            id="street_name"
+            formControlName="street_name"
+            required
+            minlength="5"
+            maxlength="40"
+            placeholder="Street name*"
+          />
+        </div>
+
+        <div class="form-group row">
+          <label for="contract_number">Contract number</label>
+          <input
+            type="number"
+            class="form-control"
+            name="contract_number"
+            id="contract_number"
+            formControlName="contract_number"
+            required
+            minlength="5"
+            maxlength="40"
+            placeholder="Contract number*"
+          />
+        </div>
+        <button class="btn btn-success btn-block enter-btn fs-3" id="send" [disabled]="!form" type="submit">Add facility</button>
+      </div>
+  </form>
+
+</div>
