@@ -24,12 +24,10 @@ export class YourcommunitiesComponent implements OnInit{
   }
 
   getComunidades(){
-    this.comunidadesService.retornar(this.token.getUser().success.id)
-      .subscribe( result =>  this.comunidades = result);
+    this.comunidadesService.retornar(this.token.getUser().success.id).subscribe( result =>  this.comunidades = result);
   }
   verUsuario(id: string) {
     //console.log( this.comunidadesService.getUsuarios(id));
-    console.log(id);
     this.comunidadesService.getUsuarios(id).subscribe( result =>  this.usuarios = result);
   }
 
