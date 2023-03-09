@@ -1,32 +1,71 @@
 <div class="container-fluid">
-  <div class="row">
-    <div *ngIf="caja!=null; else espera">
 
+
+  <div class="row">
+
+    <div class="tabla_botones d-flex justify-content-between">
+      <div class="spinner">
+        <div *ngIf="loading" class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+        <button class="btn btn-success" (click)="showValues(0)" >General</button>
+
+        <button class="btn btn-success" (click)="showValues(1)">Daily</button>
+
+        <button class="btn btn-success" (click)="showValues(2)">Weekly</button>
+
+        <button class="btn btn-success" (click)="showValues(3)">Montly</button>
+
+        <button class="btn btn-success" (click)="showValues(4)">Yearly</button>
+
+      </div>
+
+    </div>
+
+  <div class="row">
+
+    <div *ngIf="caja!=null;">
       <div *ngFor="let art of caja">
         <div class="caja">
+
           <div class="row">
-            <div class="col-6">
-              <h2>My home {{art.id_instalation}} Overview</h2>
-              <p>Total energi produced: {{art.energy_produced}}</p>
-              <p>Total carbon saved: {{art.carbono_ahorrado}}</p>
-              <p>Total tokens produced: </p>
-            </div>
-            <div class="col-6">
-              <p>Residence: </p>
-              <p>Energy Power Provider: </p>
-              <p>Contract Number/Code: </p>
+
+            <div class="card">
+              <h5 class="card-header d-flex justify-content-between">My home Overview
+                <button type="button" class="btn delete btn-danger"  (click)="deletefacility(art.id_instalation)">Delete facility</button>
+              </h5>
+
+              <div class="card-body">
+
+                <div class="row">
+
+                  <div class="col-6">
+                    <h5 class="card-title">Facility name: {{art.faciliy_name}}</h5>
+                    <p class="card-text">Total carbon saved: {{art.carbono_ahorrado}}</p>
+                    <p class="card-text">Total tokens produced:{{art.tokens}} </p>
+                    <p class="card-text">Total energi produced: {{art.energia_producida}}</p>
+                    <p class="card-text">Residence: {{art.street_name}}</p>
+                    <p class="card-text">Contract Number/Code:  {{art.contractNumber}}</p>
+                  </div>
+
+                  <div class="col-5">
+                    <div class="grafica">
+                      <app-generalview-chart></app-generalview-chart>
+
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
             </div>
 
-          </div>
-          <div class="row">
-            <div class="caja_graf d-flex justify-content-center align-items-center flex-column">
-              <p>Aqui va la grafica</p>
-
-          </div>
           </div>
         </div>
       </div>
     </div>
-    <ng-template #espera>Generando tu informacion...</ng-template>
+
   </div>
 </div>

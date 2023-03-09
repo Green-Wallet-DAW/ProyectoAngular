@@ -1,6 +1,18 @@
 @import "~ngx-toastr/toastr";
 
-
+#caja{
+    background-color: #F8F8F8;
+    width: 65vw;
+    mix-blend-mode: darken;
+    /* opacity: 0.7; */
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    border-radius: 30px;
+    /* filter: blur(2px); */
+    padding-bottom: 25px;
+    padding-right: 30px;
+    cursor: default;
+    margin-top: 5%;
+}
 #flechaCaja{
     position: relative;
     left: 20px;
@@ -23,7 +35,6 @@
 }
 #boton{
     /* width: 300px; */
-    margin: 10px;
     background-color: #F8F8F8;
     border: none;
 }
@@ -34,18 +45,4 @@
 }
 .linkService:visited{
     color: rgb(201, 201, 78);
-}
-
-.caja{
-    background-color: #F8F8F8;
-    width: 65vw;
-    mix-blend-mode: darken;
-    /* opacity: 0.7; */
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    border-radius: 30px;
-    /* filter: blur(2px); */
-    padding-bottom: 25px;
-    padding-right: 30px;
-    cursor: default;
-    margin-top: 5%;
 }

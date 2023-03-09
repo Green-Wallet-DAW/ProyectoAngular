@@ -1,0 +1,18 @@
+#contenedor{
+    min-height: 85vh;
+    background-image: url(/assets/img/fondo-cubos.svg);
+}
+.card{
+    min-width: 90%;
+    opacity: 0.96;
+}
+.card>h5{
+    font-size: 22px;
+}
+.titulos{
+    font-size: 30px;
+}
+table{
+    font-size: 18px;
+    min-width: 1000px;
+}

@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="tabla_botones d-flex justify-content-between">
+      <div class="spinner">
+        <div *ngIf="loading" class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+
+        <button class="btn boton btn-success" (click)="showValues(0)">General</button>
+
+        <button class="btn boton btn-success" (click)="showValues(1)">Daily</button>
+
+        <button class="btn boton btn-success" (click)="showValues(2)">Weekly</button>
+
+        <button class="btn boton btn-success" (click)="showValues(3)">Montly</button>
+
+        <button class="btn boton btn-success" (click)="showValues(4)">Yearly</button>
+
+      </div>
+
+    </div>
+  <div class="row">
+    <div *ngIf="caja!=null;">
+      <div *ngFor="let art of caja; let in = index">
+
+        <div class="card ">
+          <h5 class="card-header">My home {{art.faciliy_name}} Overview</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-3">
+                <h5 class="card-title">Residence: {{art.street_name}}</h5>
+                <p class="card-text">Contract Number/Code:  {{art.contractNumber}}</p>
+              </div>
+              <div class="col">
+
+                <table  class="table">
+                  <thead >
+                    <tr>
+                      <th scope="col">Model</th>
+                      <th scope="col">Energy produced (W)</th>
+                      <th scope="col">Carbon saved (CO2)</th>
+                      <th scope="col">Tokens</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody *ngFor="let mac of caja[in].maquinas;">
+                    <tr>
+                      <th scope="row"> {{mac.modelo}} </th>
+                      <td> {{mac.energy_produced}} </td>
+                      <td> {{mac.carbono_ahorrado}} </td>
+                      <td>{{mac.tokens}}</td>
+                      <td>
+                        <button type="button"  (click)="deletemachine(mac.id)" class="btn delete btn-danger">Delete</button>
+                      </td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #espera>Generando tu informacion...</ng-template>
+  </div>
+</div>

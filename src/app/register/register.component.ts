@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   form2 = new FormGroup({
     code: new FormControl('', [Validators.required]),
   });
-  
+
 
   valid = false;
   code = '';
@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit {
       this.valid = true;
       this.code = this.stringGenerator();
       $('#staticBackdrop').modal('show');
-      
+
       callJSFun(this.form.value.email, this.form.value.name, this.code);
 
     }else{
@@ -68,13 +68,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit2(){
     if(this.form2.valid && this.form2.value.code! == this.code){
-      
+
       this.authService.register(this.form.value.name!, this.form.value.email!, this.form.value.password!, this.form.value.phone_number!, this.form.value.cumn!, this.form.value.newsletter!).subscribe(
         data => {
           this.isSuccessful = true;
           this.isSignUpFailed = false;
           this.toastr.success('Your information has been registered successfully! You will be redirected now to the login', 'Account created', {positionClass: 'toast-bottom-center', timeOut: 5000});
-          
+
           this.router.navigate(['/login']);
 
         },

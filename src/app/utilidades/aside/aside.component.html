@@ -10,10 +10,16 @@
       </button>
       <div class="subelement collapse show" id="home-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a class="link-dark rounded fs-4"
+          <li><a class="link-light rounded fs-4"
             [routerLink]="['/generalview']"> General view</a></li>
-          <li><a [routerLink]="['/home']" class="link-dark rounded fs-4">My devices</a></li>
+          <li><a  class="link-light rounded fs-4"
+            [routerLink]="['/mydevices']">My devices</a></li>
+          <li><a  class="link-light rounded fs-4"
+              [routerLink]="['/addfacility']">Add facility</a></li>
+              <li><a  class="link-light rounded fs-4"
+                [routerLink]="['/addmachines']">Add machine</a></li>
         </ul>
+
       </div>
     </li>
     <li class="mb-1">
@@ -22,8 +28,9 @@
       </button>
       <div class="subelement collapse" id="dashboard-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a [routerLink]="['/home']" class="link-dark rounded fs-4">My Community</a></li>
-          <li><a [routerLink]="['/home']" class="link-dark rounded fs-4">Global Community</a></li>
+
+          <li><a class="link-light rounded fs-4" routerLink="/yourCommunity">My Community</a></li>
+          <li><a class="link-light rounded fs-4" routerLink="/globalCommunities">Global Community</a></li>
         </ul>
       </div>
     </li>
@@ -33,9 +40,9 @@
       </button>
       <div class="subelement collapse" id="orders-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-          <li><a class="link-dark rounded fs-4" 
+          <li><a class="link-light rounded fs-4"
             routerLink="/userServices" >User services</a></li>
-          <li><a routerLink="/communityServices" class="link-dark rounded fs-4">Community Services</a></li>
+          <li><a routerLink="/communityServices" class="link-light rounded fs-4">Community Services</a></li>
         </ul>
       </div>
     </li>

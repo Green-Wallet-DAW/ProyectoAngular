@@ -11,7 +11,6 @@ import { FacilityModule } from './facility/facility.module';import { TablasModul
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
-import { HomeComponent } from './home/home.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { EditComponent } from './edit/edit.component';
@@ -25,18 +24,22 @@ import { RouterModule } from '@angular/router';
 import { AuthInterceptorService } from './_services/auth-interceptor.service';
 import { User } from './edit/user';
 
+import { CommunitiesModule } from './communities/communities.module';
+import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
+import { DashboardModule } from './dashboard/dashboard.module';
+
+
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
         RegisterComponent,
         ProfileComponent,
-        HomeComponent,
         EditComponent,
         ErrorComponent,
     ],
     // providers: [authInterceptorProviders,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
-    providers: [authInterceptorProviders],
+    providers: [authInterceptorProviders,  {provide:NgChartsConfiguration, useValue:{generateColors: false}}],
     bootstrap: [AppComponent],
     imports: [
         BrowserModule,
@@ -54,6 +57,9 @@ import { User } from './edit/user';
         ToastrModule.forRoot(),
         DataTablesModule,
         HttpClientModule,
+        CommunitiesModule,
+        DashboardModule,
+        NgChartsModule.forRoot(),
     ]
 })
 export class AppModule { }

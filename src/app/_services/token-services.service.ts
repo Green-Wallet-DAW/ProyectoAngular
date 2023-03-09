@@ -36,6 +36,5 @@ export class TokenServicesService {
   getServiceById(serv_id:number): Observable<any[]>{
     let restOfUrl = "/search/" + serv_id;
     return of([this.http.get(API_URL + restOfUrl)]);
-
   }
 }

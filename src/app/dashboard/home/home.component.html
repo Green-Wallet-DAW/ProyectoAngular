@@ -1,0 +1,38 @@
+<div class="container-fluid">
+
+
+    <div class="row">
+      <div class="main">
+        <div *ngIf="loading" class="spinner-border text-success" role="status">
+          <span class="visually-hidden">Loading...</span>
+          </div>
+
+          <div class="dashboard-content">
+          <div *ngIf="loading == false">
+
+
+              <!-- <p>{{ content }}</p> -->
+              <div class="row info">
+                <div class="col">
+                  <h2>Progress of {{currentUser.success.name}}</h2>
+                </div>
+                <div class="col">
+                  <div>
+                    <h2>{{currentUser.success.token}} </h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+              <div class="info">
+                <app-chartcomponent></app-chartcomponent>
+              </div>
+
+
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>

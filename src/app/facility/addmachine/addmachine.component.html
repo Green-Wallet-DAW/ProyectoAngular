@@ -1,0 +1,81 @@
+<div class="row userBox facility">
+  <form
+  *ngIf="!isSuccessful"
+    name="form"
+    (ngSubmit)="onSubmit()"
+    #f="ngForm"
+    novalidate
+    [formGroup]="form">
+
+      <div class="row">
+
+        <div class="form-group row">
+          <label  for="facility">Select an instalation</label>
+
+          <select
+           name="facility"
+           id_instalacion="facility"
+          formControlName="facility"
+          class="form-select" aria-label="Options">
+
+            <option *ngFor="let art of caja">
+
+
+              {{art.facility_name}}
+
+            </option>
+
+          </select>
+        </div>
+
+
+        <div class="form-group row">
+          <label  for="modelo">Machine model</label>
+          <input
+            type="text"
+            class="form-control"
+            name="modelo"
+            id="modelo"
+            formControlName="modelo"
+            required
+            minlength="5"
+            maxlength="40"
+            placeholder="Machine model*"
+          />
+        </div>
+
+
+
+        <div class="form-group row">
+          <label for="components">Components</label>
+          <input
+            type="text"
+            class="form-control"
+            name="components"
+            id="components"
+            formControlName="components"
+            required
+            minlength="5"
+            maxlength="40"
+            placeholder="components*"
+          />
+        </div>
+        <div class="form-group row">
+          <label for="fabricante">Maker</label>
+          <input
+            type="text"
+            class="form-control"
+            name="fabricante"
+            id="fabricante"
+            formControlName="fabricante"
+            required
+            minlength="5"
+            maxlength="40"
+            placeholder="fabricante*"
+          />
+        </div>
+        <button class="btn btn-success btn-block enter-btn fs-3" id="send" [disabled]="!form" type="submit">Add machine</button>
+      </div>
+  </form>
+
+</div>

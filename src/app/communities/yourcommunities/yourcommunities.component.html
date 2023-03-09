@@ -1,0 +1,156 @@
+<a href="#" class="btn btn-success" routerLink="/joinCommunity">Join a community</a>
+<a href="#" class="btn btn-success" routerLink="/createCommunity">Create a community</a>
+<div *ngIf="comunidades!=null; else espera">
+
+  <div *ngFor="let com of comunidades" class="card text-bg-light mb-3" style="max-width: 100%;">
+    <div class="card-body">
+      <div id="boton" type="button" data-bs-toggle="collapse" attr.data-bs-target="#contenido{{com.id}}" aria-controls="contenido"
+        aria-expanded="false" aria-label="Toggle navigation"  (click)="verUsuario(com.id)">
+        <svg id="flechaCaja" xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#049201"
+          class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+          <path id="path1"
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+        <span id="tituloCaja">{{com.name}}</span>
+        <span>Community Wallet</span>
+      </div>
+      <div id="descripcionCaja">
+        <div>
+          <table>
+            <tbody>
+              <tr>
+                <th>Energy produced</th>
+                <td>{{com.energy_produced}}</td>
+                <th>{{com.token}}</th>
+              </tr>
+              <tr>
+                <th>Carbon saved</th>
+                <td>{{com.carbono_ahorrado}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="contenido{{com.id}}" class="collapse">
+        {{com.description}}
+        <div class="table-responsive">
+          <table class="table table-striped table-hover table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Member</th>
+                <th scope="col">Energy Produced</th>
+                <th scope="col">Carbon Saved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let el of usuarios">
+
+                        <td>{{el.members}}</td>
+                        <td>{{el.energy_produced}}</td>
+                        <td>{{el.carbono_ahorrado}}</td>
+
+                      </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" attr.data-bs-target="#leave_{{com.id}} ">
+          Leave the community
+        </button>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#Donate_{{com.id}}">
+          Donate
+        </button>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade " id="leave_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content bg-light">
+          <div class="card w-50">
+            <div class="card-body">
+              <p class="card-text">Are you sure you want to leave the community {{com.name}}?</p>
+            </div>
+
+          </div>
+
+
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#leave2_{{com.id}}">YES</button>
+            <button type="button" class="btn btn-outline-success">NO</button>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade " id="leave2_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content bg-light">
+          <div class="card w-50">
+            <div class="card-body">
+              <h5 class="card-title">Request sent!</h5>
+              <p class="card-text">Your request to leave the community {{com.name}} was correctly sent and one of our administrators is reviewing it. You will get an email with the outcome of the request.</p>
+            </div>
+
+          </div>
+
+
+          <a href="#" class="" routerLink="">Return to Dashboard</a>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade " id="Donate_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content bg-light">
+          <div class="card w-50">
+            <div class="card-body">
+              <p class="card-text">Specify the ammount to donate to {{com.name}}:</p>
+              <input type="number" name="tokenComunityDonate" placeholder="Token ammount*">
+            </div>
+
+          </div>
+
+          <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal">Back</button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" attr.data-bs-target="#Donate2_{{com.id}}">Donate</button>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade " id="Donate2_{{com.id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog ">
+        <div class="modal-content bg-light">
+          <div class="card w-50">
+            <div class="card-body">
+              <p class="card-text">Specify the ammount to donate to {{com.name}}:</p>
+              <input type="number" name="tokenComunityDonate" placeholder="Token ammount*">
+            </div>
+
+          </div>
+
+          <button type="button" class="btn btn-outline-success">Back</button>
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Donate2">Donate</button>
+          <a href="#" class="" routerLink="">Ammount succesfully donated!</a>
+
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
+<ng-template #espera>Esperando datos...</ng-template>
