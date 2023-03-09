@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 
-const API_URL = "http://localhost/api/serviceList";
+const API_URL = "http://localhost/ProyectoLaravel/public/api/serviceList";
 
 
 const httpOptions = {
