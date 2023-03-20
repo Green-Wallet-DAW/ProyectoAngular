@@ -57,9 +57,9 @@ export class MostrarServiciosComponent implements OnInit{
 
     console.log(serv_id+" "+user_id);
 
-    console.log(userTokens);
+    //console.log(userTokens);
 
-    console.log(precioServ);
+    //console.log(precioServ);
     if(userTokens >= precioServ){
       this._dataServices.hiringService(user_id, serv_id)
       .subscribe(
@@ -67,7 +67,7 @@ export class MostrarServiciosComponent implements OnInit{
           console.log("The service has been hired");
           this.toastr.success("The service has been hired.", "Service Hired");
           this.currentUser.success.tokens -= precioServ;
-          console.log(precioServ)
+          //console.log(precioServ);
           this.token.saveUser(this.currentUser);
           //  this.servicio.precio;
         },
