@@ -27,6 +27,8 @@ import { User } from './edit/user';
 import { CommunitiesModule } from './communities/communities.module';
 import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HistservComponent } from './histserv/histserv.component';
+import { ShowservComponent } from './showserv/showserv.component';
 
 
 @NgModule({
@@ -37,6 +39,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
         ProfileComponent,
         EditComponent,
         ErrorComponent,
+        HistservComponent,
+        ShowservComponent,
     ],
     // providers: [authInterceptorProviders,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
     providers: [authInterceptorProviders,  {provide:NgChartsConfiguration, useValue:{generateColors: false}}],

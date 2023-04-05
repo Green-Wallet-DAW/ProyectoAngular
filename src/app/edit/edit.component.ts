@@ -28,6 +28,7 @@ export class EditComponent implements OnInit{
   errorMessage = '';
   public enter = -1;
   news = false;
+  currentUser: any;
 
   formUpdate = new FormGroup({
     id: new FormControl(''),
@@ -47,6 +48,7 @@ export class EditComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.currentUser = this.token2.getUser();
     this.loading = true;
     this.token.getPublicContent()
     .subscribe(
@@ -54,7 +56,6 @@ export class EditComponent implements OnInit{
         // console.log("entra result");
         const currentuser = this.token2.getUser();
         this.user = result;
-        this.loading = false;
         if(currentuser.success.newsletter == 1){
           this.news = true;
         }else{
@@ -73,6 +74,7 @@ export class EditComponent implements OnInit{
           // cumn: "21345678NGG",
           // newsletter: true,
         });
+        this.loading = false;
       },
       error => {
         this.errorMessage = '';

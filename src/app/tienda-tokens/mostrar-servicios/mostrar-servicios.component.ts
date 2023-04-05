@@ -67,13 +67,14 @@ export class MostrarServiciosComponent implements OnInit{
           console.log("The service has been hired");
           this.toastr.success("The service has been hired.", "Service Hired");
           this.currentUser.success.tokens -= precioServ;
-          //console.log(precioServ);
+          console.log(precioServ);
+          console.log(this.currentUser.success.tokens);
           this.token.saveUser(this.currentUser);
           //  this.servicio.precio;
         },
         err =>{
           console.log("The service couldn't be hired");
-          this.toastr.error("The service couldn't be hired", "The service can't be hired");
+          this.toastr.error("You can't hire a service you have already hired", "This service has already been hired");
         }
       )
     }else{

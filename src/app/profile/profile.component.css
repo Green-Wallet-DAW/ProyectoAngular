@@ -59,3 +59,19 @@ th{
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+#botones{
+    display: flex;
+    margin-bottom: 2vh;
+    justify-content: space-between;
+}
+
+.btn-success{
+    background-color: #049201;
+    border-radius: 10px;
+    height: 50px;
+}
+
+/* *{
+    border: 1px black solid;
+} */

@@ -19,6 +19,9 @@ import { GlobalcommunityComponent } from './communities/globalcommunity/globalco
 import { JoincommunityComponent } from './communities/joincommunity/joincommunity.component';
 import { YourcommunitiesComponent } from './communities/yourcommunities/yourcommunities.component';
 import { HomeComponent } from './dashboard/home/home.component';
+import { HistservComponent } from './histserv/histserv.component';
+import { ShowservComponent } from './showserv/showserv.component';
+
 
 const routes: Routes = [
 
@@ -38,7 +41,10 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'profile/edit', component: EditComponent },
+  { path: 'profile/hist', component: HistservComponent},
+  { path: 'profile/showserv/:servicio_id', component: ShowservComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
+
 
 ];
 

@@ -1,5 +1,5 @@
 <div class="col-8 mt-5 mb-3">
-  <div class="container userBox" >
+  <div class="container userBox" *ngIf="currentUser; else loggedOut">
     <form [formGroup]="formUpdate" (ngSubmit)="onSubmit()" class="mt-4 text-start">
           <div class="uCon cajaUE fs-1 pt-4">
             <strong>Edit your profile</strong>
@@ -104,3 +104,7 @@
     </div>
   </div>
 </div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

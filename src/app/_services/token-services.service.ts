@@ -37,4 +37,12 @@ export class TokenServicesService {
     let restOfUrl = "/search/" + serv_id;
     return of([this.http.get(API_URL + restOfUrl)]);
   }
+
+  getServUser(user_id:number): Observable<any>{
+    return this.http.get("http://localhost/ProyectoLaravel/public/api/showUserServices/" + user_id);
+  }
+
+  getServUserS(user_id:number, serv_id:number): Observable<any>{
+    return this.http.get("http://localhost/ProyectoLaravel/public/api/showUserService/" + user_id + "/"+ serv_id);
+  }
 }
