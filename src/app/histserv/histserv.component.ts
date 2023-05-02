@@ -21,14 +21,14 @@ export class HistservComponent implements OnInit{
     this.loading = true;
     this.currentUser = this.token.getUser();
     this.servicios();
-    this.loading = false;
   }
-
+  
   servicios(){
     this.servuser.getServUser(this.currentUser.success.id).subscribe(
       results =>{
         this.services = results;
         console.log(results);
+        this.loading = false;
       },
     );
   }

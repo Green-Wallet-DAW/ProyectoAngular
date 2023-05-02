@@ -48,8 +48,8 @@ export class EditComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.currentUser = this.token2.getUser();
     this.loading = true;
+    this.currentUser = this.token2.getUser();
     this.token.getPublicContent()
     .subscribe(
       result =>{
