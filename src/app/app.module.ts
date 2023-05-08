@@ -29,6 +29,7 @@ import { NgChartsModule, NgChartsConfiguration } from 'ng2-charts';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HistservComponent } from './histserv/histserv.component';
 import { ShowservComponent } from './showserv/showserv.component';
+import { ChatComponent } from './chat/chat.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { ShowservComponent } from './showserv/showserv.component';
         ErrorComponent,
         HistservComponent,
         ShowservComponent,
+        ChatComponent,
     ],
     // providers: [authInterceptorProviders,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
     providers: [authInterceptorProviders,  {provide:NgChartsConfiguration, useValue:{generateColors: false}}],

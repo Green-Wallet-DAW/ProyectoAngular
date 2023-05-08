@@ -129,3 +129,11 @@ a{
     align-items: center;
     flex-direction: row;
 }
+
+app-chat{
+    position: fixed;
+    bottom: 50px;
+    right: 80px;
+    z-index: 100;
+}
+

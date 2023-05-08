@@ -1,0 +1,114 @@
+*{
+    max-width: 40vw;
+}
+.btn-success{
+    background-color: #049201;
+}
+#btn-chat{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 4px solid orange;
+}
+.btn-success:hover{
+    filter: brightness(0.8);
+}
+h2{
+    margin: 0px;
+    margin-top: 5px;
+}
+.chat{
+    border: 4px solid orange;
+    border-radius: 15px;
+    background-color: white;
+}
+.chat-header{
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+}
+.exit{
+    width: 25px;
+    height: 25px;
+    background-color: rgb(192, 192, 192);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chats{
+    max-height: 40vh;
+    padding: 20px;
+    padding-bottom: 0px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.chat-box-left{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.chat-box-right{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.chat-message{
+    
+    margin-top: 5px;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#message{
+    width: 90%;
+    margin-right: 5%;
+}
+#send{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* Custom scrollbar para el chat, solo disponible en navegadores chrome */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

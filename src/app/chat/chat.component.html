@@ -1,0 +1,32 @@
+<div class="container chat" [hidden]="!switch">
+    
+    <div class="row chat-header">
+        <div class="col chat-title">Chat with an administrator here!</div>
+        <button class="btn exit" (click)="switchFunction()"><i class="bi bi-x"></i></button> 
+    </div>
+    <div class="chats">
+        <div class="row">
+            <div class="chat-box-left col-8">
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae iste suscipit nostrum minus temporibus, placeat harum iusto enim! Adipisci voluptatum harum amet vel totam tenetur quisquam placeat explicabo iste ipsa!</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col-8 chat-box-right">
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae iste suscipit nostrum minus temporibus, placeat harum iusto enim! Adipisci voluptatum harum amet vel totam tenetur quisquam placeat explicabo iste ipsa!</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="chat-box-left col-8">
+                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae iste suscipit nostrum minus temporibus, placeat harum iusto enim! Adipisci voluptatum harum amet vel totam tenetur quisquam placeat explicabo iste ipsa!</h5>
+            </div>
+        </div>
+    </div>
+    <div class="chat-message">
+        <input type="text" name="message" id="message" placeholder="Write your message here!" class="form-control">
+        <button type="submit" class="btn btn-success" id="send" title="Send the message"><i class="bi bi-envelope-fill"></i></button>
+    </div>
+</div>
+<button class="btn btn-success" id="btn-chat" (click)="switchFunction()" [hidden]="switch">
+    <h2>GW</h2>
+</button>
