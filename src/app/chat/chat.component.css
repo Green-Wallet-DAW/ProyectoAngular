@@ -42,7 +42,7 @@ h2{
     max-height: 40vh;
     padding: 20px;
     padding-bottom: 0px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
