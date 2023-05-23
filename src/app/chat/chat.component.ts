@@ -13,16 +13,18 @@ export class ChatComponent implements OnInit{
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   form = new FormGroup({
-    tipo: new FormControl('general', [Validators.required]),
     message: new FormControl('', [Validators.required]),
   });
 
   switch = false;
   isLoggedIn = false;
   messages = [];
+  messagesG = [];
+  messagesS = [];
   errorMessage = '';
   currentUser: any;
   p = false;
+  toggleC = true;
 
 
   constructor(private tokenStorageService: TokenStorageService, private chatService: ChatService){}
@@ -31,7 +33,9 @@ export class ChatComponent implements OnInit{
     this.isLoggedIn = !!this.tokenStorageService.getToken();
     this.currentUser = this.tokenStorageService.getUser();
     this.getMessages();
-    //this.scrollToBottom();
+    this.scrollToBottom();
+
+    // Actualizamos mensajes de vez en cuando
     setInterval(() => {
       this.getMessages(); 
       this.p = true;
@@ -50,8 +54,14 @@ export class ChatComponent implements OnInit{
   }
 
   onSubmit(): void {
+    let tipo: string;
+    if(this.toggleC){
+      tipo = 'general';
+    }else{
+      tipo = 'soporte';
+    }
     if(this.form.valid){
-      this.chatService.createMessage("general", this.form.value.message!).subscribe(
+      this.chatService.createMessage(tipo, this.form.value.message!).subscribe(
         (data) => {
           this.getMessages();
           this.form.reset();
@@ -74,7 +84,16 @@ export class ChatComponent implements OnInit{
     this.chatService.getMessages().subscribe(
       (data) => {
         this.messages = [];
+        this.messagesG = [];
+        this.messagesS= [];
         this.messages = data;
+        for(let i = 0; i < this.messages.length; i++){
+          if(this.messages[i].tipo == "general"){
+            this.messagesG.push(this.messages[i]);
+          }else if(this.messages[i].tipo == "soporte"){
+            this.messagesS.push(this.messages[i]);
+          }
+        }
       }
     );
   }
@@ -83,6 +102,10 @@ export class ChatComponent implements OnInit{
     try {
         this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     } catch(err) { }                 
+  }
+
+  toggle(){
+    this.toggleC = !this.toggleC;
   }
 
 }

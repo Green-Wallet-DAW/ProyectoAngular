@@ -5,8 +5,33 @@
             <div class="col chat-title">Chat with an administrator here!</div>
             <button class="btn exit" (click)="switchFunction()"><i class="bi bi-x"></i></button> 
         </div>
-        <div class="chats" #scrollMe>
-            <div class="row" *ngFor="let message of messages">
+        <div class="botones">
+            <button class="btn btn-light" (click)="toggle()" style="margin-right: 20px;">General</button>
+            <button class="btn btn-light" (click)="toggle()">Tech Support</button>
+        </div>
+        <!-- <div class="tab-content chats" id="myTabContent" #scrollMe>
+            <div class="tab-pane fade show active row" id="general" role="tabpanel" aria-labelledby="general-tab" *ngFor="let message of messagesG">
+                <div class="chat-box-left col-8" *ngIf="(message.receiver == currentUser.success.id)">
+                    <h5>{{message.message}} , {{message.tipo}}</h5>
+                </div>
+                <div class="col" *ngIf="(message.sender == currentUser.success.id)"></div>
+                <div class="col-8 chat-box-right" *ngIf="(message.sender == currentUser.success.id)">
+                    <h5>{{message.message}} , {{message.tipo}}</h5>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab" *ngFor="let message of messagesS">
+                <div class="chat-box-left col-8" *ngIf="(message.receiver == currentUser.success.id)">
+                    <h5>{{message.message}} , {{message.tipo}}</h5>
+                </div>
+                <div class="col" *ngIf="(message.sender == currentUser.success.id)"></div>
+                <div class="col-8 chat-box-right" *ngIf="(message.sender == currentUser.success.id)">
+                    <h5>{{message.message}} , {{message.tipo}}</h5>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="chats" #scrollMe *ngIf="toggleC">
+            <div class="row" *ngFor="let message of messagesG">
                 <div class="chat-box-left col-8" *ngIf="message.receiver == currentUser.success.id">
                     <h5>{{message.message}}</h5>
                 </div>
@@ -16,6 +41,19 @@
                 </div>
             </div>
         </div>
+
+        <div class="chats" #scrollMe *ngIf="!toggleC">
+            <div class="row" *ngFor="let message of messagesS">
+                <div class="chat-box-left col-8" *ngIf="message.receiver == currentUser.success.id">
+                    <h5>{{message.message}}</h5>
+                </div>
+                <div class="col" *ngIf="message.sender == currentUser.success.id"></div>
+                <div class="col-8 chat-box-right" *ngIf="message.sender == currentUser.success.id">
+                    <h5>{{message.message}}</h5>
+                </div>
+            </div>
+        </div>
+        
         <form 
         class="chat-message"
         name="form"
