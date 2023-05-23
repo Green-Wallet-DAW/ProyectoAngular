@@ -11,7 +11,7 @@ import {Subject} from 'rxjs';
 })
 export class HistservComponent implements OnInit{
 
-  public services:any;
+  public services = [];
   public loading = false;
   currentUser: any;
 
@@ -27,7 +27,15 @@ export class HistservComponent implements OnInit{
     this.servuser.getServUser(this.currentUser.success.id).subscribe(
       results =>{
         this.services = results;
-        console.log(results);
+        // Esto se supone que retoca el formato de fecha que sale por pantalla, pero los datos están 
+        // en read-only, asi que es imposible tocarlos.
+        /* for(let i = 0; i < this.services.length; i++){
+          let cadena = this.services[i].created_at;
+          cadena[10] = " ";
+          cadena.slice(-8);
+          this.services[i].created_at = cadena;
+        } */
+        console.log(this.services);
         this.loading = false;
       },
     );
