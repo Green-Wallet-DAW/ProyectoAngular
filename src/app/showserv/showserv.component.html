@@ -22,7 +22,7 @@
           <strong>Price: </strong>{{service.precio}}
         </div>
         <div class="uCon">
-          <strong>Purchase date: </strong>{{service.created_at}}
+          <strong>Purchase date: </strong>{{service.created_at | date: 'fullDate'}}
         </div>
 
     </div>

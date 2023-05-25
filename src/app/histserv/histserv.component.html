@@ -19,7 +19,7 @@
           <tbody>
             <tr *ngFor="let service of services">
               <td class="align-middle text-center">{{service.name}}</td>
-              <td class="align-middle text-center">{{service.created_at}}</td>
+              <td class="align-middle text-center">{{service.created_at | date: 'fullDate'}}</td>
               <td class="d-flex justify-content-center"><button type="button" class="btn btn-success fs-4" id="consulta" [routerLink]="['/profile/showserv', service.id]" title="See more details"><i class="bi bi-eye"></i></button></td>
             </tr>
           </tbody>
